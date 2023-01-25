@@ -109,3 +109,9 @@ body{
 #icli p{
     margin: 10px;
 }
+#select{
+    position: absolute;
+    width: 100px;
+    top: 1vh;
+    left: 1vw;
+}
