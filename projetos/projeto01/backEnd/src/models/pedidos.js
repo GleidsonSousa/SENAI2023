@@ -10,6 +10,17 @@ const toReadId = (model) => {
     return `SELECT * FROM pedidos  WHERE  id_pedido =  ${model.id_pedido} `;
 }
 
+const toReadCozinha = () => {
+    return "SELECT * FROM vw_cozinha";
+}
+
+const toReadEntrega = () => {
+    return "SELECT * FROM vw_entrega";
+}
+
+const toReadFinalizado = () => {
+    return "SELECT * FROM vw_finalizados";
+}
 
 const toDelete = (model) => {
     return `DELETE FROM pedidos WHERE id_pedido = ${model.id_pedido}`;
@@ -30,7 +41,10 @@ const toUpdateEntregue = (model)=>{
 module.exports = {
     toCreate,
     toReadAll,
-    toReadId,   
+    toReadId,
+    toReadCozinha,
+    toReadEntrega,
+    toReadFinalizado,
     toDelete,
     toUpdatePedido,
     toUpdatePedido,

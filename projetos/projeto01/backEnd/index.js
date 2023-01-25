@@ -17,5 +17,5 @@ app.use(cors());
 app.use(entregador);
 app.use(pedidos);
 app.listen(4500, () => {
-    console.log("Programado com  C#  na porta 4500  🤨  SUS.");
+    console.log("APP ON na porta 4500 🤨 SUS.");
 });

@@ -36,11 +36,20 @@ ENCLOSED BY '"'
 LINES TERMINATED BY '\r\n'
 IGNORE 1 ROWS;
 
-insert into pedidos values (default, "lucas", "sei la", "agua coca latão meri meri", CURDATE(),CURTIME(),null,null,null);
+insert into pedidos values (default, "lucas", "sei la", "agua coca latão meri meri", CURDATE(),CURTIME(),"","",null);
 
 create view vw_cozinha as
-select  p.id_pedido, p.cliente, p.produto, p.endereco,p.data, p.hora_pedido, p.hora_entrega from pedidos p where p.hora_entrega = "null";
+select  p.id_pedido, p.cliente, p.produto, p.endereco,p.data, p.hora_pedido, p.hora_entrega,p.hora_fim from pedidos p where p.hora_entrega = "";
 
-select * from vw_cozinha;
+create view vw_entrega as
+select  p.id_pedido, p.cliente, p.produto, p.endereco,p.data, p.hora_pedido, p.hora_entrega,p.hora_fim from pedidos p where p.hora_fim = "00:00:00" and p.hora_entrega <> "00:00:00" ;
+
+create view vw_finalizados as
+select  p.id_pedido, p.cliente, p.produto, p.endereco,p.data, p.hora_pedido, p.hora_entrega,p.hora_fim, e.nome from pedidos p 
+inner join entregadores e on e.id_entregador = p.entregador where p.hora_fim <> "" ;
+
 select * from entregadores;
 select * from pedidos;
+select * from vw_cozinha;
+select * from vw_entrega;
+select * from vw_finalizados;

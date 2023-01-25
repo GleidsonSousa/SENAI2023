@@ -13,6 +13,33 @@ const criarPedido = (req, res) => {
     });
 }
 
+const listarCozinha = (req, res) => {
+    conDB.query(Pedido.toReadCozinha(), (err, result) => {
+        if (err == null)
+            res.json(result).end();
+        else
+            res.status(500).end();
+    });
+}
+
+const listarEntregue = (req, res) => {
+    conDB.query(Pedido.toReadEntrega(), (err, result) => {
+        if (err == null)
+            res.json(result).end();
+        else
+            res.status(500).end();
+    });
+}
+
+const listarFim = (req, res) => {
+    conDB.query(Pedido.toReadFinalizado(), (err, result) => {
+        if (err == null)
+            res.json(result).end();
+        else
+            res.status(500).end();
+    });
+}
+
 const listarPedido = (req, res) => {
     conDB.query(Pedido.toReadAll(), (err, result) => {
         if (err == null)
@@ -81,6 +108,9 @@ module.exports = {
     excluirPedido,
     listarPedido,
     listarIdPedido,
+    listarCozinha,
+    listarEntregue,
+    listarFim,
     editarPedido,
     editarEntregador,
     editarFinal
