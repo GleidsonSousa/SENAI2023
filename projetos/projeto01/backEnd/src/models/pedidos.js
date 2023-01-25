@@ -1,5 +1,5 @@
 const toCreate = (model) => {
-    return `INSERT INTO pedidos VALUES (DEFAULT, '${model.cliente}','${model.endereco}','${model.produto}',curDate(),curTime(), null ,null, null)`;
+    return `INSERT INTO pedidos VALUES (DEFAULT, '${model.cliente}','${model.endereco}','${model.produto}',curDate(),curTime(), "" ,"", null)`;
 }
 
 const toReadAll = () => {
