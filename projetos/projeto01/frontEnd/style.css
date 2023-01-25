@@ -44,6 +44,7 @@ body{
     border-radius: 5px;
     margin: 10px;
     border-radius: 5px;
+    overflow-y: scroll;
 }
 
 .inf{
@@ -100,4 +101,10 @@ body{
 }
 #icli p{
     margin: 10px;
+}
+#select{
+    position: absolute;
+    width: 100px;
+    top: 1vh;
+    left: 1vw;
 }
