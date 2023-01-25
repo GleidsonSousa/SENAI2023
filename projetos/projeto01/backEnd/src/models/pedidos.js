@@ -19,7 +19,7 @@ const toReadEntrega = () => {
 }
 
 const toReadFinalizado = () => {
-    return "SELECT * FROM vw_finalizados";
+    return "SELECT * FROM vw_finalizados order by id_pedido DESC";
 }
 
 const toDelete = (model) => {

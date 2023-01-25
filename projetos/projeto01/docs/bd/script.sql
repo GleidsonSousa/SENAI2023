@@ -7,7 +7,8 @@ create table  entregadores(
     nome varchar(100) not null,
     email varchar(100) not null,
     senha varchar(25) not null,
-    veiculo varchar(50) not null
+    veiculo varchar(50) not null,
+    status varchar(15) not null
 );
 create table pedidos(
     id_pedido integer  auto_increment not null primary key,
@@ -48,8 +49,13 @@ create view vw_finalizados as
 select  p.id_pedido, p.cliente, p.produto, p.endereco,p.data, p.hora_pedido, p.hora_entrega,p.hora_fim, e.nome from pedidos p 
 inner join entregadores e on e.id_entregador = p.entregador where p.hora_fim <> "" ;
 
+
+create view vw_entregadores as
+select  e.id_entregador,e.nome from entregadores e where e.status = "Disponível";
+
 select * from entregadores;
 select * from pedidos;
 select * from vw_cozinha;
 select * from vw_entrega;
 select * from vw_finalizados;
+select * from vw_entregadores;
