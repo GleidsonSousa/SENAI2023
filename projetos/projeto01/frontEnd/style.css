@@ -1,0 +1,103 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    background-color: rgb(190, 190, 190);
+}
+#cab{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 90vw;
+    height: 10vh;
+    background-color: rgb(255, 255, 255);
+    border-radius: 5px;
+    margin: 10px;
+}
+
+#pedidos{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 90vw;
+    height: 30vh;
+    background-color: rgb(255, 255, 255);
+    border-radius: 5px;
+    margin: 10px;
+}
+
+#entregas{
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    width: 90vw;
+    height: 50vh;
+    background-color: rgb(255, 255, 255);
+    border-radius: 5px;
+    margin: 10px;
+    border-radius: 5px;
+}
+
+.inf{
+    display: flex;
+    margin: 10px;
+}
+
+.inf p{
+    margin-right: 10vw;
+    font-size: 25PX;
+}
+
+.inf input{
+    width: 400px;
+    height: 30px;
+    border-radius: 5px;
+}
+
+#fim{
+    margin-top: 20px;
+}
+#fim input{
+    width: 400px;
+    height: 30px;
+    border-radius: 5px;
+}
+#fim button{
+    width: 200px;
+    height: 30px;
+    font-size: 20px;
+    border: 0;
+    border-radius: 5px;
+    margin-right: 10vw;
+}
+
+.pedidosf{
+    display: flex;
+    width: 50vw;
+    background-color: rgb(255, 255, 255);
+    border-radius: 5px;
+}
+#ea{
+    background-color: rgb(236, 236, 236);
+    width: 600px;
+    height: 200px;
+    border-radius: 5px;
+    margin: 20px;
+
+
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+#icli{
+    display: flex;
+}
+#icli p{
+    margin: 10px;
+}
