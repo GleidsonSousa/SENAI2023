@@ -23,14 +23,14 @@ create table pedidos(
     foreign key (entregador) references entregadores(id_entregador)
 );
 
-LOAD DATA INFILE 'C:/Users/Deselvolvimento/Desktop/SENAI2023/projetos/projeto01/docs/dados/entregadores.csv'
+LOAD DATA INFILE 'C:/Users/Meu Computador/Desktop/git/SENAI2023/projetos/projeto01/docs/dados/entregadores.csv'
 INTO TABLE entregadores
 FIELDS TERMINATED BY ';'
 ENCLOSED BY '"'
 LINES TERMINATED BY '\r\n'
 IGNORE 1 ROWS;
 
-LOAD DATA INFILE 'C:/Users/Deselvolvimento/Desktop/SENAI2023/projetos/projeto01/docs/dados/pedidos.csv'
+LOAD DATA INFILE 'C:/Users/Meu Computador/Desktop/git/SENAI2023/projetos/projeto01/docs/dados/pedidos.csv'
 INTO TABLE pedidos
 FIELDS TERMINATED BY ';'
 ENCLOSED BY '"'

@@ -31,11 +31,11 @@ const toUpdatePedido = (model)=>{
     }
 
 const toUpdateEntregador = (model)=>{
-    return `UPDATE pedidos SET   hora_entrega = curTime() WHERE id_pedido = ${model.id_pedido}`;
+    return `UPDATE pedidos SET   hora_entrega = curTime(), entregador = ${model.entregador} WHERE id_pedido = ${model.id_pedido}`;
         }
 
 const toUpdateEntregue = (model)=>{
-    return `UPDATE pedidos SET   hora_fim = curTime() , entregador = ${model.entregador} WHERE id_pedido = ${model.id_pedido}`;
+    return `UPDATE pedidos SET   hora_fim = curTime()  WHERE id_pedido = ${model.id_pedido}`;
             }
 
 module.exports = {
