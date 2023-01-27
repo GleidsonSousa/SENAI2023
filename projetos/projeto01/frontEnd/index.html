@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="./style.css">
     <title>Delivery</title>
 </head>
-<body>
+<body onload="onLoad()">
     <header>
         <div id="cab">
             <h1>Gestão de entregas</h1>
@@ -38,27 +38,33 @@
                 <option value="enviado">Enviado</option>
                 <option value="finalizado">Finalizado</option>
             </select>
-
-            <div class="pedidosc">
+            <div>
                 <h1>EM EXECUÇÃO</h1>
-                <div id="eaC">
-                    <div id="icli">
-                        <p>Id: <spam id="idPed">20</spam></p>
-                        <p>Cliente: <spam id="nCli">Joaão</spam></p>
-                        <p>Produto: <spam id="nCli">X-FRANGO</spam> </p>
-                        <p>Endereço: <spam id="nCli">Rua das Flores, Centro, Pedreira, SP</spam> </p>
-                        <p>Data: <spam id="nCli">2023-01-26</spam> </p>
-                        <p>Horário: <spam id="nCli">17:32:59</spam> </p>
-                    </div>
-                    <div class="enviar">
-                        <button id="btnEnvia" type="submit"><img id="envia" src="./assets/confirme.png" alt="botão enviar">ENVIAR ENTREGA</button>
-                        <button id="btnCancelar" type="submit">CANCELAR PEDIDO</button>
-                    </div>
-                </div>    
+                <div class="pedidosem ">
+                
+                    <div id="eaC" class="model">
+                        <div id="icli">
+                            <p>Id: <spam id="idPed">20</spam></p>
+                            <p>Cliente: <spam id="nCli">Joaão</spam></p>
+                            <p>Produto: <spam id="prod">X-FRANGO</spam> </p>
+                            <p>Endereço: <spam id="end">Rua das Flores, Centro, Pedreira, SP</spam> </p>
+                            <p>Data: <spam id="date">2023-01-26</spam> </p>
+                            <p>Início do preparo: <spam id="hip">17:32:59</spam> </p>
+                        </div>
+                        <div class="enviar">
+                            <button id="btnEnvia" type="submit"><img id="envia" src="./assets/confirme.png" alt="botão enviar">ENVIAR ENTREGA</button>
+                            <button id="btnCancelar" type="submit">CANCELAR PEDIDO</button>
+                        </div>
+                    </div>    
+                          
+                </div>
+
             </div>
-            <div class="pedidosf">
+            
+            <div class="pedidosca ">
                 <h1>A CAMINHO</h1>
-                <div id="ead">
+                
+                <div id="eaC" class="model">
                     <div id="icli">
                         <p>Id:<p id="idCli">20 </p></p>
                         <p>Cliente: </p>

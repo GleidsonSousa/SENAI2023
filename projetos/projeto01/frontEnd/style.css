@@ -20,6 +20,9 @@ body{
     margin: 10px;
     box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
 }
+h1{
+    text-align: center;
+}
 
 #pedido{
     display: flex;
@@ -35,18 +38,11 @@ body{
 }
 
 #pedidos{
-    gap: 40px;
-    position: relative;
+    padding-top: 2%;
     display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 90vw;
-    height: 50vh;
+    justify-content: space-around;
     background-color: rgb(255, 255, 255);
-    border-radius: 5px;
-    margin: 10px;
-    border-radius: 5px;
-    overflow-y: scroll;
+    margin: 2% 0px;;
     box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
 }
 
@@ -83,16 +79,20 @@ body{
     margin-left: 300px;
 }
 
-.pedidosf, .pedidosc{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 40vw;
-    background-color: rgb(255, 255, 255);
-    border-radius: 5px;
+
+.model{
+    display: none;
+    visibility: hidden;
+
 }
-#eaC, #ead{
+ .pedidosca, .pedidosem{
+    width: 100%;
+    height: 50vh;
+    overflow-y: scroll;
+    margin: 5px;
+    
+}
+#eaC{
     display: flex;
     flex-direction:wrap;
     justify-content: center;
@@ -101,8 +101,6 @@ body{
     height: 300px;
     border-radius: 5px;
     margin: 10px;
-
-
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 #icli{
