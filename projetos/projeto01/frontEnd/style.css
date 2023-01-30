@@ -83,11 +83,7 @@ h1{
 .modelar{
     display: flex;
 }
-.model{
-    display: none;
-    visibility: hidden;
-
-}
+ 
  .pedidosca, .pedidosem{
     width: 100%;
     height: 50vh;
@@ -156,7 +152,7 @@ h1{
 }
 
 #btnCancelar{
-    margin-top: 45%;
+    margin-top: 4%;
     width: 250px;
     padding: 10px;
     height: 40px;
@@ -172,4 +168,119 @@ h1{
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     justify-content: center;
     align-items: center;
+    margin-left: 50px;
+}
+
+#btnEditar{
+    margin-top: 4%;
+    margin-left: 50px;
+    width: 250px;
+    padding: 10px;
+    height: 40px;
+    display: flex;
+    border-radius: 15px;
+    border-color: rgb(14, 106, 4);
+    background-color:rgb(18, 168, 2);
+    font-weight: bold;
+    cursor: pointer;
+    color: #F4F4F4;
+    box-shadow: 3px 2px 2px black;
+    font-size: 20px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.editar, .cancelar, .excluir {
+    font-weight: bold;
+    font-size: 24px;
+    background: none;
+    border: none;
+    outline: none;
+    padding: 13px 24px;
+    border-radius: 5px;
+}
+
+
+.modal-body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: white;
+    padding: 32px 28px;
+    gap: 28px;
+    border-radius: 10px;
+}
+
+.modal-footer {
+    width: 400px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.modal-body img {
+    width: 50px;
+    height: 50px;
+}
+
+.cancelar {
+    border: 3px solid #000000;
+    color: #000000;
+}
+
+
+
+.cliente, .endereco, .produto {
+    width: 500px;
+    outline: none;
+    padding: 14px 16px;
+    border: none;
+    border-bottom: 1px solid #000000;
+}
+
+.editar, .excluir {
+    border: 3px solid #000000;
+    background: #000000;
+    color: white;
+}
+
+.abc{
+    margin-top: -15%;
+}
+
+.model {
+    display: none;
+}
+.btnsModal{
+   display: flex;
+   margin-top: 5%;
+   gap: 400px;
+}
+
+.modalExclui{
+    margin-top: -25%;
+    padding: 25px;
+    border-radius: 15px;
+    font-weight: bold;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 50px;
+    width: 800px;
+    height: 200px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    background-color: #F4F4F4;
 }

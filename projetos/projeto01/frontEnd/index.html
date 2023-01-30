@@ -53,13 +53,12 @@
 
                         </div>
                         <div class="enviar">
-                            <button id="btnEnvia" type="submit"><img id="envia" src="./assets/confirme.png" alt="botão enviar">ENVIAR ENTREGA</button>
+                            <button id="btnEnvia" type="submit"><img id="envia" src="./assets/confirme.png" alt="botão enviar">ENVIAR PEDIDO</button>
+                            <button id="btnEditar" type="submit">EDITAR PEDIDO</button>
                             <button id="btnCancelar" type="submit">CANCELAR PEDIDO</button>
                         </div>
                     </div>    
-                          
                 </div>
-
             </div>
             
             <div class="pedidosca ">
@@ -83,6 +82,37 @@
             </div>
         </div>
     </main>
+
+    <div class="abc model">
+        <div class="modalExclui">
+            <p>Certeza que deseja CANCELAR o pedido:  <spam id="spamID">20</spam></p>
+            <div class="btnsModal">
+                <button onclick="modalExclui()" class="cancelar">CANCELAR</button>
+                <button class="excluir">EXCLUIR</button>
+            </div>
+        </div>
+    </div>
+    
+
+    <div class="modal mc model ">
+        <div class="modal-body">
+            <input type="text" class="cliente" placeholder="Cliente" >
+            <input type="text" class="endereco" placeholder="Endereço" >
+            <input type="text" class="produto" placeholder="Produto">
+            <div class="modal-footer">
+                <button class="cancelar" onclick="fechaModal()">Cancelar</button>
+                <button class="editar">Editar</button>
+            </div>
+        </div>
+    </div>
+    <div class="modal ms model ">
+        <div class="modal-body">
+            <img src="./assets/download.png" alt="">
+            <p>Produto Editado com Sucesso !</p>
+        </div>
+    </div>
+
+
 </body>
 <script src="./index.js"></script>
 </html>

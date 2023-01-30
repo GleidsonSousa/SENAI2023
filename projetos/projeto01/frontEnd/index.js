@@ -1,6 +1,14 @@
 const url = 'http://localhost:4500/pedidos/read';
 
 let ped = [];
+const btCadedit = document.querySelector(".editar");
+const btCadex = document.querySelector(".excluir");
+const spamEX = document.querySelector("#spamID")
+
+
+const inpProd = document.querySelector(".produto");
+const inpCli = document.querySelector(".cliente");
+const inpEnd = document.querySelector(".endereco");
 
 const divPedidos = document.querySelector('#eaC');
 const divPedidos2 = document.querySelector('#eaB');
@@ -43,10 +51,30 @@ function preencher() {
             novoCardPedido.querySelector('#end').innerHTML = p.endereco
             novoCardPedido.querySelector('#date').innerHTML = p.data
             novoCardPedido.querySelector('#hip').innerHTML = p.hora_pedido
-            novoCardPedido.querySelector("#btnCancelar").addEventListener("click", () => { remover(p.id_pedido, novoCardPedido); })
+            
             novoCardPedido.querySelector("#btnEnvia").addEventListener("click", () => { updateEntrega(p.id_pedido); })
+            
+            novoCardPedido.querySelector("#btnCancelar").addEventListener("click", () => {
+
+                modalExclui()
+                spamEX.innerHTML = p.id_pedido
+                btCadex.onclick = () => { remover(p.id_pedido, novoCardPedido) }
+            })
+
+            novoCardPedido.querySelector("#btnEditar").addEventListener("click", () => {
+                modalEdit()
+                btCadedit.innerHTML = "Editar";
+                btCadedit.onclick = () => { editarPedido(p.id_pedido) }
+                inpCli.value = p.cliente;
+                inpEnd.value = p.endereco;
+                inpProd.value = p.produto;
+            })
+    
+            
             document.querySelector('.pedidosem').appendChild(novoCardPedido)
         }
+
+
 
         if (p.hora_fim == "00:00:00" && p.hora_entrega != "00:00:00") {
 
@@ -69,6 +97,7 @@ function preencher() {
     })
 }
  function updateEntregue(id){
+    console.log(id)
     const body = {
         "id_pedido":id
     }
@@ -100,6 +129,7 @@ function preencher() {
 
 
 function updateEntrega(id){
+    console.log(id)
     const body = {
         "id_pedido":id,
         "entregador":1
@@ -136,6 +166,7 @@ function remover(id, novoCardPedido) {
     })
     .then(resp => {})
     .then(p => {
+        alert("Pedido Cancelado com Sucesso 🙁✔")
         novoCardPedido.remove();
         window.location.reload()
 
@@ -166,6 +197,55 @@ function GerarPedido(){
                 }
             })
             .catch(err => alert("❌ Erro ao enviar dados. Erro:" + err));
+    } else {
+        alert("Preencha todos os campos obrigatórios ❗")
+    }
+}
+
+function modalExclui(){
+    document.querySelector(".abc").classList.toggle("model");
+}
+
+function modalEdit () {
+    document.querySelector(".mc").classList.toggle("model");
+}
+
+function fechaModal(){
+    document.querySelector(".mc").classList.add("model");
+}
+
+function modalSucesso() {
+    document.querySelector(".ms").classList.toggle("model");
+}
+
+function editarPedido(id){
+    console.log(id)
+    let data = {}
+    let body = {
+        "id_pedido":id,
+        "cliente": inpCli.value,
+        "endereco": inpEnd.value,
+        "produto": inpProd.value
+    }
+    const options = {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+    };
+    options.body = JSON.stringify(body)
+    if (body.cliente.length > 0 && body.endereco.length > 0) {
+        fetch("http://localhost:4500/pedidos/update/", options)
+            .then(resp => resp.status)
+            .then(data => {
+                if (data == 200) {
+                    alert("Pedido Editado com SUCESSO! 😀✔ ")
+                    modalEdit();
+                    modalSucesso();
+                    setTimeout(() => { window.location.reload() }, 1000);
+                    
+                } else {
+                    
+                }
+            })
     } else {
         alert("Preencha todos os campos obrigatórios ❗")
     }
