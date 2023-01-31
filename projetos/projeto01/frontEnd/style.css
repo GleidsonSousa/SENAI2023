@@ -75,11 +75,34 @@ h1{
     width: 200px;
     height: 30px;
     font-size: 20px;
-    border: 0;
+    border: 1px solid black;
     border-radius: 5px;
     margin-left: 300px;
+    cursor: pointer;
+}
+#btnRegis{
+    align-items: center;
+    gap: 10px;
+    font-size: 20px;
+    display: flex;
+    flex-direction: column;
+    background-color: transparent;
+    border: none;
+    width: 100px;
+    cursor: pointer;
+
 }
 
+.btnRegistro{
+    position: absolute;
+    top: 22vh;
+    left: 25vw;
+    margin-left: 1200px;
+}
+
+#registro{
+    width: 80px;
+}
 .modelar{
     display: flex;
 }
@@ -117,8 +140,8 @@ h1{
 #select{
     position: absolute;
     width: 100px;
-    top: 1vh;
-    left: 1vw;
+    top: 50vh;
+    left: 3vw;
 }
 ::-webkit-scrollbar-track {
     background-color: #F4F4F4;

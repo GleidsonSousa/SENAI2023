@@ -82,6 +82,7 @@ function preencher() {
 
 
             novoCardPedido2.querySelector('#idPed').innerHTML = p.id_pedido
+            novoCardPedido2.querySelector('#entre').innerHTML = p.entregador
             novoCardPedido2.querySelector('#nCli').innerHTML = p.cliente
             novoCardPedido2.querySelector('#prod').innerHTML = p.produto
             novoCardPedido2.querySelector('#end').innerHTML = p.endereco

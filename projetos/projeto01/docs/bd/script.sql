@@ -50,6 +50,8 @@ select  p.id_pedido, p.cliente, p.produto, p.endereco,p.data, p.hora_pedido, p.h
 inner join entregadores e on e.id_entregador = p.entregador where p.hora_fim <> "" ;
 
 
+
+
 create view vw_entregadores as
 select  e.id_entregador,e.nome from entregadores e where e.status = "Disponível";
 
