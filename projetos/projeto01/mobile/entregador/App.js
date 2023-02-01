@@ -11,7 +11,7 @@ export default function App() {
       console.log("Atualisar Lista")
       listarPedidos();
 
-    },2500)
+    },1500)
   })
  
 
@@ -47,7 +47,6 @@ options.body = JSON.stringify(body);
   .then(response => {
     if(response.status === 200) {
       console.log("Pedido Enviado");
-      alert("Pedido Enviado 😀✔.")
       listarPedidos();
     }else {
       console.log(response.status);
@@ -94,7 +93,6 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#fff',
     alignItems: 'center',
-    justifyContent:'center'
   },
   cardCozinha:{
     backgroundColor:'#FFF5EE',

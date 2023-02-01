@@ -3,7 +3,7 @@ const toCreate = (model) => {
 }
 
 const toReadAll = () => {
-    return "SELECT * FROM pedidos ORDER BY id_pedido DESC";
+    return "SELECT * FROM pedidos ";
 }
 
 const toReadId = (model) => {

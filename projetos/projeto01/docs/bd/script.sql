@@ -23,21 +23,25 @@ create table pedidos(
     foreign key (entregador) references entregadores(id_entregador)
 );
 
-LOAD DATA INFILE 'C:/Users/Meu Computador/Desktop/git/SENAI2023/projetos/projeto01/docs/dados/entregadores.csv'
+LOAD DATA INFILE 'C:/Users/Desenvolvimento/Desktop/GITHUB/opa/SENAI2023/projetos/projeto01/docs/dados/entregadores.csv'
 INTO TABLE entregadores
 FIELDS TERMINATED BY ';'
 ENCLOSED BY '"'
 LINES TERMINATED BY '\r\n'
 IGNORE 1 ROWS;
 
-LOAD DATA INFILE 'C:/Users/Meu Computador/Desktop/git/SENAI2023/projetos/projeto01/docs/dados/pedidos.csv'
+LOAD DATA INFILE 'C:/Users/Desenvolvimento/Desktop/GITHUB/opa/SENAI2023/projetos/projeto01/docs/dados/pedidos.csv'
 INTO TABLE pedidos
 FIELDS TERMINATED BY ';'
 ENCLOSED BY '"'
 LINES TERMINATED BY '\r\n'
 IGNORE 1 ROWS;
 
-insert into pedidos values (default, "lucas", "sei la", "agua coca latão meri meri", CURDATE(),CURTIME(),"","",null);
+insert into pedidos values (default, "Lucas", "Rua joaquin", "X-TUDO", CURDATE(),CURTIME(),"","",null);
+insert into pedidos values (default, "Leonardo", "Rua das Amoreiras", "X-FRANGO", CURDATE(),CURTIME(),"","",null);
+insert into pedidos values (default, "Rubens Barbosa", "Rua das Amoreiras", "X-BACON", CURDATE(),CURTIME(),"","",null);
+insert into pedidos values (default, "Caitano", "Rua da Alvorada", "X-FRANGO-ESPECIAL", CURDATE(),CURTIME(),"","",null);
+
 
 create view vw_cozinha as
 select  p.id_pedido, p.cliente, p.produto, p.endereco,p.data, p.hora_pedido, p.hora_entrega,p.hora_fim from pedidos p where p.hora_entrega = "";

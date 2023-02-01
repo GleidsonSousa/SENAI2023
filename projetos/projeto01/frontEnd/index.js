@@ -12,6 +12,8 @@ const inpEnd = document.querySelector(".endereco");
 
 const divPedidos = document.querySelector('#eaC');
 const divPedidos2 = document.querySelector('#eaB');
+const divFinalizados = document.querySelector('#eaE');
+
 
 
 
@@ -37,6 +39,9 @@ function preencher() {
 
         var novoCardPedido2 = divPedidos2.cloneNode(true)
         novoCardPedido2.classList.remove('model')
+
+        var novoCardFinal = divFinalizados.cloneNode(true)
+        novoCardFinal.classList.remove('model')
 
         
 
@@ -78,7 +83,6 @@ function preencher() {
 
         if (p.hora_fim == "00:00:00" && p.hora_entrega != "00:00:00") {
 
-            console.log(p.hora_entrega)
 
 
             novoCardPedido2.querySelector('#idPed').innerHTML = p.id_pedido
@@ -92,6 +96,24 @@ function preencher() {
             novoCardPedido2.querySelector("#btnEnvia").addEventListener("click", () => { updateEntregue(p.id_pedido); })
 
             document.querySelector('.pedidosca').appendChild(novoCardPedido2)
+        }
+
+        if (p.hora_fim != "00:00:00" ) {
+
+
+
+            novoCardFinal.querySelector('#idPed').innerHTML = p.id_pedido
+            novoCardFinal.querySelector('#entre').innerHTML = p.entregador
+            novoCardFinal.querySelector('#nCli').innerHTML = p.cliente
+            novoCardFinal.querySelector('#prod').innerHTML = p.produto
+            novoCardFinal.querySelector('#end').innerHTML = p.endereco
+            novoCardFinal.querySelector('#date').innerHTML = p.data
+            novoCardFinal.querySelector('#hip').innerHTML = p.hora_pedido
+            novoCardFinal.querySelector('#h').innerHTML = p.hora_entrega
+            novoCardFinal.querySelector('#finalizado').innerHTML = p.hora_fim
+
+
+            document.querySelector('.divModal').appendChild(novoCardFinal)
         }
 
 
@@ -133,7 +155,7 @@ function updateEntrega(id){
     console.log(id)
     const body = {
         "id_pedido":id,
-        "entregador":1
+        "entregador":getRandomArbitrary()
     }
     const options = {
         method: 'PUT',
@@ -206,6 +228,9 @@ function GerarPedido(){
 function modalExclui(){
     document.querySelector(".abc").classList.toggle("model");
 }
+function modalRegistro(){
+    document.querySelector(".opa").classList.toggle("model")
+}
 
 function modalEdit () {
     document.querySelector(".mc").classList.toggle("model");
@@ -238,7 +263,6 @@ function editarPedido(id){
             .then(resp => resp.status)
             .then(data => {
                 if (data == 200) {
-                    alert("Pedido Editado com SUCESSO! 😀✔ ")
                     modalEdit();
                     modalSucesso();
                     setTimeout(() => { window.location.reload() }, 1000);
@@ -250,4 +274,10 @@ function editarPedido(id){
     } else {
         alert("Preencha todos os campos obrigatórios ❗")
     }
+}
+
+function getRandomArbitrary(max,min) {
+    max = 5;
+    min = 1;
+  return parseInt(Math.random() * (max - min) + min)
 }

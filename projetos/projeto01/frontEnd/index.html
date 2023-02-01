@@ -5,6 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./style.css">
+    <link rel="shortcut icon" href="./assets/ifood.png" />
+    
     <title>Delivery</title>
 </head>
 <body onload="onLoad()">
@@ -31,7 +33,7 @@
                 <button onclick="GerarPedido()" id="pedir">Gerar Pedido</button>
             </div>
             <div class="btnRegistro">
-                <button id="btnRegis"><p>Verificar Registro</p><img id="registro" src="./assets/registro-online.png" alt="registro"></button>
+                <button id="btnRegis" onclick="modalRegistro()"><p>Verificar Registro</p><img id="registro" src="./assets/registro-online.png" alt="registro"></button>
             </div>
         </div>
 
@@ -44,7 +46,6 @@
             <div>
                 <h1>EM EXECUÇÃO</h1>
                 <div class="pedidosem ">
-                
                     <div id="eaC" class="model modelar">
                         <div id="icli">
                             <p>Id: <spam id="idPed">20</spam></p>
@@ -92,7 +93,7 @@
             <p>Certeza que deseja CANCELAR o pedido:  <spam id="spamID">20</spam></p>
             <div class="btnsModal">
                 <button onclick="modalExclui()" class="cancelar">CANCELAR</button>
-                <button class="excluir">EXCLUIR</button>
+                <button class="excluir">CONFIRMAR</button>
             </div>
         </div>
     </div>
@@ -116,6 +117,31 @@
         </div>
     </div>
 
+<div class="opa model">
+    <div class="modalRegistro">
+        <button id="btnX" onclick="modalRegistro()">X</button>
+        <h1>PEDIDOS FINALIZADOS</h1>
+        <div class="divModal">
+            <div id="eaE" class="modelar model">
+                <div id="icli2">
+                    <p>Id: <span id="idPed">20</span></p>
+                    <p>Entregador: <span id="entre">17:32:59</span></p>
+                    <p>Cliente: <span id="nCli">Joaão</span></p>
+                    <p>Produto: <span id="prod">X-FRANGO</span> </p>
+                    <p>Endereço: <spam id="end">Rua das Flores, Centro, Pedreira, SP</spam> </p>
+                    <p>Data: <span id="date">2023-01-26</span> </p>
+                    <p>Início do preparo: <span id="hip">17:32:59</span><span>ㅤㅤInício da entrega: <span id="h">17:32:59</span></span></p>
+                    <p>Finalizado as:  <span id="finalizado">00:00:00</span></p>
+                </div>
+                <div class="enviar">
+                    <span id="spanFinal"> PEDIDO ENTREGUE <img id="envia" src="./assets/download.png" alt="botão enviar"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+    
 
 </body>
 <script src="./index.js"></script>
