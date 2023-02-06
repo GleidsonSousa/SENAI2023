@@ -3,6 +3,7 @@ const router = express.Router();
 
 const RotaEntregadores = require("../controllers/entregadoresControllers");
 
+router.post("/entregadores/login", RotaEntregadores.Entlogin);
 router.get("/entregadores/read", RotaEntregadores.listarEntregas);
 router.get("/entregadores/read/:id_entregador", RotaEntregadores.listarId);
 router.get("/entregadores/disponivel", RotaEntregadores.listarDisponibilidade);

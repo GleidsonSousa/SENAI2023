@@ -49,6 +49,26 @@ const editarStatus = (req, res) => {
     });
 }
 
+const Entlogin = (req, res) => {
+    conDB.query(Entrega.toLogin(req.body), (err, result) => {
+        if (err == null) {
+            if (result.length > 0) {
+                if (req.body.senha == result[0].senha) {
+                    res.status(200).json(result[0]).end()
+                } else {
+                    res.status(400).end()
+                }
+            } else {
+                res.status(404).json({'msg': 'Entregador não encontrado'}).end()
+            }
+        } else {
+            res.status(500).json(err).end()
+        }
+    })
+        }
+     
+             
+
 
 
 
@@ -56,6 +76,7 @@ const editarStatus = (req, res) => {
 module.exports = {
     listarEntregas,
     listarId,
+    Entlogin,
     listarDisponibilidade,
     editarStatus
 }
