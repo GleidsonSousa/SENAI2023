@@ -1,12 +1,12 @@
 import { useState } from 'react';
-import { View, Text, TextInput, TouchableOpacity } from 'react-native';
+import { View, Text, TextInput, TouchableOpacity, StyleSheet } from 'react-native';
 
 export default function Login({ navigation }) {
-    const [email, setEmail] = useState("jair@gmail.com");
-    const [senha, setSenha] = useState("senha123");
+    const [email, setEmail] = useState("");
+    const [senha, setSenha] = useState("");
 
     const autenticar = () => {
-        fetch("http://10.87.207.3:3000/entregadores/login", {
+        fetch("http://localhost:4500/entregadores/login", {
             "method":"POST",
             "headers":{
                 "Content-Type": "application/json"
@@ -31,13 +31,49 @@ export default function Login({ navigation }) {
     }
 
     return(
-        <View>
-            <Text>LOGIN</Text>
-            <TextInput value={email} onChangeText={(val) => { setEmail(val); }} />
-            <TextInput value={senha} onChangeText={(val) => { setSenha(val); }} />
-            <TouchableOpacity onPress={() => { autenticar(); }}>
-                <Text>LOGIN</Text>
-            </TouchableOpacity>
+        <View style={styles.container}>
+            <Text style={styles.login}>LOGIN</Text>
+            <View style={styles.container2}>
+                <TextInput style={styles.Inp} value={email} onChangeText={(val) => { setEmail(val); }}  placeholder={" Email..."}/>
+                <TextInput style={styles.Inp} value={senha} onChangeText={(val) => { setSenha(val); }} placeholder={" Senha..."}/>
+                <TouchableOpacity onPress={() => { autenticar(); }}>
+                    <Text>LOGIN</Text>
+                </TouchableOpacity>
+            </View>
         </View>
     )
 }
+
+const styles = StyleSheet.create({
+    container: {
+      flex: 1,
+      backgroundColor: '#fff',
+      alignItems: 'center',
+    },
+    container2: {
+        marginTop:'20%',
+        gap:'5%',
+        flex: 1,
+        backgroundColor: '#fff',
+        alignItems: 'center',
+      },
+    login: {
+        display: 'flex',
+        alignItems: 'center',
+        fontSize: '20px',
+        justifyContent: 'center',
+        color: 'white',
+        backgroundColor: '#000',
+        width: '100%',
+        height: '5%',
+      },
+      Inp: {
+        padding: '10px',
+        border: '1px solid',
+        borderRadius: '15px',
+        borderColor: '#000',
+        fontSize: '20px',
+        width: '100%',
+        height: '5%',
+      },
+  });

@@ -11,7 +11,7 @@ export default function App() {
       console.log("Atualisar Lista")
       listarPedidos();
 
-    },2500)
+    },[1500])
   })
  
 

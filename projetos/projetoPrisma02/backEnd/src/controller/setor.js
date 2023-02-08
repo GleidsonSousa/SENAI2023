@@ -2,6 +2,22 @@ const { PrismaClient } = require('@prisma/client');
 
 const prisma = new PrismaClient();
 
+const createMany = async(req,res) => {
+    let createProd = await prisma.setor.createMany({
+        data: [
+          { nome: 'Esprotes', comissao:10.0 },
+          { nome: 'Tecnologia', comissao:25.0 },
+          { nome: 'Moda', comissao:5.0 },
+          { nome: 'Escolar', comissao:2.0 },
+          { nome: 'Adega', comissao:3.5 }
+        ],
+        skipDuplicates: true,
+      })
+      res.status(200).json(createProd).end();
+
+}
+
+
 const create = async (req, res) => {
     let setor = await prisma.setor.create({
         data: req.body
@@ -39,6 +55,7 @@ const read = async (req, res) => {
 
 module.exports = {
     create,
+    createMany,
     read,
     readOne
 }
