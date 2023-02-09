@@ -33,7 +33,16 @@ const create = async (req, res) => {
 }
 
 const read = async (req, res) => {
-    let vendas = await prisma.venda.findMany();
+    let vendas = await prisma.venda.findMany({
+        select: {
+            id:true,
+            data: true,
+            id_vendedor: true,
+            detalhes: true,
+        }
+    });
+ 
+    
 
     res.status(200).json(vendas).end();
 }

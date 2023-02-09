@@ -3,9 +3,7 @@ const linhamodelo = document.querySelector(".linhamodelo");
 const modalExcluir = document.querySelector(".excluir");
 const modalEditar = document.querySelector(".editar");
 
-const inputCodigo = document.querySelector("#setorID");
-const inputNome = document.querySelector("#nome");
-const inputValor = document.querySelector("#valor");
+
 
 const btCadedit = document.querySelector("#cadedit");
 
@@ -51,9 +49,6 @@ function fecharModalEditar() {
 function abrirModalCadastro() {
     btCadedit.innerHTML = "Cadastrar";
     btCadedit.onclick = () => { cadastrarProduto(); }
-    inputCodigo.value = "";
-    inputNome.value = "";
-    inputValor.value = "";
     modalEditar.classList.remove("model");
 }
 
@@ -107,11 +102,10 @@ function excluirProduto() {
 }
 
 function cadastrarProduto() {
-    let data = {}
     let produto = {
-        "nome": inputNome.value,
-        "valor": inputValor.value,
-        "setor_id": inputCodigo.value
+        "nome": document.querySelector("#nome").value,
+        "valor":  document.querySelector("#valor").value,
+        "setor_id": document.querySelector("#setorID").value
 
     };
     console.log(produto)
@@ -124,7 +118,7 @@ function cadastrarProduto() {
         fetch("http://localhost:3000/produtos", options)
             .then(resp => resp.status)
             .then(data => {
-                if (data == 201) {
+                if (data == 200) {
                     alert("Pedido enviado para cozinha com SUCESSO! 😀✔ ")
                     window.location.reload()
                 } else {
@@ -138,11 +132,4 @@ function cadastrarProduto() {
 }
 
 
-
-
-let produto = {
-    "cliente": document.querySelector("#cli").value,
-    "endereco": document.querySelector("#end").value,
-    "produto": document.querySelector("#pro").value
-}
 

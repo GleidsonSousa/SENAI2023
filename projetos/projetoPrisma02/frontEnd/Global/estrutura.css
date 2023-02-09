@@ -60,7 +60,6 @@ main {
 
 .model {
     display: none;
-    visibility: hidden;
 }
 
 .modal-content > button {

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vendedores</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body onload="onLoad()">
+    <aside>
+        <nav>
+            <ul>
+                <li><a href="../setores/setores.html">GERENCIAR Setores</a></li>
+                <li><a href="../vendedores/vendedores.html">GERENCIAR Vendedores</a></li>
+                <li><a href="../produtos/produtos.html">GERENCIAR Produtos</a></li>
+            </ul>
+        </nav>
+    </aside>
+    <main>
+        <button class="cadastrar" onClick="abrirModalCadastro()">Cadastrar <img class="icone" src="../assets/cad.png" alt="Ícone de Cadastrar"></button>
+        <div class="styleTable">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Setor</th>
+                        <th>Nome</th>
+                        <th>Salário</th>
+                    </tr>
+                </thead>
+                <tbody id="lista-produtos">
+                    <tr class="linhamodelo model ">
+                        <td>A</td>
+                        <td>A</td>
+                        <td>A</td>
+                        
+                    </tr>
+                </tbody>
+            </table>
+        </main>
+        
+    
+        <div class="modal editar model">
+            <div class="modal-content">
+                <button onClick="fecharModalEditar()"> <img class="icone" src="https://cdn-icons-png.flaticon.com/512/1450/1450571.png" alt="Icone de Fechar"> </button>
+                <div class="modal-content-body">
+                    <input type="text" id="nome" placeholder="Nome do Produto">
+                    <input type="number" id="valor" placeholder="Valor Unitário">
+                    <input type="number" id="setorID" placeholder="Setor">
+                </div>
+                <div class="modal-content-footer">
+                    <button onClick="cadastrarProduto()" id="cadedit" class="btn confirm">Cadastrar</button>
+                    <button onClick="fecharModalEditar()" class="btn cancel">Cancelar</button>
+                </div>
+            </div>
+        </div>
+        </div>
+        
+</body>
+<script src="./vendedores.js"></script>
+</html>

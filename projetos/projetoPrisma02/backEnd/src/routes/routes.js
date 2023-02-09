@@ -27,7 +27,7 @@ router.get('/vendedores/:id', Vendedor.readOne);
 router.post('/venda', Venda.create);
 router.post('/venda/Many', Venda.createMany);
 router.get('/venda', Venda.read);
-router.get('/venda/:id', Vendedor.readOne);
+router.get('/venda/:id', Venda.readOne);
 
 
 router.post('/detalhe', Detalhe.create);

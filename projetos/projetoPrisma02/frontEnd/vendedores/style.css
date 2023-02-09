@@ -1,0 +1,47 @@
+@import url('../Global/estrutura.css');
+
+table {
+    text-align: left;
+    font-size: 25px;
+    width: 95%;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
+
+}
+
+.styleTable{
+    margin-top: 5%;
+    padding: 2%;
+    box-shadow: 0px 0px 3px 3px rgb(189, 189, 189);
+    width: 90%;
+    margin-left: 5%;
+    height: 55%;
+    background-color: transparent;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    overflow-y: scroll;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+table > tbody > tr > td {
+    text-align: left;
+    font-size: 30px;
+}
+
+.icone {
+    width: 30px;
+}
+
+button {
+    background: none;
+    border: none;
+
+}
+
+button:hover {
+    box-shadow: 0px 0px 3px 3px rgb(189, 189, 189);
+    cursor: pointer;
+}
