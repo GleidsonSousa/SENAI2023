@@ -33,7 +33,7 @@ function preencher() {
         let colunas = linha.querySelectorAll("td");
         colunas[0].innerHTML = p.setor_id;
         colunas[1].innerHTML = p.nome;
-        colunas[2].innerHTML = "R$ " + p.valor;
+        colunas[2].innerHTML = "R$ " +  parseFloat(p.valor).toFixed(2).replace('.', ',') 
         listaProdutos.appendChild(linha);
     })
 }
@@ -102,34 +102,34 @@ function excluirProduto() {
 }
 
 function cadastrarProduto() {
-    let produto = {
-        "nome": document.querySelector("#nome").value,
-        "valor":  document.querySelector("#valor").value,
-        "setor_id": document.querySelector("#setorID").value
+   
+    const info = {
+        "nome": document.querySelector('#nome').value,
+        "valor": document.querySelector('#valor').value,
+        "setor_id": document.querySelector('#setor').value
+    }
 
-    };
-    console.log(produto)
-    const options = {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-    };
-    options.produto = JSON.stringify(produto)
-    if (produto.nome.length > 0 && produto.valor.length > 0 && produto.setor_id.length > 0) {
-        fetch("http://localhost:3000/produtos", options)
-            .then(resp => resp.status)
-            .then(data => {
-                if (data == 200) {
-                    alert("Pedido enviado para cozinha com SUCESSO! 😀✔ ")
+    if (info.valor.length > 0 && info.nome.length > 0) {
+        const options = {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify(info)
+          };
+          console.log(info)
+          
+          fetch('http://localhost:3000/produtos', options)
+            .then(response => response.json())
+            .then(response => {
+                if (response.id !== null) {
+                    alert("Produto Cadastrado com SUCESSO! 😀✔ ")
                     window.location.reload()
                 } else {
-                    alert("Erro ao enviar Pedido 🙁❌")
+                    console.log(response)
                 }
             })
-            .catch(err => alert("❌ Erro ao enviar dados. Erro:" + err));
-    } else {
-        alert("Preencha todos os campos obrigatórios ❗")
+            .catch(err => console.error(err));
     }
+
+    
 }
-
-
 

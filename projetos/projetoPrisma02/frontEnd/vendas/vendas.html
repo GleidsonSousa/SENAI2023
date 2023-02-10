@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Setores</title>
+    <title>Vendas</title>
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -22,14 +22,16 @@
         </nav>
     </aside>
     <main>
-        <button onmouseover="newpost()" onmouseout="newp()" onclick="Np()" id="novo-post">+</button>
+        <button onmouseover="newpost()" onmouseout="newp()"  id="novo-post">+</button>
         <div class="styleCard">
             <div class="cloneNode model">
                 <div class="cardSetor">
                     <button id="btnDelete">X</button>
-                    <p>ID: <span id="idSet">33</span></p>
-                    <p>Nome: <span id="nomeSet">Beleza</span></p>
-                    <p>Comissão: <span id="comiSet">20%</span></p>
+                    <p>ID: <span id="id"></span></p>
+                    <p>Produto: <span id="idProd">Beleza</span></p>
+                    <p>Vendedor: <span id="idVen">20%</span></p>
+                    <p>Data: <span id="data">20%</span></p>
+                    <p><button>Ver detalhes ↓ </button></p>
                 </div>
             </div>
         </div>
@@ -41,8 +43,11 @@
             <button onClick="fecharModalCad()"> <img class="icone"
                     src="https://cdn-icons-png.flaticon.com/512/1450/1450571.png" alt="Icone de Fechar"> </button>
             <div class="modal-content-body">
-                <input type="text" id="nome" placeholder="Nome do Setor">
-                <input type="number" id="comi" placeholder="Comissão">
+                <input type="number" id="idVendedor" placeholder="Vendedor">
+                <h1 id="detalheH">DETALHES </h1>
+                <input type="number" id="idprodu" placeholder="Produto">
+                <input type="number" id="quantidade" placeholder="Quantidade">
+
             </div>
             <div class="modal-content-footer">
                 <button onClick="cadastrarSetor()" id="cadedit" class="btn confirm">Cadastrar</button>
@@ -53,6 +58,6 @@
     </div>
 
 </body>
-<script src="./setores.js"></script>
+<script src="./vendas.js"></script>
 
 </html>

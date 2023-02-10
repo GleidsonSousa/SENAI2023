@@ -39,8 +39,8 @@ CREATE TABLE `Venda` (
 -- CreateTable
 CREATE TABLE `Detalhe` (
     `id` INTEGER NOT NULL AUTO_INCREMENT,
-    `id_produto` INTEGER NOT NULL,
     `id_venda` INTEGER NOT NULL,
+    `id_produto` INTEGER NOT NULL,
     `quantidade` INTEGER NOT NULL,
 
     PRIMARY KEY (`id`)

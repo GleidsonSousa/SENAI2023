@@ -5,16 +5,10 @@ const prisma = new PrismaClient();
 const createMany = async(req,res) => {
     let createProd = await prisma.venda.createMany({
         data: [
-          { id_vendedor:1 },
-          { id_vendedor:4 },
-          { id_vendedor:3 },
-          { id_vendedor:4 },
-          { id_vendedor:5 },
-          { id_vendedor:6 },
-          { id_vendedor:7 },
-          { id_vendedor:8 },
-          { id_vendedor:9 },
-          { id_vendedor:10 },
+          {  id_vendedor:1 },
+          {  id_vendedor:4 },
+          {  id_vendedor:3 },
+          {  id_vendedor:4 },
         ],
         skipDuplicates: true,
       })
@@ -38,7 +32,12 @@ const read = async (req, res) => {
             id:true,
             data: true,
             id_vendedor: true,
-            detalhes: true,
+            vendedor: true,
+            detalhes:{
+                select: {
+                    produto:true
+                }
+            }
         }
     });
  
@@ -56,6 +55,7 @@ const readOne = async (req, res) => {
             data: true,
             id_vendedor: true,
             detalhes: true,
+            vendedor: true
         }
     });
     res.status(200).json(venda).end();

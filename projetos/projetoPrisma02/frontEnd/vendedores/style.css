@@ -45,3 +45,7 @@ button:hover {
     box-shadow: 0px 0px 3px 3px rgb(189, 189, 189);
     cursor: pointer;
 }
+
+#imgdel{
+    width: 50px;
+}

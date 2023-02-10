@@ -1,7 +1,7 @@
-const url = 'http://localhost:3000/setores';
+const url = 'http://localhost:3000/venda';
 
 const modalEditar = document.querySelector(".editar");
-
+const btnCad = document.querySelector("#cadedit")
 
 let set = [];
 
@@ -22,23 +22,28 @@ function onLoad() {
 const divClone = document.querySelector('.cardSetor')
 
 function preencher() {
-
+    var add = 0
     set.forEach(str => {
-
+        add++
         var novoCard = divClone.cloneNode(true)
         novoCard.classList.remove('model')
-
-            novoCard.querySelector('#idSet').innerHTML = str.id
-            novoCard.querySelector('#nomeSet').innerHTML = str.nome
-            novoCard.querySelector('#comiSet').innerHTML = str.comissao + "%"
+            novoCard.querySelector('#id').innerHTML = str.id
+            novoCard.querySelector('#idProd').innerHTML = str.detalhes[0].produto.nome
+            novoCard.querySelector('#idVen').innerHTML = str.vendedor.nome
+            novoCard.querySelector('#data').innerHTML = str.data.slice(0, 10)
             document.querySelector('.styleCard').appendChild(novoCard)
 
+            // novoCard.querySelector("#novo-post").addEventListener("click", () => {
 
-
+            //     Np()
+            //     btnCad.onclick = () => { cadastrarVenda(add) }
+            // })
+            
     })
 }
 
 const np = document.querySelector("#novo-post")
+
 
 
 function newpost() {
@@ -61,7 +66,7 @@ function fecharModalCad() {
     modalEditar.classList.add("model");
 }
 
-function cadastrarSetor() {
+function cadastrarVenda(add) {
    
     const info = {
         "nome": document.querySelector('#nome').value,

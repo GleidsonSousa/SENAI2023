@@ -7,9 +7,7 @@ const createMany = async(req,res) => {
         data: [
           { nome: 'Esprotes', comissao:10.0 },
           { nome: 'Tecnologia', comissao:25.0 },
-          { nome: 'Moda', comissao:5.0 },
-          { nome: 'Escolar', comissao:2.0 },
-          { nome: 'Adega', comissao:3.5 }
+          { nome: 'Moda', comissao:5.0 }
         ],
         skipDuplicates: true,
       })
@@ -19,8 +17,11 @@ const createMany = async(req,res) => {
 
 
 const create = async (req, res) => {
+    let info =  req.body
+    req.body.comissao = Number(req.body.comissao)
+
     let setor = await prisma.setor.create({
-        data: req.body
+        data: info
     });
 
     res.status(200).json(setor).end();

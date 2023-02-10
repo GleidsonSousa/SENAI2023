@@ -11,9 +11,9 @@ table {
     margin-top: 5%;
     padding: 2%;
     box-shadow: 0px 0px 3px 3px rgb(189, 189, 189);
-    width: 90%;
+    width: 95%;
     margin-left: 5%;
-    height: 55%;
+    height: 60%;
     background-color: transparent;
     border-radius: 15px;
     display: flex;
@@ -28,6 +28,7 @@ table {
 table > tbody > tr > td {
     text-align: left;
     font-size: 30px;
+
 }
 
 .icone {
@@ -43,4 +44,8 @@ button {
 button:hover {
     box-shadow: 0px 0px 3px 3px rgb(189, 189, 189);
     cursor: pointer;
+}
+
+#imgdel{
+    width: 50px;
 }

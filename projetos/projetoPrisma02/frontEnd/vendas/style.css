@@ -1,0 +1,113 @@
+@import url('../Global/estrutura.css');
+
+
+.styleCard{
+    display: flex;
+    margin-top: 5%;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 2%;
+    box-shadow: 0px 3px 8px 4px rgb(189, 189, 189);
+    width: 90%;
+    background-color: transparent;
+    height: 80%;
+    margin-left: 5%;
+    border-radius: 15px;
+    display: flex;
+    justify-content: left;
+    align-items: left;
+    overflow-y: scroll;
+}
+
+#btnDelete{
+    background-color: red;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    width: 30%;
+    border-radius: 15px;
+    margin-left: 75%;
+    
+}
+
+.cardSetor{
+    display: flex;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 17.5px;
+    flex-direction: column;
+    color: white;
+    width: 25%;
+    gap: 5px;
+    padding: 25px;
+    box-shadow: 0px 2px 3px 3px rgb(192, 192, 192);
+    border-radius: 15px;
+    height: 25%;
+    justify-content: center;
+    align-items: left;
+    background-color: rgb(0, 0, 0);
+}
+
+#detalheH{
+  font-weight: bold;
+  margin-left: 15%;
+  font-size: 35px;
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+
+}
+
+.icone {
+    width: 30px;
+}
+
+
+#novo-post{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    font-size: 30px;
+    width: 1px;
+    height: 3vh;
+    margin-top: 1vh;
+    margin-left: 2vw;
+    padding: 20px;
+    border: none;
+    outline: none;
+    color: rgb(255, 255, 255);
+    background: rgb(0, 0, 0);
+    cursor: pointer;
+    border-radius: 50px;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+  }
+  #novo-post:hover{
+    transition: 0.8s;
+    width: 8vw;
+  }
+  
+  #btnDelete:hover {
+    box-shadow: 0px 0px 3px 3px rgb(189, 189, 189);
+    cursor: pointer;
+    background: none;
+}
+
+  #novo-post:before {
+    content: "";
+  
+    box-shadow: 0px 0px 1px 0.5px rgb(0, 0, 0);
+
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    background-size: 400%;
+    z-index: -1;
+    filter: blur(5px);
+    -webkit-filter: blur(5px);
+    width: calc(100% + 4px);
+    height: calc(100% + 4px);
+    animation: glowing-button-85 20s linear infinite;
+    transition: opacity 0.3s ease-in-out;
+    border-radius: 10px;
+  }
+  
