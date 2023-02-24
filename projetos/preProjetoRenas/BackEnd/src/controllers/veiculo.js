@@ -3,11 +3,14 @@ const { PrismaClient } = require('@prisma/client');
 const prisma = new PrismaClient();
 
 const create = async (req, res) => {
-    let veiculo = await prisma.veiculo.create({
+    const veiculo = await prisma.veiculo.createMany({
         data: req.body
-    });
+    }).catch((err) => {
+        console.log(err)
+        return("Placa de Veículo já existente, Verifique os Dados!")
+    })
 
-    res.status(200).json(veiculo).end();
+    res.status(200).json(veiculo).end()
 }
 
 const readOne = async (req, res) => {
@@ -15,11 +18,16 @@ const readOne = async (req, res) => {
         where: {
             id: Number(req.params.id)
         },
-        // select: {
-        //     nome: true,
-        //     cnh: true,
-        //     operacoes: true
-        // }
+        select:{
+            id:true,
+            placa:true,
+            modelo:true,
+            marca:true,
+            tipo:true,
+            disponibilidade:true,
+            operacoes:true,
+            manutencoes:true
+        }
     });
 
     res.status(200).json(veiculo).end();
@@ -27,6 +35,16 @@ const readOne = async (req, res) => {
 
 const read = async (req, res) => {
     let veiculos = await prisma.veiculo.findMany({
+        select:{
+            id:true,
+            placa:true,
+            modelo:true,
+            marca:true,
+            tipo:true,
+            disponibilidade:true,
+            operacoes:true,
+            manutencoes:true
+        }
     });
 
     res.status(200).json(veiculos).end();

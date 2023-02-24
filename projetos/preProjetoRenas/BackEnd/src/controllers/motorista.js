@@ -27,6 +27,12 @@ const readOne = async (req, res) => {
 
 const read = async (req, res) => {
     let motoristas = await prisma.motorista.findMany({
+        select: {
+            id:true,
+            nome: true,
+            cnh: true,
+            operacoes: true
+        }
     });
 
     res.status(200).json(motoristas).end();

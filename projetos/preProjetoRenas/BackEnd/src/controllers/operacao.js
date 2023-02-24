@@ -3,8 +3,12 @@ const { PrismaClient } = require('@prisma/client');
 const prisma = new PrismaClient();
 
 const create = async (req, res) => {
+    var info = req.body
+
+    req.body.id_motorista = Number(req.body.id_motorista)
+    req.body.id_veiculo = Number(req.body.id_veiculo)
     let operacao = await prisma.operacao.create({
-        data: req.body
+        data: info
     });
 
     res.status(200).json(operacao).end();
@@ -15,11 +19,6 @@ const readOne = async (req, res) => {
         where: {
             id: Number(req.params.id)
         },
-        select: {
-            nome: true,
-            cnh: true,
-            operacoes: true
-        }
     });
 
     res.status(200).json(operacao).end();
