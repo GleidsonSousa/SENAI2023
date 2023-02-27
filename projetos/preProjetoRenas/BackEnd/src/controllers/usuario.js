@@ -27,37 +27,34 @@ const create = async (req, res) => {
 }
 
 const login = async(req, res) => {
-    const usuario = await prisma.usuario.findFirstOrThrow({
-      where: {
-        email: req.body.email
-      }
-    }).then((value) => {return(value)})
-    .catch((err) => {return {"erro": "Usuário não encontrado", "validation": false}})
-
-    if (usuario.erro == null) {
-      bcrypt.compare(req.body.senha, usuario.senha).then((value) => {
-        if (value) {
-          let data = {"uid": usuario.id, "role": usuario.tipo}
-          jwt.sign(data, process.env.KEY, {expiresIn: '1m'}, function(err2, token) {
-            console.log("a")
-            if(err2 == null){
-  
-                res.status(200).json({"token": token, "uid": usuario.id, "uname": usuario.nome, "validation": true}).end()
-            } else {
-                res.status(500).json(err2).end()
-            }
-            
-          })  
-        } else {
-          res.status(201).json({"erro": "Senha inválida", "validation": false}).end()
-        }
-      })
-    } else {
-      res.status(404).json(usuario).end()
+  const usuario = await prisma.usuario.findFirstOrThrow({
+    where: {
+      email: req.body.email
     }
+  }).then((value) => {return(value)})
+  .catch((err) => {return {"erro": "Usuário não encontrado", "validation": false}})
 
-    
+  if (usuario.erro == null) {
+    bcrypt.compare(req.body.senha, usuario.senha).then((value) => {
+      if (value) {
+        let data = {"uid": usuario.id, "role": usuario.nivel}
+          if(err2 =! null){
+
+              res.status(200).json({ "uid": usuario.id, "uname": usuario.nome, "nivel": usuario.nivel, "validation": true}).end()
+          } else {
+              res.status(500).json().end()
+          }
+          
+        
+      } else {
+        res.status(201).json({"erro": "Senha inválida", "validation": false}).end()
+      }
+    })
+  } else {
+    res.status(404).json(usuario).end()
+  } 
 }
+
 const readOne = async (req, res) => {
     let usuario = await prisma.usuario.findUnique({
         where: {

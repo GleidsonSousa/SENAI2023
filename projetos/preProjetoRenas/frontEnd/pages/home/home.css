@@ -1,0 +1,38 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: 0;
+}
+
+body{
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+
+}
+
+header{
+    background-color: rgba(0, 0, 0, 0.672);
+    height: 60px;
+    display: flex;
+    color: white;
+    align-items: center;
+    gap: 50px;
+}
+.logo{
+
+}
+
+a{
+    color: white;
+    text-decoration: none;
+}
+
+.options{
+    display: flex;
+    align-items: center;
+    height: 100%;
+    width: 25%;
+    margin-left: 5.5%;
+    gap: 25px;
+    font-size: 25.5px;
+    font-weight: bold;
+}
