@@ -1,0 +1,60 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: 0;
+}
+
+body{
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    background-image: url(../../assets/AgTech.jpg);
+    background-repeat: no-repeat;
+    background-size:cover;
+
+}
+
+header{
+    background-color: rgb(255, 255, 255);
+    height: 60px;
+    display: flex;
+    color: rgb(0, 0, 0);
+    align-items: center;
+    gap: 50px;
+}
+
+
+a{
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+}
+
+.logo{
+    font-size: 40px;
+    margin-left: -2.0%;
+    font-weight: bold;
+}
+
+#logo{
+    margin-left: 10.5%;
+    width: 90px;
+}
+
+.options{
+    display: flex;
+    align-items: center;
+    height: 100%;
+    width: 25%;
+    margin-left: 5.5%;
+    gap: 25px;
+    font-size: 25.5px;
+    font-weight: bold;
+}
+
+.prin{
+    padding: 50px;
+    border-radius: 15px;
+    margin-top: 3.5%;
+    margin-left: 2.5%;
+    width: 90%;
+    height: 800px;
+    background-color: rgb(255, 255, 255);
+}

@@ -4,8 +4,8 @@ const psw = document.querySelector("#psw")
 
 const login = (err) => {
     let usuario = {
-        "email": email.value,
-        "senha": psw.value
+        "email": "Stevejobs@orkut.com",
+        "senha": "1234"
     }
 
     fetch(uriLogin, {
