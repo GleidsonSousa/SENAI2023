@@ -23,7 +23,7 @@ const login = (err) => {
             } else if(info == 404){
                 alert('❌ Erro no Login: Usuario não ENCONTRADO!')
             }else if(info == 200){
-                window.location.href = "../home/home.html"
+                window.location.href = "../home/dashboard.html"
             }
         } else {
             alert(' ❌ Erro no Login:' + info);

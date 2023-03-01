@@ -19,6 +19,7 @@ header{
     color: rgb(0, 0, 0);
     align-items: center;
     gap: 50px;
+    padding: 5px;
 }
 
 
@@ -57,4 +58,8 @@ a{
     width: 90%;
     height: 800px;
     background-color: rgb(255, 255, 255);
+}
+
+.model{
+    display: none;
 }
