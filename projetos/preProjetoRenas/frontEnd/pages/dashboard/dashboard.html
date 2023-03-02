@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../../assets/dashboard.png" type="image/x-icon">
+    <link rel="stylesheet" href="dashboard.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+        integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+    <title>Dashboard</title>
+</head>
+<body onload="onLoad()">
+    <header>
+        <div><img id="logo" src="../../assets/logo.png" alt="Logo AgroTech"></div>
+        <div class="logo">
+            AgroTech
+        </div>
+        <div class="options">
+            <div>Home</div>
+            <div>Dashboard</div>            
+            <div><a href="../login/login.html">Logout</a><i class="far fa-togoout icon-modify"></i></div>
+        </div>
+    </header>
+    <main class="prin">
+        <div class=" grafic model">
+            <button onclick="modalGra()">GRAFICO</button>
+            <button onclick="modalTab()">TABELAS</button>
+            <div class="grafico">
+                <h1>GRAFICO VAI AQUI</h1>
+            </div>
+        </div>
+        <div class="tabelas ">
+            <button onclick="modalGra()">GRAFICO</button>
+            <button onclick="modalTab()">TABELAS</button>
+            <div class="tabelaMot model">
+                <div class="textTab">
+                    <h1>TABELA DE MOTORISTAS </h1>
+                </div>
+                <table>
+                    <thead >
+                        <tr>
+                            <th>ID</th>
+                            <th>Nome</th>
+                            <th>CNH</th>
+                            <th>STATUS</th>
+                        </tr>
+                    </thead>
+                    <tbody id="lista-motoristas">
+                        <tr class="linhamodelo model ">
+                            <td id="idMot">A</td>
+                            <td id="nomeMot">A</td>
+                            <td id="cnhMot">A</td>
+                            <td id="statusMot">Ativo</td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+            </div>
+            <div class="tabelaVei">
+                <div class="textTab">
+                    <h1>TABELA DE VEÍCULOS </h1>
+                </div>
+                <table>
+                    <thead >
+                        <tr>
+                            <th>ID</th>
+                            <th>PLACA</th>
+                            <th>MODELO</th>
+                            <th>MARCA</th>
+                            <th>TIPO</th>
+                            <th>STATUS</th>
+                        </tr>
+                    </thead>
+                    <tbody id="lista-veiculos">
+                        <tr class="linhamodeloVei model ">
+                            <td id="idVei">A</td>
+                            <td id="placaVei">A</td>
+                            <td id="modeloVei">A</td>
+                            <td id="marcaVei">Ativo</td>
+                            <td id="tipoVei">Ativo</td>
+                            <td id="statusVei">Ativo</td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+            </div>
+            <div class="tabelaOp  model">
+                <div class="textTab">
+                    <h1>TABELA DE OPERAÇÕES </h1>
+                </div>
+                <table>
+                    <thead >
+                        <tr>
+                            <th>ID</th>
+                            <th>MOTORISTA</th>
+                            <th>VEÍCULO</th>
+                            <th>SAÍDA</th>
+                        </tr>
+                    </thead>
+                    <tbody id="lista-operacoes">
+                        <tr class="linhamodeloOp model  ">
+                            <td id="idOp">A</td>
+                            <td id="nomeOp">A</td>
+                            <td id="placaOp">A</td>
+                            <td id="saidaOp">Ativo</td>
+                            <td id="btn"><button>Detalhes</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+            </div>
+            <div class="tabelaManu  model">
+                <div class="textTab">
+                    <h1>TABELA DE MANUTENÇÕES </h1>
+                </div>
+                <table>
+                    <thead >
+                        <tr>
+                            <th>ID</th>
+                            <th>VEÍCULO</th>
+                            <th>INÍCIO</th>
+                            <th>FIM</th>
+                        </tr>
+                    </thead>
+                    <tbody id="lista-manutencoes">
+                        <tr class="linhamodeloM model  ">
+                            <td id="idManu">A</td>
+                            <td id="placaManu">A</td>
+                            <td id="inicioM">A</td>
+                            <td id="fimM">Ativo</td>
+                            <td id="btn"><button>Detalhes</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+            </div>
+        </div>
+        <div class="dados">
+            <div class="total">
+                <button onclick="modalVei()" class="card">
+                    <p>VEÍCULOS</p>
+                    <img  id="images" src="../../assets/veiculo.png" alt="Veiculo">
+                    <p>TOTAL <span id="totalVei">0</span></p>
+                </button>
+                <button class="card" onclick="modalMot()">
+                    <p>MOTORISTAS</p>
+                    <img id="images" src="../../assets/motorista.png" alt="Motorista">
+                    <p>TOTAL <span id="totalMot">0</span></p>
+                </button>
+            </div>
+            <div class="total">
+                <button onclick="modalOp()" class="card">
+                    <p>OPERAÇÕES</p>
+                    <img id="images" src="../../assets/op.png" alt="operação">
+                    <p>TOTAL <span id="totalOp">0</span></p>
+
+                </button>
+                <button onclick="modalManu()" class="card">
+                    <p>MANUTENÇÃO</p>
+                    <img id="images" src="../../assets/manutencao.png" alt="Manuenção">
+                    <p>TOTAL <span id="totalManu">0</span></p>
+
+                </button>
+            </div>
+        </div>
+    </main>
+</body>
+<script src="dashboard.js"></script>
+</html>

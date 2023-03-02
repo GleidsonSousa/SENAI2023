@@ -3,6 +3,9 @@
 .prin{
     display: flex;
     flex-direction: wrap;  
+    padding: 3.5%;
+    margin-top: 1.5%;
+    margin-left: 1.5%;
 }
 
 .grafic{
@@ -20,18 +23,35 @@
     color: aliceblue;
 }
 
+table {
+    text-align: center;
+    font-size: 30px;
+    width: 100%;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    overflow-y: scroll;
+}
+
+td{
+    padding: 0.5%;
+    border: solid 3px rgb(0, 0, 0);
+    color: rgb(0, 0, 0);
+}
+
 .tabelas{
     width: 60%;
     height: 100%;
 }
 
-.tabelaMot{
+
+.tabelaMot , .tabelaVei, .tabelaOp, .tabelaManu{
+    color: rgb(0, 0, 0);
     padding: 20px;
     width: 90%;
     height: 90%;
     border-radius: 15px;
     background-color:transparent ;
-    box-shadow: 1px 2px 3px 4px rgba(170, 170, 170, 0.783);
+    background-color: #fdf19f;
+    box-shadow: 1px 2px 3px 4px rgba(149, 147, 147, 0.783);
 }
 
 .total{
@@ -47,22 +67,36 @@
     align-items: center;
     margin-top: 50%;
     gap: 10px;
-    width: 100px;
+    width: 170px;
     height: 50%;
+    border: none;
     padding: 50px;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     font-weight: bold;
     font-size: 20px;
     padding: 35px;
     border-radius: 15px;
-    background-color:transparent ;
-    box-shadow: 1px 2px 3px 4px rgba(170, 170, 170, 0.783);
+    background-color: #f7f0ba ;
+    box-shadow: 1px 2px 3px 4px rgba(160, 157, 157, 0.783);
+}
+
+.card:hover{
+    cursor: pointer;
+    background-color: transparent;
 }
 
 #images{
     width: 100px;
 }
+#btn{
+    border: none;
+}
 
-.linhamodelo{
-    color: white;
+.textTab{
+    text-align: center;
+    font-weight: bold;
+    font-size: 30px;
+    padding-bottom: 50px;
+    margin-top: 20px;
+
 }
