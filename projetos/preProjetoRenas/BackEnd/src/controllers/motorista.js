@@ -3,6 +3,7 @@ const { PrismaClient } = require('@prisma/client');
 const prisma = new PrismaClient();
 
 const create = async (req, res) => {
+    
     let motorista = await prisma.motorista.create({
         data: req.body
     });
@@ -18,6 +19,7 @@ const readOne = async (req, res) => {
         select: {
             nome: true,
             cnh: true,
+            cpf:true,
             operacoes: true
         }
     });
@@ -31,6 +33,7 @@ const read = async (req, res) => {
             id:true,
             nome: true,
             cnh: true,
+            cpf:true,
             operacoes: true
         }
     });

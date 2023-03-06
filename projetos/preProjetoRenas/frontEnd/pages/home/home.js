@@ -73,6 +73,9 @@ function loadManu() {
         .catch(err => console.error(err))
 }
 
+const btnCANCELACPF = document.querySelector('#excluir')
+const btnEditar = document.querySelector('#enviaEditMot')
+
 function preencherMot() {
     mot.forEach(m => {
 
@@ -82,7 +85,26 @@ function preencherMot() {
          linha.querySelector('#idMot').innerHTML = m.id
          linha.querySelector('#nomeMot').innerHTML = m.nome
          linha.querySelector('#cnhMot').innerHTML = m.cnh
-        // document.querySelector('#statusMot').innerHTML = qtdMot
+
+        linha.querySelector('#modalEx').addEventListener("click", () =>  {
+            modalCer()
+            document.querySelector('#idMotboys').innerHTML = m.id
+            btnCANCELACPF.onclick = () => {remover(m.id, linha)}
+
+        })
+
+        linha.querySelector('#editarMot').addEventListener('click', () => {
+            removeModelEdit()
+            btnEditar.onclick = () => {editarMot(m.id)}
+            document.querySelector('#cpfEdit').value = m.cpf
+            document.querySelector('#cnhEdit').value = m.cnh
+            document.querySelector('#nomeEdit').value = m.nome
+
+
+
+
+        })
+
 
         listaMots.appendChild(linha);
 
@@ -133,6 +155,7 @@ function preencherOp() {
         linha.querySelector('#nomeOp').innerHTML = o.motorista.nome
         linha.querySelector('#placaOp').innerHTML = o.veiculo.placa
         linha.querySelector('#saidaOp').innerHTML = o.data_saida.slice(0,10)
+        console.log("A")
     
         listaOp.appendChild(linha)
 
@@ -187,7 +210,8 @@ function cadastraMotorista(){
     let body = {
         "cpf": cpf,
         "cnh": cnh,
-        "nome": nome
+        "nome": nome,
+        "status": "Ativo",
     }
     const options = {
         method: 'POST',
@@ -210,4 +234,65 @@ function cadastraMotorista(){
     } else {
         alert("Preencha todos os campos obrigatórios ❗")
     }
+}
+
+function editarMot(id){
+    let body = {
+        'cpf': document.querySelector('#cpfEdit').value,
+        'cnh':document.querySelector('#cnhEdit').value,
+        'nome':document.querySelector('#nomeEdit').value
+    }
+    const options = {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+    }
+    options.body = JSON.stringify(body)
+    if (body.cpf.length > 0 && body.cnh.length > 0 && body.nome.length > 0) {
+        fetch('http://localhost:3000/motoristas/'+id, options)
+            .then(resp => resp.status)
+            .then(data => {
+                if (data == 200) {
+                    alert('DEU BOM')
+                    setTimeout(() => { window.location.reload() }, 500);
+                    
+                } else {
+                    
+                }
+            })
+    } else {
+        alert("Preencha todos os campos obrigatórios ❗")
+    }
+}
+
+
+function remover(id , linha){
+    fetch('http://localhost:3000/motoristas/' + id,{
+        "method":"DELETE"
+    })
+    .then(resp =>{})
+    .then(m => {
+        alert("se fudeu")
+        linha.remove()
+        window.location.reload()
+
+    })
+
+}
+
+function modalCer(){
+    document.querySelector('.ain').classList.remove('model')
+}
+
+function modalCer2(){
+    document.querySelector('.ain').classList.add('model')
+}
+
+function removeModelEdit(){
+    document.querySelector('.modalEditMot').classList.remove('model')
+    document.querySelector('.modalCadMot').classList.add('model')
+}
+
+function fechaModalzin(){
+    document.querySelector('.modalEditMot').classList.add('model')
+    document.querySelector('.modalCadMot').classList.remove('model')
 }

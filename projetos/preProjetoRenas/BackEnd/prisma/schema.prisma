@@ -23,6 +23,7 @@ model Motorista {
   cpf       String     @unique
   cnh       String     @unique
   nome      String
+  status    String
   operacoes Operacao[]
 }
 

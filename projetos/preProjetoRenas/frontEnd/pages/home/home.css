@@ -7,6 +7,7 @@ header{
 
 .prin{
     width: 90%;
+    padding-bottom: 2%;
     background-color: #81e4ff;
 }
 
@@ -142,9 +143,14 @@ td{
 ::-webkit-scrollbar-thumb {
     background: #dad7d7;
 }
-#editar, #excluir{
+#editar, #excluir,#modalEx{
     background-color: transparent;
     border: none;
+}
+
+#excluir2{
+    background-color: #81e4ff;
+    width: 1900px;
 }
 
 #img{
@@ -156,7 +162,7 @@ td{
     margin-top: -10%;
 }
 
-.modalCadMot, .modalCadVei, .modalCadOp, .modalCadManu{
+.modalCadMot, .modalCadVei, .modalCadOp, .modalCadManu,.modalEditMot{
     background-color: #424242;
     width: 50%;
     height: 95%;
@@ -212,4 +218,34 @@ input{
 #enviaCadMot:hover{
     background-color: transparent;
     color: white;
+}
+
+.SEILA{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #F4F4F4;
+    position: absolute;
+    top: 40%;
+    left: 30%;
+    border-radius: 15px;
+    margin-bottom: 90%;
+    background-color: #000;
+    width: 800px;
+    height: 500px;
+}
+
+#btnFechaModalzin{
+    background-color: red;
+    width: 50px;
+    height: 50px;
+    border: 5px solid red;
+    border-radius: 100%;
+    color: white;
+    font-size: 25px;
+    font-weight: bold;
+}
+#btnFechaModalzin:hover{
+    cursor: pointer;
+    background-color: transparent;
 }

@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="home.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
         integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
-    <title>Dashboard</title>
+    <title>HOME</title>
 </head>
 <body onload="onLoad()">
     <header>
@@ -53,8 +53,15 @@
                             <td id="nomeMot">A</td>
                             <td id="cnhMot">A</td>
                             <td id="statusMot">Ativo</td>
-                            <td><button id="excluir"><img id="img" src="../../assets/excluir.png" alt="excluir"></button></td>
-                            <td><button id="editar"><img id="img" src="../../assets/icons8-editar-propriedade-64.png" alt="editar"></button></td>
+                            <td><button onclick="modalCer()" title="Deleta o Motorista amiguinho" id="modalEx"><img id="img" src="../../assets/excluir.png" alt="excluir"></button></td>
+                            <td><button title="Edita o Motorista ai " id="editarMot"><img id="img" src="../../assets/icons8-editar-propriedade-64.png" alt="editar"></button></td>
+                            <div class="model ain">
+                                <div class="SEILA ">
+                                    <h1>Tem certeza que deseja DELETAR o Motorista <span id="idMotboys"></span></h1>
+                                    <button id="excluir2" >SIIIM</button>
+                                    <button onclick="modalCer2()" id="cancelinha">CANCELA ISSO AI BRO</button>
+                                </div>
+                            </div>
                         </tr>
                     </tbody>
                 </table>
@@ -112,6 +119,7 @@
                             <td><button id="excluir"><img id="img" src="../../assets/excluir.png" alt="excluir"></button></td>
                             <td><button id="editar"><img id="img" src="../../assets/icons8-editar-propriedade-64.png" alt="editar"></button></td>
                         </tr>
+                        
                     </tbody>
                 </table>
             </div>
@@ -142,7 +150,7 @@
                 </table>
                 
             </div>
-                <div class="modalCadMot ">
+                <div class="modalCadMot  ">
                     <div class="textbtn">
                         <h1>Cadastro de Motorista</h1>
                         <button>X</button>
@@ -153,10 +161,23 @@
                         <input type="number" placeholder="cnh..."  id="cnhdoMot">
                         <input type="text" placeholder="nome..."  id="nomedoMot">
                     </form>
-                    <button onclick="cadastraMotorista()" id="enviaCadMot">ENVIAR</button>
+                    <button title="Envia os dados :D" onclick="cadastraMotorista()" id="enviaCadMot">ENVIAR</button>
                 </div>
-            
+                <div class="modalEditMot model ">
+                    <div class="textbtn">
+                        <h1>Editar  Motorista</h1>
+                        <button onclick="fechaModalzin()" id="btnFechaModalzin">X</button>
+                    </div>
+                    <form action="" method="post">
+                        <h1 class="digite">Digite as informações:</h1>
+                        <input type="number" placeholder="cpf..." id="cpfEdit">
+                        <input type="number" placeholder="cnh..."  id="cnhEdit">
+                        <input type="text" placeholder="nome..."  id="nomeEdit">
+                    </form>
+                    <button title="Envia os dados :D" id="enviaEditMot">ENVIAR</button>
+                </div>
         </div>
+        
     </main>
 </body>
 <script src="home.js"></script>
