@@ -24,6 +24,9 @@ const create = async (req, res) => {
           res.status(500).json(err).end()
         }
       })
+
+
+
 }
 
 const login = async(req, res) => {
@@ -38,13 +41,14 @@ const login = async(req, res) => {
     bcrypt.compare(req.body.senha, usuario.senha).then((value) => {
       if (value) {
         let data = {"uid": usuario.id, "role": usuario.nivel}
+        jwt.sign(data, process.env.KEY, {expiresIn: '1h'}, function(err2, token) {
           if(err2 =! null){
 
-              res.status(200).json({ "uid": usuario.id, "uname": usuario.nome, "nivel": usuario.nivel, "validation": true}).end()
+              res.status(200).json({token,"uid": usuario.id, "uname": usuario.nome, "nivel": usuario.nivel, "validation": true}).end()
           } else {
               res.status(500).json().end()
           }
-          
+        })
         
       } else {
         res.status(201).json({"erro": "Senha inválida", "validation": false}).end()

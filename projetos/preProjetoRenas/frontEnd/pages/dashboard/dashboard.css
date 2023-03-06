@@ -6,6 +6,8 @@
     padding: 3.5%;
     margin-top: 1.5%;
     margin-left: 1.5%;
+    background-color: #F4F4F4;
+   
 }
 
 .grafic{
@@ -51,7 +53,9 @@ td{
     border-radius: 15px;
     background-color:transparent ;
     background-color: #fdf19f;
-    box-shadow: 1px 2px 3px 4px rgba(149, 147, 147, 0.783);
+    box-shadow: 2.5px 3.4px 10px 2px rgba(147, 138, 138, 0.783);
+    overflow-y: scroll;
+
 }
 
 .total{
@@ -77,12 +81,12 @@ td{
     padding: 35px;
     border-radius: 15px;
     background-color: #f7f0ba ;
-    box-shadow: 1px 2px 3px 4px rgba(160, 157, 157, 0.783);
+    box-shadow: 1px 2px 7.5px 4px rgba(160, 157, 157, 0.783);
 }
 
 .card:hover{
     cursor: pointer;
-    background-color: transparent;
+    background-color: rgb(248, 191, 170);
 }
 
 #images{
@@ -99,4 +103,15 @@ td{
     padding-bottom: 50px;
     margin-top: 20px;
 
+}
+
+::-webkit-scrollbar-track {
+    background-color: #F4F4F4;
+}
+::-webkit-scrollbar {
+    width: 6px;
+    background: #F4F4F4;
+}
+::-webkit-scrollbar-thumb {
+    background: #000000;
 }

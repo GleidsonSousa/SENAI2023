@@ -1,0 +1,215 @@
+@import url('../global/estrutura.css');
+
+header{
+    background-color: #81e4ff;
+
+}
+
+.prin{
+    width: 90%;
+    background-color: #81e4ff;
+}
+
+.headerMain{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
+    height: 10%;
+    width: 100%;
+}
+a:hover{
+    padding: 2px;
+    transition: 0.2s;
+    background-color: #00000011;
+}
+ul{
+    display: flex;
+    flex-direction: wrap;
+    gap: 200px;
+    font-size: 35px;
+}
+
+li{
+    display: flex;
+    align-items: center;
+    gap: 7.5px;
+    list-style: none;
+    color: black;
+    font-weight: bold;
+}
+
+#icon{
+    width: 50px;
+}
+
+li:hover{
+    cursor: pointer;
+    transition: 0.2s;
+    border: 15px solid black;
+    background-color: black;
+    color: white;
+    border-radius: 50px;
+}
+
+table {
+    text-align: center;
+    font-size: 30px;
+    width: 100%;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+td{
+    padding: 1.5%;
+    border-top:solid 3px rgb(255, 255, 255);
+    color: rgb(255, 255, 255);
+}
+
+.tabelas{
+    display: flex;
+    flex-direction: wrap;
+    width: 95%;
+    height: 90%;
+}
+
+
+.tabelaMot , .tabelaVei, .tabelaOp, .tabelaManu{
+    color: rgb(255, 255, 255);
+    padding: 20px;
+    width: 90%;
+    height: 90%;
+    margin-top: 1.5%;
+    border-radius: 15px;
+    background-color: #424242;
+    box-shadow: 2.5px 3.4px 10px 2px rgba(147, 138, 138, 0.783);
+    overflow-y: scroll;
+
+}
+
+.total{
+    display: flex;
+    margin-left: 55%;
+    flex-direction: wrap;
+    gap:50px;
+}
+
+
+#images{
+    width: 100px;
+}
+#btn{
+    border-top: 3px solid white;
+}
+#novo-mot{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 50px;
+    background-color: transparent;
+    font-weight: bold;
+    width: 350px;
+    height: 90px;
+    padding: 25px;
+    border-radius: 15px;
+    border: 7.5px solid black;
+    box-shadow: 2px 3px 5px 2px rgba(0, 0, 0, 0.783);
+}
+
+#novo-mot:hover{
+    cursor: pointer;
+    background-color: #000;
+    color: #F4F4F4;
+    transition: 0.3s;
+
+}
+
+.textTab{
+    text-align: center;
+    font-weight: bold;
+    font-size: 20px;
+    padding-bottom: 25px;
+    margin-top: 20px;
+
+}
+
+::-webkit-scrollbar-track {
+    background-color: #F4F4F4;
+}
+::-webkit-scrollbar {
+    width: 6px;
+    background: #F4F4F4;
+}
+::-webkit-scrollbar-thumb {
+    background: #dad7d7;
+}
+#editar, #excluir{
+    background-color: transparent;
+    border: none;
+}
+
+#img{
+    cursor: pointer;
+    width: 50px;
+}
+
+.digite{
+    margin-top: -10%;
+}
+
+.modalCadMot, .modalCadVei, .modalCadOp, .modalCadManu{
+    background-color: #424242;
+    width: 50%;
+    height: 95%;
+    border-radius: 15px;
+    margin-left: 3%;
+    margin-top: 1.5%;
+    color: white;
+}
+
+.textbtn{
+    display: flex;
+    flex-direction: wrap;
+    align-items: center;
+    margin-top: 5.5%;
+    margin-left: 23.5%;
+    gap: 50px;
+}
+form{
+    display: flex;
+    align-items: center;
+    margin-top: 20%;
+    gap: 40px;
+    width: 100%;
+    flex-direction: column;
+}
+
+input{
+    border-radius: 15px;
+    padding: 1.5%;
+    font-size: 25.5px;
+    width: 50%;
+    height: 30px;
+    color: black;
+}
+
+#enviaCadMot{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2%;
+    width: 200px;
+    border: 5px solid white;
+    cursor: pointer;
+    color: #000;
+    border-radius: 15px;
+    background-color: rgb(255, 255, 255);
+    margin-left: 35%;
+    font-size: 20.5px;
+    font-weight: bold;
+    margin-top: 5%;
+}
+
+#enviaCadMot:hover{
+    background-color: transparent;
+    color: white;
+}

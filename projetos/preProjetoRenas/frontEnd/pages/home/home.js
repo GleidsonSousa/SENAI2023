@@ -3,18 +3,10 @@ const linhamodeloVei = document.querySelector(".linhamodeloVei")
 const linhamodeloOp = document.querySelector(".linhamodeloOp")
 const linhamodeloManu = document.querySelector(".linhamodeloM")
 
-
-
 const listaMots = document.querySelector("#lista-motoristas")
 const listaVei = document.querySelector("#lista-veiculos")
 const listaOp = document.querySelector("#lista-operacoes")
 const listaManu = document.querySelector("#lista-manutencoes")
-
-
-
-
-
-
 
 let mot = []
 let op = []
@@ -92,7 +84,6 @@ function preencherMot() {
          linha.querySelector('#cnhMot').innerHTML = m.cnh
         // document.querySelector('#statusMot').innerHTML = qtdMot
 
-        document.querySelector('#totalMot').innerHTML = mot.length
         listaMots.appendChild(linha);
 
     })
@@ -113,7 +104,6 @@ function preencherVei() {
 
         listaVei.appendChild(linha);
 
-        document.querySelector('#totalVei').innerHTML = vei.length
     })
 }
 
@@ -130,7 +120,6 @@ function preencherManu() {
 
         listaManu.appendChild(linha)
 
-        document.querySelector('#totalManu').innerHTML = manu.length
     })
 }
 
@@ -147,7 +136,6 @@ function preencherOp() {
     
         listaOp.appendChild(linha)
 
-        document.querySelector('#totalOp').innerHTML = op.length
     })
 }
 
@@ -187,4 +175,39 @@ function modalGra(){
 
     document.querySelector('.grafic').classList.remove('model')
     document.querySelector('.tabelas').classList.add('model')
+}
+
+function cadastraMotorista(){
+
+    const cpf = document.querySelector("#cpfMot").value
+    const cnh = document.querySelector("#cnhdoMot").value
+    const nome = document.querySelector("#nomedoMot").value
+    console.log(cpf,cnh,nome)
+    
+    let body = {
+        "cpf": cpf,
+        "cnh": cnh,
+        "nome": nome
+    }
+    const options = {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+    };
+    options.body = JSON.stringify(body)
+    console.log(body)
+    if (body.cpf.length > 0 && body.cnh.length > 0 && body.nome.length > 0) {
+        fetch("http://localhost:3000/motoristas", options)
+            .then(resp => resp.status)
+            .then(data => {
+                if (data == 200) {
+                    alert("Cadastrado com SUCESSO! 😀✔ ")
+                    window.location.reload()
+                } else {
+                    alert("Erro ao enviar Pedido 🙁❌")
+                }
+            })
+            .catch(err => alert("❌ Erro ao enviar dados. Erro:" + err));
+    } else {
+        alert("Preencha todos os campos obrigatórios ❗")
+    }
 }
