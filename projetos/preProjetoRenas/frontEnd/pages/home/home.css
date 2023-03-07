@@ -9,6 +9,8 @@ header{
     width: 90%;
     padding-bottom: 2%;
     background-color: #81e4ff;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+
 }
 
 .headerMain{
@@ -69,7 +71,7 @@ td{
 .tabelas{
     display: flex;
     flex-direction: wrap;
-    width: 95%;
+    width: 100%;
     height: 90%;
 }
 
@@ -77,7 +79,7 @@ td{
 .tabelaMot , .tabelaVei, .tabelaOp, .tabelaManu{
     color: rgb(255, 255, 255);
     padding: 20px;
-    width: 90%;
+    width: 100%;
     height: 90%;
     margin-top: 1.5%;
     border-radius: 15px;
@@ -148,23 +150,18 @@ td{
     border: none;
 }
 
-#excluir2{
-    background-color: #81e4ff;
-    width: 1900px;
-}
-
 #img{
     cursor: pointer;
     width: 50px;
 }
 
 .digite{
-    margin-top: -10%;
+    margin-top: -15%;
 }
 
 .modalCadMot, .modalCadVei, .modalCadOp, .modalCadManu,.modalEditMot{
     background-color: #424242;
-    width: 50%;
+    width: 60%;
     height: 95%;
     border-radius: 15px;
     margin-left: 3%;
@@ -176,6 +173,18 @@ td{
     display: flex;
     flex-direction: wrap;
     align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin-top: 5.5%;
+    margin-left: 0.5%;
+    gap: 50px;
+}
+.textbtn2{
+    display: flex;
+    flex-direction: wrap;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
     margin-top: 5.5%;
     margin-left: 23.5%;
     gap: 50px;
@@ -222,17 +231,77 @@ input{
 
 .SEILA{
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    color: #F4F4F4;
+    text-align: left;
+    color: #ffffff;
     position: absolute;
-    top: 40%;
+    top: 30%;
     left: 30%;
+    font-weight: bold;
     border-radius: 15px;
     margin-bottom: 90%;
-    background-color: #000;
+    background-color: #000000;
     width: 800px;
     height: 500px;
+}
+.btnsmode{
+    display: flex;
+    margin-top: 10%;
+    gap: 300px;
+}
+
+#excluir{
+    background-color: #ffffff;
+    color: #000000;
+    border-radius: 15px;
+    font-weight: bold;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 25px;
+    width: 150px;
+    height: 50px;
+}
+
+#cancelinha{
+    background-color: #f90b0b;
+    color: white;
+    font-weight: bold;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 25px;
+    border-radius: 15px;
+    width: 150px;
+    height: 50px;
+}
+
+#editarMot,#excluirVei,#editarVei{
+    background-color: transparent;
+    border: none;
+
+}
+
+#motAviso{
+    margin-left: 5%;
+    font-size: 28px;
+}
+
+#fechamod{
+    position: absolute;
+    top: 3%;
+    left: 90%;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.inputz{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    height: 100%;
+
 }
 
 #btnFechaModalzin{
@@ -243,9 +312,38 @@ input{
     border-radius: 100%;
     color: white;
     font-size: 25px;
+    margin-left: 20%;
     font-weight: bold;
 }
 #btnFechaModalzin:hover{
     cursor: pointer;
     background-color: transparent;
+}
+
+#enviaEditMot{
+    margin-top: 4%;
+    width: 200px;
+    margin-left: 35%;
+    border-radius: 15px;
+    border: 5px solid black;
+    background-color: #000;
+    color: #F4F4F4;
+    font-size: 25px;
+    font-weight: bold;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    height: 50px;
+}
+#enviaEditMot:hover{
+    background-color: transparent;
+    cursor: pointer;
+    border:5px solid white;
+}
+
+.ain, .ainVei, .ainOp, .ainManu{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(255, 255, 255, 0.753);
 }

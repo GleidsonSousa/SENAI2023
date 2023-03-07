@@ -57,9 +57,13 @@
                             <td><button title="Edita o Motorista ai " id="editarMot"><img id="img" src="../../assets/icons8-editar-propriedade-64.png" alt="editar"></button></td>
                             <div class="model ain">
                                 <div class="SEILA ">
-                                    <h1>Tem certeza que deseja DELETAR o Motorista <span id="idMotboys"></span></h1>
-                                    <button id="excluir2" >SIIIM</button>
-                                    <button onclick="modalCer2()" id="cancelinha">CANCELA ISSO AI BRO</button>
+                                    <button title="Fechar" onclick="modalCer2()" id="fechamod"><img src="../../assets/icons8-fechar-janela-64.png" alt=""></button>
+                                    <h1 id="motAviso">TEM CERTEZA QUE DEJESA DELETAR ESSE MOTORISTA? <p><span id="idMotboys"></span> <span id="nomeMotBoy"></span>.</p></h1>
+                                    <div class="btnsmode">
+                                    <button id="excluir" title="Exclui motorista" >DELETAR</button>
+                                    <button title="Cancelar ação" onclick="modalCer2()" id="cancelinha">CANCELAR</button>
+                                    </div>
+                                    
                                 </div>
                             </div>
                         </tr>
@@ -90,8 +94,19 @@
                             <td id="marcaVei">Ativo</td>
                             <td id="tipoVei">Ativo</td>
                             <td id="statusVei">Ativo</td>
-                            <td><button id="excluir"><img id="img" src="../../assets/excluir.png" alt="excluir"></button></td>
-                            <td><button id="editar"><img id="img" src="../../assets/icons8-editar-propriedade-64.png" alt="editar"></button></td>
+                            <td><button title="Excluir veículo" id="excluirVei"><img id="img" src="../../assets/excluir.png" alt="excluir"></button></td>
+                            <td><button title="Editar veículo" id="editarVei"><img id="img" src="../../assets/icons8-editar-propriedade-64.png" alt="editar"></button></td>
+                            <div class="model ainVei">
+                                <div class="SEILA ">
+                                    <button title="Fechar" onclick="modalVeiex2()" id="fechamod"><img src="../../assets/icons8-fechar-janela-64.png" alt=""></button>
+                                    <h1 id="motAviso">TEM CERTEZA QUE DEJESA DELETAR ESSE VEÍCULO? <p><span id="idVeiculin"></span> <span id="placaVeiculin"></span>.</p></h1>
+                                    <div class="btnsmode">
+                                    <button id="deletarVei" title="Exclui veiculo" >DELETAR</button>
+                                    <button title="Cancelar ação" onclick="modalVeiex2()" id="cancelinha">CANCELAR</button>
+                                    </div>
+                                    
+                                </div>
+                            </div>
                     </tbody>
                 </table>
                 
@@ -153,7 +168,6 @@
                 <div class="modalCadMot  ">
                     <div class="textbtn">
                         <h1>Cadastro de Motorista</h1>
-                        <button>X</button>
                     </div>
                     <form action="" method="post">
                         <h1 class="digite">Digite as informações:</h1>
@@ -163,16 +177,64 @@
                     </form>
                     <button title="Envia os dados :D" onclick="cadastraMotorista()" id="enviaCadMot">ENVIAR</button>
                 </div>
-                <div class="modalEditMot model ">
+                <div class="modalCadVei model">
                     <div class="textbtn">
+                        <h1>Cadastro de Veículos</h1>
+                    </div>
+                    <form action="" method="post">
+                        <h1 class="digite">Digite as informações:</h1>
+                        <input type="text" placeholder="placa..." id="placaInp">
+                        <input type="text" placeholder="modelo..."  id="modeloInp">
+                        <input type="text" placeholder="marca..."  id="marcaInp">
+                        <input type="text" placeholder="tipo..."  id="tipoInp">
+
+                    </form>
+                    <button title="Envia os dados :D" onclick="cadastraVeiculo()" id="enviaCadMot">ENVIAR</button>
+                </div>
+                <div class="modalCadOp model ">
+                    <div class="textbtn">
+                        <h1>Cadastro de Operações</h1>
+                    </div>
+                    <form action="" method="post">
+                        <h1 class="digite">Digite as informações:</h1>
+                        <input type="number" placeholder="cpf..." id="idMotOp">
+                        <input type="number" placeholder="cnh..."  id="idVeiOp">
+                        <input type="text" placeholder="nome..."  id="descOpInp">
+                    </form>
+                    <button title="Envia os dados :D" onclick="cadastraOperacao()" id="enviaCadMot">ENVIAR</button>
+                </div>
+                <div class="modalCadManu model  ">
+                    <div class="textbtn">
+                        <h1>Cadastro de Manutenções</h1>
+                    </div>
+                    <form action="" method="post">
+                        <h1 class="digite">Digite as informações:</h1>
+                        <input type="text" placeholder="cpf..." id="valorInp">
+                        <input type="text" placeholder="cnh..."  id="descInpManu">
+                        <input type="text" placeholder="nome..."  id="idVeiManuInp">
+                    </form>
+                    <button title="Envia os dados :D" onclick="cadastraManutencao()" id="enviaCadMot">ENVIAR</button>
+                </div>
+                <div class="modalEditMot model ">
+                    <div class="textbtn2">
                         <h1>Editar  Motorista</h1>
                         <button onclick="fechaModalzin()" id="btnFechaModalzin">X</button>
                     </div>
                     <form action="" method="post">
                         <h1 class="digite">Digite as informações:</h1>
-                        <input type="number" placeholder="cpf..." id="cpfEdit">
-                        <input type="number" placeholder="cnh..."  id="cnhEdit">
-                        <input type="text" placeholder="nome..."  id="nomeEdit">
+                        <div class="inputz">
+                            <h1>CPF</h1>
+                            <input type="number" placeholder="cpf..." id="cpfEdit">
+                        </div>
+                       <div class="inputz">
+                            <h1>CNH</h1>
+                            <input type="number" placeholder="cnh..."  id="cnhEdit">
+                       </div>
+                       <div class="inputz">
+                            <h1>NOME</h1>
+                            <input type="text" placeholder="nome..."  id="nomeEdit">
+                       </div>
+                        
                     </form>
                     <button title="Envia os dados :D" id="enviaEditMot">ENVIAR</button>
                 </div>

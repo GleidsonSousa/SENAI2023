@@ -89,6 +89,7 @@ function preencherMot() {
         linha.querySelector('#modalEx').addEventListener("click", () =>  {
             modalCer()
             document.querySelector('#idMotboys').innerHTML = m.id
+            document.querySelector('#nomeMotBoy').innerHTML = m.nome
             btnCANCELACPF.onclick = () => {remover(m.id, linha)}
 
         })
@@ -99,10 +100,6 @@ function preencherMot() {
             document.querySelector('#cpfEdit').value = m.cpf
             document.querySelector('#cnhEdit').value = m.cnh
             document.querySelector('#nomeEdit').value = m.nome
-
-
-
-
         })
 
 
@@ -123,6 +120,24 @@ function preencherVei() {
         linha.querySelector('#marcaVei').innerHTML = v.marca
         linha.querySelector('#tipoVei').innerHTML = v.tipo
         linha.querySelector('#statusVei').innerHTML =  v.disponibilidade = true ? innerHTML="Disponível" : innerHTML="Indisponível"
+
+        linha.querySelector('#excluirVei').addEventListener("click", () =>  {
+            modalVeiex()
+            document.querySelector('#idVeiculin').innerHTML = v.id
+            document.querySelector('#placaVeiculin').innerHTML = v.placa
+
+            document.querySelector('#deletarVei').onclick = () => {remover(v.id)}
+
+        })
+
+        // linha.querySelector('#editarMot').addEventListener('click', () => {
+        //     removeModelEdit()
+        //     btnEditar.onclick = () => {editarMot(m.id)}
+        //     document.querySelector('#cpfEdit').value = m.cpf
+        //     document.querySelector('#cnhEdit').value = m.cnh
+        //     document.querySelector('#nomeEdit').value = m.nome
+
+        // })
 
         listaVei.appendChild(linha);
 
@@ -155,7 +170,6 @@ function preencherOp() {
         linha.querySelector('#nomeOp').innerHTML = o.motorista.nome
         linha.querySelector('#placaOp').innerHTML = o.veiculo.placa
         linha.querySelector('#saidaOp').innerHTML = o.data_saida.slice(0,10)
-        console.log("A")
     
         listaOp.appendChild(linha)
 
@@ -163,42 +177,66 @@ function preencherOp() {
 }
 
 function modalMot(){
-
     document.querySelector('.tabelaManu').classList.add('model')
     document.querySelector('.tabelaOp').classList.add('model')
     document.querySelector('.tabelaVei').classList.add('model')
     document.querySelector('.tabelaMot').classList.remove('model')
 
+    document.querySelector('.modalCadManu').classList.add('model')
+    document.querySelector('.modalCadMot').classList.remove('model')
+    document.querySelector('.modalCadOp').classList.add('model')
+    document.querySelector('.modalCadVei').classList.add('model')
 }
+
 function modalVei(){
     document.querySelector('.tabelaManu').classList.add('model')
     document.querySelector('.tabelaOp').classList.add('model')
     document.querySelector('.tabelaVei').classList.remove('model')
     document.querySelector('.tabelaMot').classList.add('model')
+
+    document.querySelector('.modalCadManu').classList.add('model')
+    document.querySelector('.modalCadMot').classList.add('model')
+    document.querySelector('.modalCadOp').classList.add('model')
+    document.querySelector('.modalCadVei').classList.remove('model')
 }
+
 function modalOp(){
     document.querySelector('.tabelaManu').classList.add('model')
     document.querySelector('.tabelaOp').classList.remove('model')
     document.querySelector('.tabelaVei').classList.add('model')
     document.querySelector('.tabelaMot').classList.add('model')
+
+    document.querySelector('.modalCadManu').classList.add('model')
+    document.querySelector('.modalCadMot').classList.add('model')
+    document.querySelector('.modalCadOp').classList.remove('model')
+    document.querySelector('.modalCadVei').classList.add('model')
 }
+
 function modalManu(){
     document.querySelector('.tabelaManu').classList.remove('model')
     document.querySelector('.tabelaOp').classList.add('model')
     document.querySelector('.tabelaVei').classList.add('model')
     document.querySelector('.tabelaMot').classList.add('model')
+
+    document.querySelector('.modalCadManu').classList.remove('model')
+    document.querySelector('.modalCadMot').classList.add('model')
+    document.querySelector('.modalCadOp').classList.add('model')
+    document.querySelector('.modalCadVei').classList.add('model')
 }
+
 function modalTab(){
 
  document.querySelector('.grafic').classList.add('model')
  document.querySelector('.tabelas').classList.remove('model')
 
 }
+
 function modalGra(){
 
     document.querySelector('.grafic').classList.remove('model')
     document.querySelector('.tabelas').classList.add('model')
 }
+
 
 function cadastraMotorista(){
 
@@ -221,6 +259,111 @@ function cadastraMotorista(){
     console.log(body)
     if (body.cpf.length > 0 && body.cnh.length > 0 && body.nome.length > 0) {
         fetch("http://localhost:3000/motoristas", options)
+            .then(resp => resp.status)
+            .then(data => {
+                if (data == 200) {
+                    alert("Cadastrado com SUCESSO! 😀✔ ")
+                    window.location.reload()
+                } else {
+                    alert("Erro ao enviar Pedido 🙁❌")
+                }
+            })
+            .catch(err => alert("❌ Erro ao enviar dados. Erro:" + err));
+    } else {
+        alert("Preencha todos os campos obrigatórios ❗")
+    }
+}
+
+function cadastraVeiculo(){
+
+    const placa = document.querySelector("#placaInp").value
+    const modelo = document.querySelector("#modeloInp").value
+    const marca = document.querySelector("#marcaInp").value
+    const tipo = document.querySelector("#tipoInp").value
+    console.log(placa,modelo,marca,tipo)
+    
+    let body = {
+        "placa": placa,
+        "modelo": modelo,
+        "marca": marca,
+        "tipo": tipo
+    }
+    const options = {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+    };
+    options.body = JSON.stringify(body)
+    console.log(body)
+    if (body.placa.length > 0 && body.modelo.length > 0 && body.marca.length > 0 && body.tipo.length > 0) {
+        fetch("http://localhost:3000/veiculo", options)
+            .then(resp => resp.status)
+            .then(data => {
+                if (data == 200) {
+                    alert("Cadastrado com SUCESSO! 😀✔ ")
+                    window.location.reload()
+                } else {
+                    alert("Erro ao enviar Pedido 🙁❌")
+                }
+            })
+            .catch(err => alert("❌ Erro ao enviar dados. Erro:" + err));
+    } else {
+        alert("Preencha todos os campos obrigatórios ❗")
+    }
+}
+
+function cadastraOperacao(){
+
+    const id_mot = document.querySelector("#idMotOp").value
+    const id_vei = document.querySelector("#idVeiOp").value
+    const descricao = document.querySelector("#descOpInp").value
+    
+    let body = {
+        "id_motorista": id_mot,
+        "id_veiculo": id_vei,
+        "descricao": descricao
+    }
+    const options = {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+    };
+    options.body = JSON.stringify(body)
+    console.log(body)
+    if (body.id_motorista.length > 0 && body.id_veiculo.length > 0 && body.descricao.length > 0) {
+        fetch("http://localhost:3000/operacao", options)
+            .then(resp => resp.status)
+            .then(data => {
+                if (data == 200) {
+                    alert("Cadastrado com SUCESSO! 😀✔ ")
+                    window.location.reload()
+                } else {
+                    alert("Erro ao enviar Pedido 🙁❌")
+                }
+            })
+            .catch(err => alert("❌ Erro ao enviar dados. Erro:" + err));
+    } else {
+        alert("Preencha todos os campos obrigatórios ❗")
+    }
+}
+
+function cadastraManutencao(){
+
+    const valor = document.querySelector("#valorInp").value
+    const id_vei = document.querySelector("#idVeiManuInp").value
+    const descricao = document.querySelector("#descInpManu").value
+    
+    let body = {
+        "valor": valor,
+        "descricao": descricao,
+        "id_veiculo": id_vei
+    }
+    const options = {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+    };
+    options.body = JSON.stringify(body)
+    console.log(body)
+    if (body.valor.length > 0 && body.id_veiculo.length > 0 && body.descricao.length > 0) {
+        fetch("http://localhost:3000/manutencao", options)
             .then(resp => resp.status)
             .then(data => {
                 if (data == 200) {
@@ -272,7 +415,6 @@ function remover(id , linha){
     .then(resp =>{})
     .then(m => {
         alert("se fudeu")
-        linha.remove()
         window.location.reload()
 
     })
@@ -282,6 +424,16 @@ function remover(id , linha){
 function modalCer(){
     document.querySelector('.ain').classList.remove('model')
 }
+
+function modalVeiex(){
+    document.querySelector('.ainVei').classList.remove('model')
+}
+function modalVeiex2(){
+    document.querySelector('.ainVei').classList.add('model')
+}
+
+
+
 
 function modalCer2(){
     document.querySelector('.ain').classList.add('model')
