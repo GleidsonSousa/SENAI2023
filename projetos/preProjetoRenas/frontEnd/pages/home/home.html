@@ -130,9 +130,21 @@
                             <td id="nomeOp">A</td>
                             <td id="placaOp">A</td>
                             <td id="saidaOp">Ativo</td>
-                            <td id="btn"><button>Detalhes</button></td>
-                            <td><button id="excluir"><img id="img" src="../../assets/excluir.png" alt="excluir"></button></td>
-                            <td><button id="editar"><img id="img" src="../../assets/icons8-editar-propriedade-64.png" alt="editar"></button></td>
+                            <td id="btn"><button title="Mostrar detalhes" id="btnDetalOp">Detalhes</button></td>
+                            <td><button id="excluirOp"><img id="img" src="../../assets/excluir.png" alt="excluir"></button></td>
+                            <td><button id="editarOp"><img id="img" src="../../assets/icons8-editar-propriedade-64.png" alt="editar"></button></td>
+                            <div class="ainOp model">
+                                <div class="SEILA ">
+                                    <button title="Fechar" onclick="modalOpex2()" id="fechamod"><img src="../../assets/icons8-fechar-janela-64.png" alt=""></button>
+                                    <h1 id="motAviso">TEM CERTEZA QUE DEJESA DELETAR ESSE VEÍCULO? <p><span id="idOpzin"></span> <span id="placaVelin"></span>.</p></h1>
+                                    <div class="btnsmode">
+                                    <button id="deletarOp" title="Exclui operação" >DELETAR</button>
+                                    <button title="Cancelar ação" onclick="modalOpex2()" id="cancelinha">CANCELAR</button>
+                                    </div>
+                            </div>
+                            
+                                
+                            </div>
                         </tr>
                         
                     </tbody>
@@ -189,7 +201,7 @@
                         <input type="text" placeholder="tipo..."  id="tipoInp">
 
                     </form>
-                    <button title="Envia os dados :D" onclick="cadastraVeiculo()" id="enviaCadMot">ENVIAR</button>
+                    <button title="Envia os dados :D" onclick="cadastraVeiculo()" id="enviaCadVei">ENVIAR</button>
                 </div>
                 <div class="modalCadOp model ">
                     <div class="textbtn">
@@ -197,9 +209,9 @@
                     </div>
                     <form action="" method="post">
                         <h1 class="digite">Digite as informações:</h1>
-                        <input type="number" placeholder="cpf..." id="idMotOp">
-                        <input type="number" placeholder="cnh..."  id="idVeiOp">
-                        <input type="text" placeholder="nome..."  id="descOpInp">
+                        <input type="number" placeholder="id_motorista..." id="idMotOp">
+                        <input type="number" placeholder="id_veiculo..."  id="idVeiOp">
+                        <textarea id="descOpInp" placeholder="Descreva a operação aqui..."></textarea>
                     </form>
                     <button title="Envia os dados :D" onclick="cadastraOperacao()" id="enviaCadMot">ENVIAR</button>
                 </div>
@@ -237,6 +249,56 @@
                         
                     </form>
                     <button title="Envia os dados :D" id="enviaEditMot">ENVIAR</button>
+                </div>
+                <div class="modalEditVei model ">
+                    <div class="textbtn2">
+                        <h1>Editar  Veículo</h1>
+                        <button onclick="fechaModalzinEditVei()" id="btnFechaModalzin">X</button>
+                    </div>
+                    <form action="" method="post">
+                        <h1 class="digite">Digite as informações:</h1>
+                        <div class="inputz">
+                            <h1>PLACA</h1>
+                            <input type="text" id="placaEdit">
+                        </div>
+                       <div class="inputz">
+                            <h1>MODELO</h1>
+                            <input type="text"   id="modeloEdit">
+                       </div>
+                       <div class="inputz">
+                            <h1>MARCA</h1>
+                            <input type="text"   id="marcaEdit">
+                       </div>
+                       <div class="inputz">
+                            <h1>TIPO</h1>
+                            <input type="text"   id="tipoEdit">
+                        </div>
+                        
+                    </form>
+                    <button title="Envia a Edit :D" id="enviaEditVei">ENVIAR</button>
+                </div>
+                <div class="modalEditOp model ">
+                    <div class="textbtn2">
+                        <h1>Editar  Operação</h1>
+                        <button onclick="fechaModalzinEditOp()" id="btnFechaModalzin">X</button>
+                    </div>
+                    <form action="" method="post">
+                        <h1 class="digite">Digite as informações:</h1>
+                        <div class="inputz">
+                            <h1>ID MOTORISTA</h1>
+                            <input type="text" id="placaEdit">
+                        </div>
+                       <div class="inputz">
+                            <h1>ID VEÍCULO</h1>
+                            <input type="text"   id="modeloEdit">
+                       </div>
+                       <div class="inputz">
+                            <h1>DESCRIÇÃO</h1>
+                            <textarea id="descOpInp" placeholder="Descreva a operação aqui..."></textarea>
+                        </div>
+                        
+                    </form>
+                    <button title="Envia a Edit :D" id="enviaEditVei">ENVIAR</button>
                 </div>
         </div>
         

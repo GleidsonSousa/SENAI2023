@@ -89,13 +89,14 @@ function preencherMot() {
         linha.querySelector('#modalEx').addEventListener("click", () =>  {
             modalCer()
             document.querySelector('#idMotboys').innerHTML = m.id
+            console.log(m.id)
             document.querySelector('#nomeMotBoy').innerHTML = m.nome
-            btnCANCELACPF.onclick = () => {remover(m.id, linha)}
+            btnCANCELACPF.onclick = () => {removerMot(m.id, linha)}
 
         })
 
         linha.querySelector('#editarMot').addEventListener('click', () => {
-            removeModelEdit()
+            removeModelEditMot()
             btnEditar.onclick = () => {editarMot(m.id)}
             document.querySelector('#cpfEdit').value = m.cpf
             document.querySelector('#cnhEdit').value = m.cnh
@@ -108,6 +109,7 @@ function preencherMot() {
     })
 }
 
+const btnEditVei = document.querySelector('#enviaEditVei')
 function preencherVei() {
     vei.forEach(v => {
 
@@ -126,18 +128,20 @@ function preencherVei() {
             document.querySelector('#idVeiculin').innerHTML = v.id
             document.querySelector('#placaVeiculin').innerHTML = v.placa
 
-            document.querySelector('#deletarVei').onclick = () => {remover(v.id)}
+            document.querySelector('#deletarVei').onclick = () => {removerVei(v.id)}
 
         })
 
-        // linha.querySelector('#editarMot').addEventListener('click', () => {
-        //     removeModelEdit()
-        //     btnEditar.onclick = () => {editarMot(m.id)}
-        //     document.querySelector('#cpfEdit').value = m.cpf
-        //     document.querySelector('#cnhEdit').value = m.cnh
-        //     document.querySelector('#nomeEdit').value = m.nome
+        linha.querySelector('#editarVei').addEventListener('click', () => {
+            removeModelEditVei()
+            btnEditVei.onclick = () => {editarVei(v.id)
+            console.log('a')}
+            document.querySelector('#placaEdit').value = v.placa
+            document.querySelector('#modeloEdit').value = v.modelo
+            document.querySelector('#tipoEdit').value = v.tipo
+            document.querySelector('#marcaEdit').value = v.marca
 
-        // })
+        })
 
         listaVei.appendChild(linha);
 
@@ -170,73 +174,32 @@ function preencherOp() {
         linha.querySelector('#nomeOp').innerHTML = o.motorista.nome
         linha.querySelector('#placaOp').innerHTML = o.veiculo.placa
         linha.querySelector('#saidaOp').innerHTML = o.data_saida.slice(0,10)
+
+        linha.querySelector('#excluirOp').addEventListener("click", () =>  {
+            modalOpex()
+            document.querySelector('#idOpzin').innerHTML = o.id
+            document.querySelector('#placaVelin').innerHTML = o.veiculo.placa
+            document.querySelector('#deletarOp').onclick = () => {removerOp(o.id)}
+
+        })
+
+        linha.querySelector('#editarOp').addEventListener('click', () => {
+            removeModelEditOp()
+            btnEditVei.onclick = () => {editarOp(o.id)
+            console.log('a')}
+            document.querySelector('#placaEdit').value = o.placa
+            document.querySelector('#modeloEdit').value = v.modelo
+            document.querySelector('#tipoEdit').value = v.tipo
+            document.querySelector('#marcaEdit').value = v.marca
+
+        })
     
         listaOp.appendChild(linha)
 
     })
 }
 
-function modalMot(){
-    document.querySelector('.tabelaManu').classList.add('model')
-    document.querySelector('.tabelaOp').classList.add('model')
-    document.querySelector('.tabelaVei').classList.add('model')
-    document.querySelector('.tabelaMot').classList.remove('model')
-
-    document.querySelector('.modalCadManu').classList.add('model')
-    document.querySelector('.modalCadMot').classList.remove('model')
-    document.querySelector('.modalCadOp').classList.add('model')
-    document.querySelector('.modalCadVei').classList.add('model')
-}
-
-function modalVei(){
-    document.querySelector('.tabelaManu').classList.add('model')
-    document.querySelector('.tabelaOp').classList.add('model')
-    document.querySelector('.tabelaVei').classList.remove('model')
-    document.querySelector('.tabelaMot').classList.add('model')
-
-    document.querySelector('.modalCadManu').classList.add('model')
-    document.querySelector('.modalCadMot').classList.add('model')
-    document.querySelector('.modalCadOp').classList.add('model')
-    document.querySelector('.modalCadVei').classList.remove('model')
-}
-
-function modalOp(){
-    document.querySelector('.tabelaManu').classList.add('model')
-    document.querySelector('.tabelaOp').classList.remove('model')
-    document.querySelector('.tabelaVei').classList.add('model')
-    document.querySelector('.tabelaMot').classList.add('model')
-
-    document.querySelector('.modalCadManu').classList.add('model')
-    document.querySelector('.modalCadMot').classList.add('model')
-    document.querySelector('.modalCadOp').classList.remove('model')
-    document.querySelector('.modalCadVei').classList.add('model')
-}
-
-function modalManu(){
-    document.querySelector('.tabelaManu').classList.remove('model')
-    document.querySelector('.tabelaOp').classList.add('model')
-    document.querySelector('.tabelaVei').classList.add('model')
-    document.querySelector('.tabelaMot').classList.add('model')
-
-    document.querySelector('.modalCadManu').classList.remove('model')
-    document.querySelector('.modalCadMot').classList.add('model')
-    document.querySelector('.modalCadOp').classList.add('model')
-    document.querySelector('.modalCadVei').classList.add('model')
-}
-
-function modalTab(){
-
- document.querySelector('.grafic').classList.add('model')
- document.querySelector('.tabelas').classList.remove('model')
-
-}
-
-function modalGra(){
-
-    document.querySelector('.grafic').classList.remove('model')
-    document.querySelector('.tabelas').classList.add('model')
-}
-
+// Funções de Cadastro 
 
 function cadastraMotorista(){
 
@@ -379,6 +342,8 @@ function cadastraManutencao(){
     }
 }
 
+
+//Funções Editar
 function editarMot(id){
     let body = {
         'cpf': document.querySelector('#cpfEdit').value,
@@ -406,9 +371,42 @@ function editarMot(id){
         alert("Preencha todos os campos obrigatórios ❗")
     }
 }
+function editarVei(id){
+    let body = {
+        'placa': document.querySelector('#placaEdit').value,
+        'modelo':document.querySelector('#modeloEdit').value,
+        'marca':document.querySelector('#marcaEdit').value,
+        'tipo':document.querySelector('#tipoEdit').value
 
+    }
+    const options = {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+    }
+    options.body = JSON.stringify(body)
+    if (body.placa.length > 0 && body.modelo.length > 0 && body.marca.length > 0 && body.tipo.length > 0) {
+        fetch('http://localhost:3000/veiculo/'+id, options)
+            .then(resp => resp.status)
+            .then(data => {
+                if (data == 200) {
+                    alert('DEU BOM')
+                    setTimeout(() => { window.location.reload() }, 500);
+                    
+                } else {
+                    
+                }
+            })
+    } else {
+        alert("Preencha todos os campos obrigatórios ❗")
+    }
+}
+function editarOp(id){
 
-function remover(id , linha){
+}
+
+// Funções de Remover :D
+function removerMot(id){
+    console.log(id)
     fetch('http://localhost:3000/motoristas/' + id,{
         "method":"DELETE"
     })
@@ -421,6 +419,98 @@ function remover(id , linha){
 
 }
 
+function removerVei(id ){
+    console.log(id)
+    fetch('http://localhost:3000/veiculo/' + id,{
+        "method":"DELETE"
+    })
+    .then(resp =>{})
+    .then(m => {
+        alert("se fudeu")
+        window.location.reload()
+
+    })
+
+}
+
+function removerOp(id){
+    console.log(id)
+    fetch('http://localhost:3000/operacao/' + id,{
+        "method":"DELETE"
+    })
+    .then(resp =>{})
+    .then(m => {
+        alert("se fudeu")
+        window.location.reload()
+
+    })
+
+}
+
+
+
+function modalMot(){
+    document.querySelector('.tabelaManu').classList.add('model')
+    document.querySelector('.tabelaOp').classList.add('model')
+    document.querySelector('.tabelaVei').classList.add('model')
+    document.querySelector('.tabelaMot').classList.remove('model')
+
+    document.querySelector('.modalCadManu').classList.add('model')
+    document.querySelector('.modalCadMot').classList.remove('model')
+    document.querySelector('.modalCadOp').classList.add('model')
+    document.querySelector('.modalCadVei').classList.add('model')
+}
+
+function modalVei(){
+    document.querySelector('.tabelaManu').classList.add('model')
+    document.querySelector('.tabelaOp').classList.add('model')
+    document.querySelector('.tabelaVei').classList.remove('model')
+    document.querySelector('.tabelaMot').classList.add('model')
+
+    document.querySelector('.modalCadManu').classList.add('model')
+    document.querySelector('.modalCadMot').classList.add('model')
+    document.querySelector('.modalCadOp').classList.add('model')
+    document.querySelector('.modalCadVei').classList.remove('model')
+}
+
+function modalOp(){
+    document.querySelector('.tabelaManu').classList.add('model')
+    document.querySelector('.tabelaOp').classList.remove('model')
+    document.querySelector('.tabelaVei').classList.add('model')
+    document.querySelector('.tabelaMot').classList.add('model')
+
+    document.querySelector('.modalCadManu').classList.add('model')
+    document.querySelector('.modalCadMot').classList.add('model')
+    document.querySelector('.modalCadOp').classList.remove('model')
+    document.querySelector('.modalCadVei').classList.add('model')
+}
+
+function modalManu(){
+    document.querySelector('.tabelaManu').classList.remove('model')
+    document.querySelector('.tabelaOp').classList.add('model')
+    document.querySelector('.tabelaVei').classList.add('model')
+    document.querySelector('.tabelaMot').classList.add('model')
+
+    document.querySelector('.modalCadManu').classList.remove('model')
+    document.querySelector('.modalCadMot').classList.add('model')
+    document.querySelector('.modalCadOp').classList.add('model')
+    document.querySelector('.modalCadVei').classList.add('model')
+}
+
+function modalTab(){
+
+ document.querySelector('.grafic').classList.add('model')
+ document.querySelector('.tabelas').classList.remove('model')
+
+}
+
+function modalGra(){
+
+    document.querySelector('.grafic').classList.remove('model')
+    document.querySelector('.tabelas').classList.add('model')
+}
+
+
 function modalCer(){
     document.querySelector('.ain').classList.remove('model')
 }
@@ -431,20 +521,44 @@ function modalVeiex(){
 function modalVeiex2(){
     document.querySelector('.ainVei').classList.add('model')
 }
+function modalOpex(){
+    document.querySelector('.ainOp').classList.remove('model')
+}
 
+function modalOpex2(){
+    document.querySelector('.ainOp').classList.add('model')
 
-
+}
 
 function modalCer2(){
     document.querySelector('.ain').classList.add('model')
 }
 
-function removeModelEdit(){
+function removeModelEditMot(){
     document.querySelector('.modalEditMot').classList.remove('model')
     document.querySelector('.modalCadMot').classList.add('model')
+}
+
+function removeModelEditVei(){
+    document.querySelector('.modalEditVei').classList.remove('model')
+    document.querySelector('.modalCadVei').classList.add('model')
+}
+
+function removeModelEditOp(){
+    document.querySelector('.modalEditOp').classList.remove('model')
+    document.querySelector('.modalCadOp').classList.add('model')
 }
 
 function fechaModalzin(){
     document.querySelector('.modalEditMot').classList.add('model')
     document.querySelector('.modalCadMot').classList.remove('model')
+}
+function fechaModalzinEditVei(){
+    document.querySelector('.modalEditVei').classList.add('model')
+    document.querySelector('.modalCadVei').classList.remove('model')
+}
+
+function fechaModalzinEditOp(){
+    document.querySelector('.modalEditOp').classList.add('model')
+    document.querySelector('.modalCadOp').classList.remove('model')
 }

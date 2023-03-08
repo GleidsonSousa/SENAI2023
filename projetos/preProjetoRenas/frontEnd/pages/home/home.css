@@ -64,8 +64,7 @@ table {
 
 td{
     padding: 1.5%;
-    border-top:solid 3px rgb(255, 255, 255);
-    color: rgb(255, 255, 255);
+    /* border-top:solid 3px rgb(255, 255, 255); */
 }
 
 .tabelas{
@@ -73,20 +72,6 @@ td{
     flex-direction: wrap;
     width: 100%;
     height: 90%;
-}
-
-
-.tabelaMot , .tabelaVei, .tabelaOp, .tabelaManu{
-    color: rgb(255, 255, 255);
-    padding: 20px;
-    width: 100%;
-    height: 90%;
-    margin-top: 1.5%;
-    border-radius: 15px;
-    background-color: #424242;
-    box-shadow: 2.5px 3.4px 10px 2px rgba(147, 138, 138, 0.783);
-    overflow-y: scroll;
-
 }
 
 .total{
@@ -101,7 +86,7 @@ td{
     width: 100px;
 }
 #btn{
-    border-top: 3px solid white;
+    border-top: 3px solid rgb(0, 0, 0);
 }
 #novo-mot{
     display: flex;
@@ -145,9 +130,14 @@ td{
 ::-webkit-scrollbar-thumb {
     background: #dad7d7;
 }
-#editar, #excluir,#modalEx{
+#editar,#modalEx{
     background-color: transparent;
     border: none;
+}
+
+#excluirOp{
+    border: none;
+    background-color: transparent;
 }
 
 #img{
@@ -159,7 +149,105 @@ td{
     margin-top: -15%;
 }
 
-.modalCadMot, .modalCadVei, .modalCadOp, .modalCadManu,.modalEditMot{
+.tabelaVei td{
+    color: #060606;
+     border-top:solid 3px rgb(0, 0, 0);
+}
+
+.tabelaMot td{
+    color: #ffffff;
+     border-top:solid 3px rgb(255, 255, 255);
+}
+
+.tabelaOp td{
+    color: #000000;
+     border-top:solid 3px rgb(0, 0, 0);
+}
+
+.tabelaVei{
+    color: rgb(0, 0, 0);
+    padding: 20px;
+    width: 100%;
+    height: 90%;
+    margin-top: 1.5%;
+    border-radius: 15px;
+    background-color: #3fedad;
+    box-shadow: 2.5px 3.4px 10px 2px rgba(147, 138, 138, 0.783);
+    overflow-y: scroll;
+
+}
+
+.tabelaOp{
+    color: rgb(0, 0, 0);
+    padding: 20px;
+    width: 110%;
+    height: 90%;
+    margin-top: 1.5%;
+    border-radius: 15px;
+    background-color: #a09eff;
+    box-shadow: 2.5px 3.4px 10px 2px rgba(147, 138, 138, 0.783);
+    overflow-y: scroll;
+}
+
+
+.tabelaMot , .tabelaManu{
+    color: rgb(255, 255, 255);
+    padding: 20px;
+    width: 100%;
+    height: 90%;
+    margin-top: 1.5%;
+    border-radius: 15px;
+    background-color: #424242;
+    box-shadow: 2.5px 3.4px 10px 2px rgba(147, 138, 138, 0.783);
+    overflow-y: scroll;
+
+}
+
+.modalEditOp{
+    background-color:#a09eff;
+    width: 60%;
+    height: 100%;
+    border-radius: 15px;
+    margin-left: 3%;
+    margin-top: 1%;
+    color: rgb(0, 0, 0);
+    box-shadow: 1px 2px 10px 2px black;
+}
+
+.modalEditVei{
+    background-color: #3fedad;
+    width: 60%;
+    height: 100%;
+    border-radius: 15px;
+    margin-left: 3%;
+    margin-top: 1%;
+    color: rgb(0, 0, 0);
+    box-shadow: 1px 2px 10px 2px black;
+}
+
+
+.modalCadVei{
+    background-color: #3fedad;
+    width: 60%;
+    height: 95%;
+    border-radius: 15px;
+    margin-left: 3%;
+    margin-top: 1.5%;
+    color: rgb(0, 0, 0);
+    box-shadow: 1px 2px 10px 2px black;
+}
+.modalCadOp{
+    background-color:#a09eff;
+    width: 60%;
+    height: 95%;
+    border-radius: 15px;
+    margin-left: 3%;
+    margin-top: 1.5%;
+    color: rgb(0, 0, 0);
+    box-shadow: 1px 2px 10px 2px black;
+}
+
+.modalCadMot, .modalCadManu,.modalEditMot{
     background-color: #424242;
     width: 60%;
     height: 95%;
@@ -205,9 +293,10 @@ input{
     width: 50%;
     height: 30px;
     color: black;
+    box-shadow: 0px 0px 5.5px 0px black;
 }
 
-#enviaCadMot{
+#enviaCadMot, #enviaCadVei{
     display: flex;
     align-items: center;
     justify-content: center;
@@ -218,10 +307,16 @@ input{
     color: #000;
     border-radius: 15px;
     background-color: rgb(255, 255, 255);
+    box-shadow: 0px 0px 7.5px 0px black;
     margin-left: 35%;
     font-size: 20.5px;
     font-weight: bold;
     margin-top: 5%;
+}
+#enviaCadVei:hover{
+    background-color: black;
+    border: 5px solid black;
+    color: white;
 }
 
 #enviaCadMot:hover{
@@ -252,7 +347,7 @@ input{
     gap: 300px;
 }
 
-#excluir{
+#excluir, #deletarOp, #deletarVei {
     background-color: #ffffff;
     color: #000000;
     border-radius: 15px;
@@ -274,7 +369,7 @@ input{
     height: 50px;
 }
 
-#editarMot,#excluirVei,#editarVei{
+#editarMot,#excluirVei,#editarVei,#editarOp{
     background-color: transparent;
     border: none;
 
@@ -293,7 +388,11 @@ input{
     cursor: pointer;
 }
 
+
+
+
 .inputz{
+    margin-top: -2%;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -318,9 +417,22 @@ input{
 #btnFechaModalzin:hover{
     cursor: pointer;
     background-color: transparent;
+
 }
 
-#enviaEditMot{
+#btnDetalOp{
+    border-radius: 15px;
+    font-size: 20px;
+    width: 100px;
+    height: 30px;
+    color: #F4F4F4;
+    border: none;
+    
+    font-weight: bold;
+    background-color: black;
+}
+
+#enviaEditMot, #enviaEditVei{
     margin-top: 4%;
     width: 200px;
     margin-left: 35%;
@@ -346,4 +458,12 @@ input{
     width: 100vw;
     height: 100vh;
     background-color: rgba(255, 255, 255, 0.753);
+}
+
+textarea{
+    padding: 1.5%;
+    font-size: 20px;
+    width: 500px;
+    height: 150px;
+    background-color: #F4F4F4;
 }
