@@ -85,6 +85,7 @@ function preencherMot() {
          linha.querySelector('#idMot').innerHTML = m.id
          linha.querySelector('#nomeMot').innerHTML = m.nome
          linha.querySelector('#cnhMot').innerHTML = m.cnh
+         linha.querySelector('#statusMot').innerHTML = m.status
 
         linha.querySelector('#modalEx').addEventListener("click", () =>  {
             modalCer()
@@ -164,6 +165,8 @@ function preencherManu() {
     })
 }
 
+const btnEditOp = document.querySelector('#enviaEditOp')
+
 function preencherOp() {
 
     op.forEach(o => {
@@ -185,15 +188,27 @@ function preencherOp() {
 
         linha.querySelector('#editarOp').addEventListener('click', () => {
             removeModelEditOp()
-            btnEditVei.onclick = () => {editarOp(o.id)
-            console.log('a')}
-            document.querySelector('#placaEdit').value = o.placa
-            document.querySelector('#modeloEdit').value = v.modelo
-            document.querySelector('#tipoEdit').value = v.tipo
-            document.querySelector('#marcaEdit').value = v.marca
+            btnEditOp.onclick = () => {editarOp(o.id)
+            }
+            document.querySelector('#veiculoEditOp').value = o.id_veiculo
+            document.querySelector('#motoristaEditOp').value = o.id_motorista
+            document.querySelector('#descOpEdit').value = o.descricao
 
         })
-    
+        
+        linha.querySelector('#btnDetalOp').addEventListener('click', () => {
+            removerModelDetal()
+            document.querySelector('#detalIdOp').innerHTML = o.id
+            document.querySelector('#detalIdMot').innerHTML = o.id_motorista
+            document.querySelector('#detalNomeMot').innerHTML = o.motorista.nome
+            document.querySelector('#detalIdVei').innerHTML = o.id_veiculo
+            document.querySelector('#detalPlacaVei').innerHTML = o.veiculo.placa
+            document.querySelector('#detalSaida').innerHTML = o.data_saida.slice(0,10)
+            document.querySelector('#detalRetorno').innerHTML = o.data_retorno != null ? o.data_retorno.slice(0,10) : innerHTML="Em execução..."
+            document.querySelector('#descOpRead').value = o.descricao
+
+        })
+
         listaOp.appendChild(linha)
 
     })
@@ -212,7 +227,7 @@ function cadastraMotorista(){
         "cpf": cpf,
         "cnh": cnh,
         "nome": nome,
-        "status": "Ativo",
+        "status": "Disponível",
     }
     const options = {
         method: 'POST',
@@ -401,7 +416,32 @@ function editarVei(id){
     }
 }
 function editarOp(id){
+    let body = {
+        'id_motorista': document.querySelector('#motoristaEditOp').value,
+        'id_veiculo':document.querySelector('#veiculoEditOp').value,
+        'descricao':document.querySelector('#descOpEdit').value
 
+    }
+    const options = {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+    }
+    options.body = JSON.stringify(body)
+    if (body.id_veiculo.length > 0 && body.id_motorista.length > 0 && body.descricao.length > 0) {
+        fetch('http://localhost:3000/operacao/'+id, options)
+            .then(resp => resp.status)
+            .then(data => {
+                if (data == 200) {
+                    alert('DEU BOM')
+                    setTimeout(() => { window.location.reload() }, 500);
+                    
+                } else {
+                    
+                }
+            })
+    } else {
+        alert("Preencha todos os campos obrigatórios ❗")
+    }
 }
 
 // Funções de Remover :D
@@ -561,4 +601,11 @@ function fechaModalzinEditVei(){
 function fechaModalzinEditOp(){
     document.querySelector('.modalEditOp').classList.add('model')
     document.querySelector('.modalCadOp').classList.remove('model')
+}
+
+ function fecharDetal(){
+    document.querySelector('.detalhesOp').classList.add('model')
+}
+function removerModelDetal(){
+    document.querySelector('.detalhesOp').classList.remove('model')
 }

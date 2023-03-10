@@ -17,17 +17,17 @@
             AgroTech
         </div>
         <div class="options">
-            <div><a href="../home/home.html">Home</a></div>
-            <div><a href="../dashboard/dashboard.html">Dashboard</a></div>            
-            <div><a href="../login/login.html">Logout</a><i class="far fa-togoout icon-modify"></i></div>
+            <div><a class="aHead" href="../home/home.html">Home</a></div>
+            <div><a class="aHead" href="../dashboard/dashboard.html">Dashboard</a></div>            
+            <div><a class="aHead" href="../login/login.html">Logout</a><i class="far fa-togoout icon-modify"></i></div>
         </div>
     </header>
     <main class="prin">
         <header class="headerMain">
             <nav>
                 <ul>
-                    <li onclick="modalMot()"><img id="icon" src="../../assets/motorista.png" alt="Motoristas"> MOTORISTAS</li>
-                    <li  onclick="modalVei()"><img id="icon" src="../../assets/veiculo.png" alt="Veículos">VEÍCULOS</li>
+                    <a class="aNavmain" href="./motorista/motoristas.html"><li><img id="icon" src="../../assets/motorista.png" alt="Motoristas"> MOTORISTAS</li></a>
+                    <a href="./veiculo/veiculo.html"><li><img id="icon" src="../../assets/veiculo.png" alt="Veículos">VEÍCULOS</li></a>
                     <li onclick="modalOp()"><img id="icon" src="../../assets/op.png" alt="Operações">OPERAÇÕES</li>
                     <li onclick="modalManu()"><img id="icon" src="../../assets/manutencao.png" alt="Manutenção">MANUTENÇÕES</li>
                 </ul>
@@ -71,46 +71,6 @@
                 </table>
                 
             </div>
-            <div class="tabelaVei model">
-                <div class="textTab">
-                    <h1>TABELA DE VEÍCULOS </h1>
-                </div>
-                <table>
-                    <thead >
-                        <tr>
-                            <th>ID</th>
-                            <th>PLACA</th>
-                            <th>MODELO</th>
-                            <th>MARCA</th>
-                            <th>TIPO</th>
-                            <th>STATUS</th>
-                        </tr>
-                    </thead>
-                    <tbody id="lista-veiculos">
-                        <tr class="linhamodeloVei model ">
-                            <td id="idVei">A</td>
-                            <td id="placaVei">A</td>
-                            <td id="modeloVei">A</td>
-                            <td id="marcaVei">Ativo</td>
-                            <td id="tipoVei">Ativo</td>
-                            <td id="statusVei">Ativo</td>
-                            <td><button title="Excluir veículo" id="excluirVei"><img id="img" src="../../assets/excluir.png" alt="excluir"></button></td>
-                            <td><button title="Editar veículo" id="editarVei"><img id="img" src="../../assets/icons8-editar-propriedade-64.png" alt="editar"></button></td>
-                            <div class="model ainVei">
-                                <div class="SEILA ">
-                                    <button title="Fechar" onclick="modalVeiex2()" id="fechamod"><img src="../../assets/icons8-fechar-janela-64.png" alt=""></button>
-                                    <h1 id="motAviso">TEM CERTEZA QUE DEJESA DELETAR ESSE VEÍCULO? <p><span id="idVeiculin"></span> <span id="placaVeiculin"></span>.</p></h1>
-                                    <div class="btnsmode">
-                                    <button id="deletarVei" title="Exclui veiculo" >DELETAR</button>
-                                    <button title="Cancelar ação" onclick="modalVeiex2()" id="cancelinha">CANCELAR</button>
-                                    </div>
-                                    
-                                </div>
-                            </div>
-                    </tbody>
-                </table>
-                
-            </div>
             <div class="tabelaOp  model">
                 <div class="textTab">
                     <h1>TABELA DE OPERAÇÕES </h1>
@@ -138,12 +98,27 @@
                                     <button title="Fechar" onclick="modalOpex2()" id="fechamod"><img src="../../assets/icons8-fechar-janela-64.png" alt=""></button>
                                     <h1 id="motAviso">TEM CERTEZA QUE DEJESA DELETAR ESSE VEÍCULO? <p><span id="idOpzin"></span> <span id="placaVelin"></span>.</p></h1>
                                     <div class="btnsmode">
-                                    <button id="deletarOp" title="Exclui operação" >DELETAR</button>
-                                    <button title="Cancelar ação" onclick="modalOpex2()" id="cancelinha">CANCELAR</button>
+                                        <button id="deletarOp" title="Exclui operação" >DELETAR</button>
+                                        <button title="Cancelar ação" onclick="modalOpex2()" id="cancelinha">CANCELAR</button>
                                     </div>
+                                </div>
                             </div>
-                            
-                                
+                            <div class="detalhesOp model">
+                                <div class="divDetals">
+                                    <div class="detals">
+                                        <button onclick="fecharDetal()" title="fechar" id="fechaDetal"><img src="../../assets/icons8-fechar-janela-64.png" alt=""></button>
+                                        <h1 id="detalhesh1">DETALHES DA OPERAÇÃO</h1>
+                                        <p >Id:ﾠ<span id="detalIdOp">5</span></p>
+                                        <p >Id Motorista/Nome:ﾠ<span id="detalIdMot">1</span>ﾠ<span id="detalNomeMot">5</span></p>
+                                        <p >Id Veículo/Placa:ﾠ<span id="detalIdVei">5</span>ﾠ<span id="detalPlacaVei"> 5</span></p>
+                                        <p >Saída:ﾠ<span id="detalSaida">2023-03-10</span></p>
+                                        <p >Retorno:ﾠ<span id="detalRetorno">2023-03-11</span></p>
+                                        <div class="descOp">
+                                            <h1 id="detalhesDesc">DESCRIÇÃO</h1>
+                                            <textarea id="descOpRead" disabled placeholder="">SKKDAJSAKDSKADKS JADKASKDKASJDAKSKDS  KADJASKDKASJDSJADKS</textarea>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </tr>
                         
@@ -169,7 +144,7 @@
                             <td id="placaManu">A</td>
                             <td id="inicioM">A</td>
                             <td id="fimM">Ativo</td>
-                            <td id="btn"><button>Detalhes</button></td>
+                            <td id="btn"><button id="btnDetalManu">Detalhes</button></td>
                             <td><button id="excluir"><img id="img" src="../../assets/excluir.png" alt="excluir"></button></td>
                             <td><button id="editar"><img id="img" src="../../assets/icons8-editar-propriedade-64.png" alt="editar"></button></td>
                         </tr>
@@ -189,20 +164,6 @@
                     </form>
                     <button title="Envia os dados :D" onclick="cadastraMotorista()" id="enviaCadMot">ENVIAR</button>
                 </div>
-                <div class="modalCadVei model">
-                    <div class="textbtn">
-                        <h1>Cadastro de Veículos</h1>
-                    </div>
-                    <form action="" method="post">
-                        <h1 class="digite">Digite as informações:</h1>
-                        <input type="text" placeholder="placa..." id="placaInp">
-                        <input type="text" placeholder="modelo..."  id="modeloInp">
-                        <input type="text" placeholder="marca..."  id="marcaInp">
-                        <input type="text" placeholder="tipo..."  id="tipoInp">
-
-                    </form>
-                    <button title="Envia os dados :D" onclick="cadastraVeiculo()" id="enviaCadVei">ENVIAR</button>
-                </div>
                 <div class="modalCadOp model ">
                     <div class="textbtn">
                         <h1>Cadastro de Operações</h1>
@@ -211,7 +172,7 @@
                         <h1 class="digite">Digite as informações:</h1>
                         <input type="number" placeholder="id_motorista..." id="idMotOp">
                         <input type="number" placeholder="id_veiculo..."  id="idVeiOp">
-                        <textarea id="descOpInp" placeholder="Descreva a operação aqui..."></textarea>
+                        <textarea id="descOpInp" class="textarea" placeholder="Descreva a operação aqui..."></textarea>
                     </form>
                     <button title="Envia os dados :D" onclick="cadastraOperacao()" id="enviaCadMot">ENVIAR</button>
                 </div>
@@ -250,33 +211,6 @@
                     </form>
                     <button title="Envia os dados :D" id="enviaEditMot">ENVIAR</button>
                 </div>
-                <div class="modalEditVei model ">
-                    <div class="textbtn2">
-                        <h1>Editar  Veículo</h1>
-                        <button onclick="fechaModalzinEditVei()" id="btnFechaModalzin">X</button>
-                    </div>
-                    <form action="" method="post">
-                        <h1 class="digite">Digite as informações:</h1>
-                        <div class="inputz">
-                            <h1>PLACA</h1>
-                            <input type="text" id="placaEdit">
-                        </div>
-                       <div class="inputz">
-                            <h1>MODELO</h1>
-                            <input type="text"   id="modeloEdit">
-                       </div>
-                       <div class="inputz">
-                            <h1>MARCA</h1>
-                            <input type="text"   id="marcaEdit">
-                       </div>
-                       <div class="inputz">
-                            <h1>TIPO</h1>
-                            <input type="text"   id="tipoEdit">
-                        </div>
-                        
-                    </form>
-                    <button title="Envia a Edit :D" id="enviaEditVei">ENVIAR</button>
-                </div>
                 <div class="modalEditOp model ">
                     <div class="textbtn2">
                         <h1>Editar  Operação</h1>
@@ -286,19 +220,19 @@
                         <h1 class="digite">Digite as informações:</h1>
                         <div class="inputz">
                             <h1>ID MOTORISTA</h1>
-                            <input type="text" id="placaEdit">
+                            <input type="text" id="veiculoEditOp">
                         </div>
                        <div class="inputz">
                             <h1>ID VEÍCULO</h1>
-                            <input type="text"   id="modeloEdit">
+                            <input type="text"   id="motoristaEditOp">
                        </div>
                        <div class="inputz">
                             <h1>DESCRIÇÃO</h1>
-                            <textarea id="descOpInp" placeholder="Descreva a operação aqui..."></textarea>
+                            <textarea class="textarea" id="descOpEdit" placeholder="Descreva a operação aqui..."></textarea>
                         </div>
                         
                     </form>
-                    <button title="Envia a Edit :D" id="enviaEditVei">ENVIAR</button>
+                    <button title="Envia a Edit :D" id="enviaEditOp">ENVIAR</button>
                 </div>
         </div>
         

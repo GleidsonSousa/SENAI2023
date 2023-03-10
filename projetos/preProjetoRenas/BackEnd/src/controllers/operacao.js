@@ -43,11 +43,14 @@ const read = async (req, res) => {
 
 
 const update = async (req, res) => {
+    var info = req.body
+    req.body.id_motorista = Number(req.body.id_motorista)
+    req.body.id_veiculo = Number(req.body.id_veiculo)
     const operacao = await prisma.operacao.update({
         where: {
             id: Number(req.params.id)
         },
-        data: req.body
+        data: info
     })
 
     res.status(200).json(operacao).end()

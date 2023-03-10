@@ -20,6 +20,7 @@ const readOne = async (req, res) => {
             nome: true,
             cnh: true,
             cpf:true,
+            status:true,
             operacoes: true
         }
     });
@@ -34,6 +35,7 @@ const read = async (req, res) => {
             nome: true,
             cnh: true,
             cpf:true,
+            status:true,
             operacoes: true
         }
     });
