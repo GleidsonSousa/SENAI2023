@@ -38,27 +38,11 @@ ul{
     font-size: 35px;
 }
 
-li{
-    display: flex;
-    align-items: center;
-    gap: 7.5px;
-    list-style: none;
-    color: black;
-    font-weight: bold;
-}
 
 #icon{
     width: 50px;
 }
 
-li:hover{
-    cursor: pointer;
-    transition: 0.2s;
-    border: 15px solid black;
-    background-color: black;
-    color: white;
-    border-radius: 50px;
-}
 
 table {
     text-align: center;
@@ -159,31 +143,7 @@ td{
      border-top:solid 3px rgb(0, 0, 0);
 }
 
-.tabelaMot td{
-    color: #ffffff;
-     border-top:solid 3px rgb(255, 255, 255);
-}
 
-.tabelaOp td{
-    color: #000000;
-     border-top:solid 3px rgb(0, 0, 0);
-}
-
-.tabelaManu{
-    color: rgb(255, 255, 255);
-    padding: 20px;
-    width: 100%;
-    height: 90%;
-    margin-top: 1.5%;
-    border-radius: 15px;
-    background-color: #ff3a3a;
-    box-shadow: 2.5px 3.4px 10px 2px rgba(147, 138, 138, 0.783);
-    overflow-y: scroll;
-}
-
-.tabelaManu td{
-     border-top:solid 3px rgb(241, 241, 241);
-}
 
 
 .tabelaVei{

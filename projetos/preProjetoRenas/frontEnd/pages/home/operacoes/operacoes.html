@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../../../assets/pagina-inicial.png" type="image/x-icon">
+    <link rel="stylesheet" href="./opeoracoes.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+        integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+    <title>HOME</title>
+</head>
+<body onload="onLoad()">
+    <header>
+        <div><img id="logo" src="../../../assets/logo.png" alt="Logo AgroTech"></div>
+        <div class="logo">
+            AgroTech
+        </div>
+        <div class="options">
+            <div><a class="aHead" href="../../home/home.html">Home</a></div>
+            <div><a class="aHead" href="../../dashboard/dashboard.html">Dashboard</a></div>            
+            <div><a class="aHead" href="../../login/login.html">Logout</a><i class="far fa-togoout icon-modify"></i></div>
+        </div>
+    </header>
+    <main class="prin">
+        <header class="headerMain">
+            <nav>
+                <ul>
+                    <a class="aNavmain" href="../home.html"><li id="liMot"><img id="icon" src="../../../assets/motorista.png" alt="Motoristas"> MOTORISTAS</li></a>
+                    <a class="aNavmain" href="../veiculo/veiculo.html"><li id="liVei"><img id="icon" src="../../../assets/veiculo.png" alt="Veículos">VEÍCULOS</li></a>
+                    <a class="aNavmain" href="./operacoes.html"><li id="liOp"><img id="icon" src="../../../assets/op.png" alt="Operações">OPERAÇÕES</li></a>
+                    <a class="aNavmain" href=""><li id="liManu"><img id="icon" src="../../../assets/manutencao.png" alt="Manutenção">MANUTENÇÕES</li></a>
+                </ul>
+            </nav>
+        </header>
+        <div class="tabelas ">
+            <div class="tabelaOp ">
+                <div class="textTab">
+                    <h1>TABELA DE OPERAÇÕES </h1>
+                </div>
+                <table>
+                    <thead >
+                        <tr>
+                            <th>ID</th>
+                            <th>MOTORISTA</th>
+                            <th>VEÍCULO</th>
+                            <th>SAÍDA</th>
+                        </tr>
+                    </thead>
+                    <tbody id="lista-operacoes">
+                        <tr class="linhamodeloOp model  ">
+                            <td id="idOp">A</td>
+                            <td id="nomeOp">A</td>
+                            <td id="placaOp">A</td>
+                            <td id="saidaOp">Ativo</td>
+                            <td id="btn"><button title="Mostrar detalhes" id="btnDetalOp">Detalhes</button></td>
+                            <td><button id="excluirOp"><img id="img" src="../../../assets/excluir.png" alt="excluir"></button></td>
+                            <td><button id="editarOp"><img id="img" src="../../../assets/icons8-editar-propriedade-64.png" alt="editar"></button></td>
+                            <div class="ainOp model">
+                                <div class="SEILA ">
+                                    <button title="Fechar" onclick="modalOpex2()" id="fechamod"><img src="../../../assets/icons8-fechar-janela-64.png" alt=""></button>
+                                    <h1 id="motAviso">TEM CERTEZA QUE DEJESA DELETAR ESSE VEÍCULO? <p><span id="idOpzin"></span> <span id="placaVelin"></span>.</p></h1>
+                                    <div class="btnsmode">
+                                        <button id="deletarOp" title="Exclui operação" >DELETAR</button>
+                                        <button title="Cancelar ação" onclick="modalOpex2()" id="cancelinha">CANCELAR</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="detalhesOp model">
+                                <div class="divDetals">
+                                    <div class="detals">
+                                        <button onclick="fecharDetal()" title="fechar" id="fechaDetal"><img src="../../../assets/icons8-fechar-janela-64.png" alt=""></button>
+                                        <h1 id="detalhesh1">DETALHES DA OPERAÇÃO</h1>
+                                        <p >Id:ﾠ<span id="detalIdOp">5</span></p>
+                                        <p >Id Motorista/Nome:ﾠ<span id="detalIdMot">1</span>ﾠ<span id="detalNomeMot">5</span></p>
+                                        <p >Id Veículo/Placa:ﾠ<span id="detalIdVei">5</span>ﾠ<span id="detalPlacaVei"> 5</span></p>
+                                        <p >Saída:ﾠ<span id="detalSaida">2023-03-10</span></p>
+                                        <p >Retorno:ﾠ<span id="detalRetorno">2023-03-11</span></p>
+                                        <div class="descOp">
+                                            <h1 id="detalhesDesc">DESCRIÇÃO</h1>
+                                            <textarea id="descOpRead" disabled placeholder="">SKKDAJSAKDSKADKS JADKASKDKASJDAKSKDS  KADJASKDKASJDSJADKS</textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </tr>
+                        
+                    </tbody>
+                </table>
+            </div>
+           
+                <div class="modalCadOp ">
+                    <div class="textbtn">
+                        <h1>Cadastro de Operações</h1>
+                    </div>
+                    <form action="" method="post">
+                        <h1 class="digite">Digite as informações:</h1>
+                        <div class="divSelectVei">
+                            <label for="cars">Selecione o Motorista</label>
+                            <select name="motorista" id="selectMot">
+                                <option value="">...</option>
+                            </select>
+                        </div>
+                        <div class="divSelectMot">
+                            <label for="">Selecione o Veículo</label>
+                            <select name="" id="selectVei">
+                                <option value="Selecione um veiculo">...</option>
+                            </select>
+                        </div>
+                        <textarea id="descOpInp" class="textarea" placeholder="Descreva a operação aqui..."></textarea>
+                    </form>
+                    <button title="Envia os dados :D" onclick="cadastraOperacao()" id="enviaCadMot">ENVIAR</button>
+                </div>
+                <div class="modalEditOp model ">
+                    <div class="textbtn2">
+                        <h1>Editar  Operação</h1>
+                        <button onclick="fechaModalzinEditOp()" id="btnFechaModalzin">X</button>
+                    </div>
+                    <form action="" method="post">
+                        <h1 class="digite">Digite as informações:</h1>
+                        <div class="inputz">
+                            <h1>ID MOTORISTA</h1>
+                            <input type="text" id="veiculoEditOp">
+                        </div>
+                       <div class="inputz">
+                            <h1>ID VEÍCULO</h1>
+                            <input type="text"   id="motoristaEditOp">
+                       </div>
+                       <div class="inputz">
+                            <h1>DESCRIÇÃO</h1>
+                            <textarea class="textarea" id="descOpEdit" placeholder="Descreva a operação aqui..."></textarea>
+                        </div>
+                        
+                    </form>
+                    <button title="Envia a Edit :D" id="enviaEditOp">ENVIAR</button>
+                </div>
+        </div>
+        
+    </main>
+</body>
+<script src="./operacao.js"></script>
+</html>

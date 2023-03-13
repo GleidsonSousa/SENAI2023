@@ -33,7 +33,7 @@ function preencherVei() {
         linha.querySelector('#modeloVei').innerHTML = v.modelo
         linha.querySelector('#marcaVei').innerHTML = v.marca
         linha.querySelector('#tipoVei').innerHTML = v.tipo
-        linha.querySelector('#statusVei').innerHTML =  v.disponibilidade = true ? innerHTML="Disponível" : innerHTML="Indisponível"
+        linha.querySelector('#statusVei').innerHTML =  v.disponibilidade
 
         linha.querySelector('#excluirVei').addEventListener("click", () =>  {
             modalVeiex()
@@ -72,7 +72,9 @@ function cadastraVeiculo(){
         "placa": placa,
         "modelo": modelo,
         "marca": marca,
-        "tipo": tipo
+        "tipo": tipo,
+        "disponibilidade":"Disponível"
+
     }
     const options = {
         method: 'POST',

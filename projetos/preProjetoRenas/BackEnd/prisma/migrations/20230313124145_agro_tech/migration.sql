@@ -15,6 +15,7 @@ CREATE TABLE `Motorista` (
     `cpf` VARCHAR(191) NOT NULL,
     `cnh` VARCHAR(191) NOT NULL,
     `nome` VARCHAR(191) NOT NULL,
+    `status` VARCHAR(191) NOT NULL,
 
     UNIQUE INDEX `Motorista_cpf_key`(`cpf`),
     UNIQUE INDEX `Motorista_cnh_key`(`cnh`),
@@ -28,7 +29,7 @@ CREATE TABLE `Veiculo` (
     `modelo` VARCHAR(191) NOT NULL,
     `marca` VARCHAR(191) NOT NULL,
     `tipo` VARCHAR(191) NOT NULL,
-    `disponivel` BOOLEAN NOT NULL DEFAULT true,
+    `disponibilidade` VARCHAR(191) NOT NULL DEFAULT 'Disponível',
 
     UNIQUE INDEX `Veiculo_placa_key`(`placa`),
     PRIMARY KEY (`id`)

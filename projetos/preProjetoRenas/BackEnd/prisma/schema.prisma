@@ -33,7 +33,7 @@ model Veiculo {
   modelo      String
   marca       String
   tipo        String 
-  disponibilidade  Boolean      @default(true)
+  disponibilidade  String    
   manutencoes Manutencao[]
   operacoes   Operacao[]
 }

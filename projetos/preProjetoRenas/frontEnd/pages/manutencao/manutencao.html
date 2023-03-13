@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../../assets/pagina-inicial.png" type="image/x-icon">
+    <link rel="stylesheet" href="./manutencao.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+        integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+    <title>HOME</title>
+</head>
+<body onload="onLoad()">
+    <header>
+        <div><img id="logo" src="../../assets/logo.png" alt="Logo AgroTech"></div>
+        <div class="logo">
+            AgroTech
+        </div>
+        <div class="options">
+            <div><a class="aHead" href="../home/home.html">Home</a></div>
+            <div><a class="aHead" href="../dashboard/dashboard.html">Dashboard</a></div>            
+            <div><a class="aHead" href="../login/login.html">Logout</a><i class="far fa-togoout icon-modify"></i></div>
+        </div>
+    </header>
+    <main class="prin">
+        <header class="headerMain">
+            <nav>
+                <ul>
+                    <a class="aNavmain" href="../home/home.html"><li id="liMot"><img id="icon" src="../../assets/motorista.png" alt="Motoristas"> MOTORISTAS</li></a>
+                    <a class="aNavmain" href="../home/veiculo/veiculo.html"><li id="liVei"><img id="icon" src="../../assets/veiculo.png" alt="Veículos">VEÍCULOS</li></a>
+                    <a class="aNavmain" href="../home/operacoes/operacoes.html"><li id="liOp"><img id="icon" src="../../assets/op.png" alt="Operações">OPERAÇÕES</li></a>
+                    <a class="aNavmain" href=""><li id="liManu"><img id="icon" src="../../assets/manutencao.png" alt="Manutenção">MANUTENÇÕES</li></a>
+                </ul>
+            </nav>
+        </header>
+        <div class="tabelas ">
+            <div class="tabelaManu">
+                <div class="textTab">
+                    <h1>TABELA DE MANUTENÇÕES </h1>
+                </div>
+                <table>
+                    <thead >
+                        <tr>
+                            <th>ID</th>
+                            <th>VEÍCULO</th>
+                            <th>INÍCIO</th>
+                            <th>FIM</th>
+                        </tr>
+                    </thead>
+                    <tbody id="lista-manutencoes">
+                        <tr class="linhamodeloM model  ">
+                            <td id="idManu">A</td>
+                            <td id="placaManu">A</td>
+                            <td id="inicioM">A</td>
+                            <td id="fimM">Ativo</td>
+                            <td id="btn"><button id="btnDetalManu">Detalhes</button></td>
+                            <td><button id="excluir"><img id="img" src="../../assets/excluir.png" alt="excluir"></button></td>
+                            <td><button id="editar"><img id="img" src="../../assets/icons8-editar-propriedade-64.png" alt="editar"></button></td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+            </div>
+                <div class="modalCadManu  ">
+                    <div class="textbtn">
+                        <h1>Cadastro de Manutenções</h1>
+                    </div>
+                    <form action="" method="post">
+                        <h1 class="digite">Digite as informações:</h1>
+                        <input type="text" placeholder="Valor..." id="valorInp">
+                        <input type="text" placeholder="Descrição..."  id="descInpManu">
+                        <input type="text" placeholder="nome..."  id="idVeiManuInp">
+                    </form>
+                    <button title="Envia os dados :D" onclick="cadastraManutencao()" id="enviaCadMot">ENVIAR</button>
+                </div>
+        </div>
+        
+    </main>
+</body>
+<script src="manutencao.js"></script>
+</html>
