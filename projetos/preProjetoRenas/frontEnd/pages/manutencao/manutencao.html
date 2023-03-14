@@ -4,11 +4,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="../../assets/pagina-inicial.png" type="image/x-icon">
+    <link rel="shortcut icon" href="../../assets/manutencao.png" type="image/x-icon">
     <link rel="stylesheet" href="./manutencao.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
         integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
-    <title>HOME</title>
+    <title>MANUTENÇÃO</title>
 </head>
 <body onload="onLoad()">
     <header>
@@ -27,9 +27,9 @@
             <nav>
                 <ul>
                     <a class="aNavmain" href="../home/home.html"><li id="liMot"><img id="icon" src="../../assets/motorista.png" alt="Motoristas"> MOTORISTAS</li></a>
-                    <a class="aNavmain" href="../home/veiculo/veiculo.html"><li id="liVei"><img id="icon" src="../../assets/veiculo.png" alt="Veículos">VEÍCULOS</li></a>
-                    <a class="aNavmain" href="../home/operacoes/operacoes.html"><li id="liOp"><img id="icon" src="../../assets/op.png" alt="Operações">OPERAÇÕES</li></a>
-                    <a class="aNavmain" href=""><li id="liManu"><img id="icon" src="../../assets/manutencao.png" alt="Manutenção">MANUTENÇÕES</li></a>
+                    <a class="aNavmain" href="../veiculo/veiculo.html"><li id="liVei"><img id="icon" src="../../assets/veiculo.png" alt="Veículos">VEÍCULOS</li></a>
+                    <a class="aNavmain" href="../operacoes/operacoes.html"><li id="liOp"><img id="icon" src="../../assets/op.png" alt="Operações">OPERAÇÕES</li></a>
+                    <a class="aNavmain" href="./manutencao.html"><li id="liManu"><img id="icon" src="../../assets/manutencao.png" alt="Manutenção">MANUTENÇÕES</li></a>
                 </ul>
             </nav>
         </header>
@@ -54,8 +54,34 @@
                             <td id="inicioM">A</td>
                             <td id="fimM">Ativo</td>
                             <td id="btn"><button id="btnDetalManu">Detalhes</button></td>
-                            <td><button id="excluir"><img id="img" src="../../assets/excluir.png" alt="excluir"></button></td>
+                            <td><button id="excluirMod"><img id="img" src="../../assets/excluir.png" alt="excluir"></button></td>
                             <td><button id="editar"><img id="img" src="../../assets/icons8-editar-propriedade-64.png" alt="editar"></button></td>
+                            <div class="ainManu model">
+                                <div class="SEILA">
+                                    <button title="Fechar" onclick="modalManuex2()" id="fechamod"><img src="../../assets/icons8-fechar-janela-64.png" alt=""></button>
+                                    <h1 id="motAviso">TEM CERTEZA QUE DEJESA DELETAR ESSA MANUTENÇÃO? <p><span id="idManu"></span> <span id="placaVelin"></span>.</p></h1>
+                                    <div class="btnsmode">
+                                        <button id="deletarManu" title="Exclui Manutenção" >DELETAR</button>
+                                        <button title="Cancelar ação" onclick="modalManuex2()" id="cancelinha">CANCELAR</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="detalhesOp model ">
+                                <div class="divDetals">
+                                    <div class="detals">
+                                        <button onclick="fecharDetal()" title="fechar" id="fechaDetal"><img src="../../assets/icons8-fechar-janela-64.png" alt=""></button>
+                                        <h1 id="detalhesh1">DETALHES DA MANUTENÇÃO</h1>
+                                        <p >Id:ﾠ<span id="detalIdOp">5</span></p>
+                                        <p >Id Veículo/Placa:ﾠ<span id="detalIdVei">5</span>ﾠ<span id="detalPlacaVei"> 5</span></p>
+                                        <p >Saída:ﾠ<span id="detalSaida">2023-03-10</span></p>
+                                        <p >Retorno:ﾠ<span id="detalRetorno">2023-03-11</span></p>
+                                        <div class="descOp">
+                                            <h1 id="detalhesDesc">DESCRIÇÃO</h1>
+                                            <textarea id="descOpRead" disabled placeholder="">SKKDAJSAKDSKADKS JADKASKDKASJDAKSKDS  KADJASKDKASJDSJADKS</textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </tr>
                     </tbody>
                 </table>
@@ -67,9 +93,15 @@
                     </div>
                     <form action="" method="post">
                         <h1 class="digite">Digite as informações:</h1>
-                        <input type="text" placeholder="Valor..." id="valorInp">
-                        <input type="text" placeholder="Descrição..."  id="descInpManu">
-                        <input type="text" placeholder="nome..."  id="idVeiManuInp">
+                        
+                        <div class="divSelectMot">
+                            <label for="">Selecione o Veículo</label>
+                            <select name="" id="idVeiManuInp">
+                                <option value="Selecione um veiculo">...</option>
+                            </select>
+                        </div>                   
+                        <input type="text" placeholder="R$..." id="valorInp">
+                        <textarea name="" id="descInpManu" cols="50" rows="10"></textarea>
                     </form>
                     <button title="Envia os dados :D" onclick="cadastraManutencao()" id="enviaCadMot">ENVIAR</button>
                 </div>

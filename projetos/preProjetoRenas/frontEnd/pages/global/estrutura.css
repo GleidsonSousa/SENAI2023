@@ -104,9 +104,17 @@ li{
 }
 
 #liOp:hover{
-    color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
     cursor: pointer;
     transition: 0.2s;
-    border: 15px solid  #a09eff;
-    background-color: #a09eff;
+    border: 15px solid  #5956fb;
+    background-color: #5956fb;
+}
+
+#liManu:hover{
+    color: rgb(255, 255, 255);
+    cursor: pointer;
+    transition: 0.2s;
+    border: 15px solid  #ff3a3a;
+    background-color: #ff3a3a ;
 }

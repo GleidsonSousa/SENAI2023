@@ -126,7 +126,7 @@ function preencherOp() {
             document.querySelector('#detalIdVei').innerHTML = o.id_veiculo
             document.querySelector('#detalPlacaVei').innerHTML = o.veiculo.placa
             document.querySelector('#detalSaida').innerHTML = o.data_saida.slice(0,10)
-            document.querySelector('#detalRetorno').innerHTML = o.data_retorno != null ? o.data_retorno.slice(0,10) : innerHTML="Em execução..."
+            document.querySelector('#detalRetorno').innerHTML = o.data_retorno != null ? o.data_retorno.slice(0,10) : innerHTML="Em realização..."
             document.querySelector('#descOpRead').value = o.descricao
 
         })

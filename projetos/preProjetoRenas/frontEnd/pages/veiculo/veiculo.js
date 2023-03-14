@@ -145,6 +145,40 @@ function removerVei(id ){
 }
 
 
+var textoPlate = document.querySelector("#placaInp");
+var resposta1 = document.querySelector("#avisoPlaca");
+
+textoPlate.addEventListener("keyup", validarPlaca);
+
+
+
+function validarPlaca() {
+
+
+    resposta1.style.color="red"
+    var Result = "ERRO [01], Placa inválida.";
+    resposta1.classList.remove('.model')
+
+
+    const VerifyPlates = /^[a-zA-Z]{3}[0-9]{4}$/;
+    const VerifyNewFormat = /^[a-zA-Z]{3}[0-9]{1}[a-zA-Z]{1}[0-9]{2}$/;
+
+    if (VerifyPlates.test(textoPlate.value)) {
+
+        Result = "Placa válida no formato antigo.";
+        resposta1.classList.remove('.model')
+
+        resposta1.style.color="green"
+    } else if (VerifyNewFormat.test(textoPlate.value)) {
+      resposta1.style.color="green"
+      resposta1.classList.remove('.model')
+        Result = "Placa válida (Novo formato padrão Mercosul).";
+    }
+        
+   resposta1.textContent = Result;
+    
+
+}
 
 function modalCer(){
     document.querySelector('.ain').classList.remove('model')
@@ -156,33 +190,14 @@ function modalVeiex(){
 function modalVeiex2(){
     document.querySelector('.ainVei').classList.add('model')
 }
-function modalOpex(){
-    document.querySelector('.ainOp').classList.remove('model')
-}
 
-function modalOpex2(){
-    document.querySelector('.ainOp').classList.add('model')
 
-}
-
-function modalCer2(){
-    document.querySelector('.ain').classList.add('model')
-}
-
-function removeModelEditMot(){
-    document.querySelector('.modalEditMot').classList.remove('model')
-    document.querySelector('.modalCadMot').classList.add('model')
-}
 
 function removeModelEditVei(){
     document.querySelector('.modalEditVei').classList.remove('model')
     document.querySelector('.modalCadVei').classList.add('model')
 }
 
-function removeModelEditOp(){
-    document.querySelector('.modalEditOp').classList.remove('model')
-    document.querySelector('.modalCadOp').classList.add('model')
-}
 
 function fechaModalzin(){
     document.querySelector('.modalEditMot').classList.add('model')

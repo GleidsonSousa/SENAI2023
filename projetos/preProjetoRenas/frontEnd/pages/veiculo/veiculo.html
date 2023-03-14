@@ -4,32 +4,32 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="../../../assets/pagina-inicial.png" type="image/x-icon">
+    <link rel="shortcut icon" href="../../assets/icons8-veículo-elétrico-64.png" type="image/x-icon">
     <link rel="stylesheet" href="./veiculo.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
         integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
-    <title>HOME</title>
+    <title>VEÍCULOS</title>
 </head>
 <body onload="onLoad()">
     <header>
-        <div><img id="logo" src="../../../assets/logo.png" alt="Logo AgroTech"></div>
+        <div><img id="logo" src="../../assets/logo.png" alt="Logo AgroTech"></div>
         <div class="logo">
             AgroTech
         </div>
         <div class="options">
-            <div><a class="aHead" href="../../home/home.html">Home</a></div>
-            <div><a class="aHead" href="../../dashboard/dashboard.html">Dashboard</a></div>            
-            <div><a class="aHead" href="../../login/login.html">Logout</a><i class="far fa-togoout icon-modify"></i></div>
+            <div><a class="aHead" href="../home/home.html">Home</a></div>
+            <div><a class="aHead" href="../dashboard/dashboard.html">Dashboard</a></div>            
+            <div><a class="aHead" href="../login/login.html">Logout</a><i class="far fa-togoout icon-modify"></i></div>
         </div>
     </header>
     <main class="prin">
         <header class="headerMain">
             <nav>
                 <ul>
-                    <a class="aNavmain" href="../home.html"><li id="liMot"><img id="icon" src="../../../assets/motorista.png" alt="Motoristas"> MOTORISTAS</li></a>
-                    <a class="aNavmain" href="./veiculo.html"><li id="liVei"><img id="icon" src="../../../assets/veiculo.png" alt="Veículos">VEÍCULOS</li></a>
-                    <a class="aNavmain" href="../operacoes/operacoes.html"><li id="liOp"><img id="icon" src="../../../assets/op.png" alt="Operações">OPERAÇÕES</li></a>
-                    <a class="aNavmain" href=""><li onclick="modalManu()"><img id="icon" src="../../../assets/manutencao.png" alt="Manutenção">MANUTENÇÕES</li></a>
+                    <a class="aNavmain" href="../home/home.html"><li id="liMot"><img id="icon" src="../../assets/motorista.png" alt="Motoristas"> MOTORISTAS</li></a>
+                    <a class="aNavmain" href="./veiculo.html"><li id="liVei"><img id="icon" src="../../assets/veiculo.png" alt="Veículos">VEÍCULOS</li></a>
+                    <a class="aNavmain" href="../operacoes/operacoes.html"><li id="liOp"><img id="icon" src="../../assets/op.png" alt="Operações">OPERAÇÕES</li></a>
+                    <a class="aNavmain" href="../manutencao/manutencao.html"><li id="liManu"><img id="icon" src="../../assets/manutencao.png" alt="Manutenção">MANUTENÇÕES</li></a>
                 </ul>
             </nav>
         </header>
@@ -57,11 +57,11 @@
                             <td id="marcaVei">Ativo</td>
                             <td id="tipoVei">Ativo</td>
                             <td id="statusVei">Ativo</td>
-                            <td><button title="Excluir veículo" id="excluirVei"><img id="img" src="../../../assets/excluir.png" alt="excluir"></button></td>
-                            <td><button title="Editar veículo" id="editarVei"><img id="img" src="../../../assets/icons8-editar-propriedade-64.png" alt="editar"></button></td>
+                            <td><button title="Excluir veículo" id="excluirVei"><img id="img" src="../../assets/excluir.png" alt="excluir"></button></td>
+                            <td><button title="Editar veículo" id="editarVei"><img id="img" src="../../assets/icons8-editar-propriedade-64.png" alt="editar"></button></td>
                             <div class="model ainVei">
                                 <div class="SEILA ">
-                                    <button title="Fechar" onclick="modalVeiex2()" id="fechamod"><img src="../../../assets/icons8-fechar-janela-64.png" alt=""></button>
+                                    <button title="Fechar" onclick="modalVeiex2()" id="fechamod"><img src="../../assets/icons8-fechar-janela-64.png" alt=""></button>
                                     <h1 id="motAviso">TEM CERTEZA QUE DEJESA DELETAR ESSE VEÍCULO? <p><span id="idVeiculin"></span> <span id="placaVeiculin"></span>.</p></h1>
                                     <div class="btnsmode">
                                     <button id="deletarVei" title="Exclui veiculo" >DELETAR</button>
@@ -80,7 +80,10 @@
                     </div>
                     <form action="" method="post">
                         <h1 class="digite">Digite as informações:</h1>
-                        <input type="text" placeholder="placa..." id="placaInp">
+                        <div class="divAvisoPlaca">
+                            <input type="text" placeholder="placa..." id="placaInp">
+                            <label id="avisoPlaca" class=""></label>
+                        </div>
                         <input type="text" placeholder="modelo..."  id="modeloInp">
                         <input type="text" placeholder="marca..."  id="marcaInp">
                         <input type="text" placeholder="tipo..."  id="tipoInp">
