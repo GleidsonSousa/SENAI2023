@@ -56,6 +56,19 @@ const update = async (req, res) => {
     res.status(200).json(operacao).end()
 }
 
+
+const updateFinalizar = async (req, res) => {
+    var info = req.body
+    const operacao = await prisma.operacao.update({
+        where: {
+            id: Number(req.params.id)
+        },
+        data: info
+    })
+
+    res.status(200).json(operacao).end()
+}
+
 const remove = async (req, res) => {
     const operacao = await prisma.operacao.delete({
         where: {
@@ -71,6 +84,7 @@ const remove = async (req, res) => {
 module.exports = {
     create,
     update,
+    updateFinalizar,
     remove,
     read,
     readOne

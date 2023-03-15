@@ -100,7 +100,36 @@ td{
 
 }
 
+#btnRegis{
+    display: flex;
+    flex-direction: wrap;
+    color: rgb(0, 0, 0);
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    gap: 10px;
+    font-size: 20px;
+    background-color: transparent;
+    border: none;
+    width: 250px;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 15px;
+    background-color: white;
+
+}
+
+#registro{
+    width: 80px;
+}
+
 .textTab{
+    display: flex;
+    flex-direction: wrap;
+    gap: 190px;
+    margin-left: 15%;
+    align-items: center;
+    justify-content: center;
     text-align: center;
     font-weight: bold;
     font-size: 20px;
@@ -323,7 +352,7 @@ input{
     height: 50px;
 }
 
-#editarMot,#excluirVei,#editarVei,#editarOp{
+#finalizarOp,#editarOp{
     background-color: transparent;
     border: none;
 

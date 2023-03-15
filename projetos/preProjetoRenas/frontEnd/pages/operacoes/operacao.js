@@ -91,6 +91,7 @@ const btnEditOp = document.querySelector('#enviaEditOp')
 function preencherOp() {
 
     op.forEach(o => {
+        if(o.data_retorno == null){
 
         let linha =  linhamodeloOp.cloneNode(true)
         linha.classList.remove("model")
@@ -131,8 +132,18 @@ function preencherOp() {
 
         })
 
+       
+            linha.querySelector('#finalizarOp').classList.remove('model')
+            linha.querySelector('#finalizarOp').addEventListener('click', () => {
+                finalizarOp(o.id, o.veiculo.id, o.motorista.id)
+            })
+      
+
+       
+
         listaOp.appendChild(linha)
 
+        }
     })
 }
 
@@ -173,6 +184,41 @@ function cadastraOperacao(){
     } else {
         alert("Preencha todos os campos obrigatórios ❗")
     }
+}
+
+function finalizarOp(id, veiculo, motorista){
+    const hoje = new Date()
+    const dia = hoje.getDate().toString().padStart(2,'0')
+    const mes = String(hoje.getMonth() + 1).padStart(2,'0')
+    const ano = hoje.getFullYear()
+    const dataAtual = `${ano}-${mes}-${dia}T10:53:02.654Z`
+    let body = {
+        'data_retorno': `${dataAtual}`
+    }
+    const options = {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+    }
+    options.body = JSON.stringify(body)
+    console.log(body)
+    if (body.data_retorno.length > 0) {
+        fetch('http://localhost:3000/operacao/final/'+id, options)
+            .then(resp => resp.status)
+            .then(data => {
+                if (data == 200) {
+                    editarStatusM2(motorista)
+                    editarStatusV2(veiculo)
+                    alert('DEU BOM')
+                    setTimeout(() => { window.location.reload() }, 1500);
+                    
+                } else {
+                    
+                }
+            })
+    } else {
+        alert("Preencha todos os campos obrigatórios ❗")
+    }
+    
 }
 
 function editarOp(id){

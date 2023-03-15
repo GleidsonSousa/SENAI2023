@@ -38,6 +38,8 @@ router.post('/operacao', Operacao.create)
 router.get('/operacao', Operacao.read)
 router.get('/operacao/:id', Operacao.readOne)
 router.put('/operacao/:id', Operacao.update)
+router.put('/operacao/final/:id', Operacao.updateFinalizar)
+
 router.delete('/operacao/:id', Operacao.remove)
 
 

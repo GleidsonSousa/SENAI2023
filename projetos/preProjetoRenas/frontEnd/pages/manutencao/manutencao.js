@@ -89,6 +89,10 @@ function preencherManu() {
 
         })
 
+        linha.querySelector('#editar').addEventListener('click', () =>{
+            removeModelEditMot()
+        })
+
         listaManu.appendChild(linha)
 
     })
@@ -129,6 +133,43 @@ function cadastraManutencao(){
         alert("Preencha todos os campos obrigatórios ❗")
     }
 }
+
+function editManu(id){
+
+    const valor = document.querySelector("#valorInp").value
+    const descricao = document.querySelector("#descInpManu").value
+
+    let body = {
+        "valor": valor,
+        "descricao": descricao
+    }
+
+    const options = {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+    }
+    options.body = JSON.stringify(body)
+    console.log(body)
+    if (body.valor.length > 0 && body.descricao.length) {
+        fetch('http://localhost:3000/operacao/final/'+id, options)
+            .then(resp => resp.status)
+            .then(data => {
+                if (data == 200) {
+                    editarStatusM2(motorista)
+                    editarStatusV2(veiculo)
+                    alert('DEU BOM')
+                    setTimeout(() => { window.location.reload() }, 1500);
+                    
+                } else {
+                    
+                }
+            })
+    } else {
+        alert("Preencha todos os campos obrigatórios ❗")
+    }
+    
+}
+
 
 function editarStatusV(){
     
@@ -207,32 +248,17 @@ function modalManuex2(){
 
 
 function removeModelEditMot(){
-    document.querySelector('.modalEditMot').classList.remove('model')
-    document.querySelector('.modalCadMot').classList.add('model')
-}
-
-function removeModelEditVei(){
-    document.querySelector('.modalEditVei').classList.remove('model')
-    document.querySelector('.modalCadVei').classList.add('model')
-}
-
-function removeModelEditOp(){
     document.querySelector('.modalEditOp').classList.remove('model')
-    document.querySelector('.modalCadOp').classList.add('model')
+    document.querySelector('.modalCadManu').classList.add('model')
 }
 
-function fechaModalzin(){
-    document.querySelector('.modalEditMot').classList.add('model')
-    document.querySelector('.modalCadMot').classList.remove('model')
-}
-function fechaModalzinEditVei(){
-    document.querySelector('.modalEditVei').classList.add('model')
-    document.querySelector('.modalCadVei').classList.remove('model')
-}
+
+
+
 
 function fechaModalzinEditOp(){
     document.querySelector('.modalEditOp').classList.add('model')
-    document.querySelector('.modalCadOp').classList.remove('model')
+    document.querySelector('.modalCadManu').classList.remove('model')
 }
 
  function fecharDetal(){
