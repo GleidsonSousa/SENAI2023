@@ -118,7 +118,7 @@ function editarVei(id){
             .then(resp => resp.status)
             .then(data => {
                 if (data == 200) {
-                    alert('DEU BOM')
+                    alert('Cadastrado com SUCESSO! 😀✔')
                     setTimeout(() => { window.location.reload() }, 500);
                     
                 } else {
@@ -137,7 +137,7 @@ function removerVei(id ){
     })
     .then(resp =>{})
     .then(m => {
-        alert("se fudeu")
+        alert("Deletado com SUCESSO! 😀❗")
         window.location.reload()
 
     })

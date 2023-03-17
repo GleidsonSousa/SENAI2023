@@ -218,16 +218,6 @@ td{
 }
 
 
-.modalCadMot, .modalEditMot{
-    background-color: #424242;
-    width: 60%;
-    height: 95%;
-    border-radius: 15px;
-    margin-left: 3%;
-    margin-top: 1.5%;
-    color: white;
-}
-
 .textbtn{
     display: flex;
     flex-direction: wrap;
@@ -419,7 +409,7 @@ input{
     background-color: black;
 }
 
-#enviaEditMot, #enviaEditVei,#enviaEditOp{
+#enviaEditManu{
     margin-top: 4%;
     width: 200px;
     margin-left: 35%;

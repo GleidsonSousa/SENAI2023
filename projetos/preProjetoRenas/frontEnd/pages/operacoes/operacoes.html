@@ -33,7 +33,10 @@
                 </ul>
             </nav>
         </header>
-        <div class="tabelas ">
+        <div class="modelzn">
+
+        </div>
+        <div class="tabelas">
             <div class="tabelaOp ">
                 <div class="textTab">
                     <h1>TABELA DE OPERAÇÕES </h1>
@@ -92,21 +95,20 @@
                             <div class="opa model">
                                 <div class="modalRegistro">
                                     <button id="btnX" onclick="modalRegistro()">X</button>
-                                    <h1>PEDIDOS FINALIZADOS</h1>
+                                    <h1 class="h1Op">OPERAÇÕES FINALIZADAS</h1>
                                     <div class="divModal">
                                         <div id="eaE" class="modelar model">
                                             <div id="icli2">
-                                                <p>Id: <span id="idPed">20</span></p>
-                                                <p>Entregador: <span id="entre">17:32:59</span></p>
-                                                <p>Cliente: <span id="nCli">Joaão</span></p>
-                                                <p>Produto: <span id="prod">X-FRANGO</span> </p>
-                                                <p>Endereço: <spam id="end">Rua das Flores, Centro, Pedreira, SP</spam> </p>
-                                                <p>Data: <span id="date">2023-01-26</span> </p>
-                                                <p>Início do preparo: <span id="hip">17:32:59</span><span>ㅤㅤInício da entrega: <span id="h">17:32:59</span></span></p>
-                                                <p>Finalizado as:  <span id="finalizado">00:00:00</span></p>
-                                            </div>
-                                            <div class="enviar">
-                                                <span id="spanFinal"> PEDIDO ENTREGUE <img id="envia" src="./assets/download.png" alt="botão enviar"></span>
+                                                <p>Id: <span id="idOPr">20</span></p>
+                                                <p>Motorista: <span id="motomoto">17:32:59</span></p>
+                                                <p>Veículo: <span id="pveicul">Joaão</span></p>
+                                                <p>Saída: <span id="exit">X-FRANGO</span> </p>
+                                                <p>Retorno: <spam id="returned">Rua das Flores, Centro, Pedreira, SP</spam> </p>
+                                                <div>
+                                                    <p>Descrição</p>
+                                                    <textarea disabled id="descMOD" cols="30" rows="10"></textarea>
+                                                </div>
+                                                
                                             </div>
                                         </div>
                                     </div>
@@ -117,7 +119,6 @@
                     </tbody>
                 </table>
             </div>
-           
                 <div class="modalCadOp ">
                     <div class="textbtn">
                         <h1>Cadastro de Operações</h1>

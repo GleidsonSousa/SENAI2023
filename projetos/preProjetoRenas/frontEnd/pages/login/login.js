@@ -3,7 +3,7 @@ const email = document.querySelector("#email")
 const psw = document.querySelector("#psw")
 
 const login = (err) => {
-    email.value = "Stevejobs@orkut.com"
+    email.value = "carlinhos@orkut.com"
     psw.value = "1234"
     let usuario = {
         "email": email.value,
@@ -16,15 +16,20 @@ const login = (err) => {
             'Content-Type':'application/json'
         },
         body: JSON.stringify(usuario)
-    }).then(response => { return response.status })
+
+    }).then(response => { return response.status, response.json() })
     .then(info => {
+        console.log(info)
         if(info != null ) {
-            console.log(info)
-            if(info == 201){
+
+            if(info.erro == "Senha inválida"){
                 alert('❌ Erro no Login: SENHA INVÁLIDA!')
-            } else if(info == 404){
+            } else if(info.erro == "Usuário não encontrado"){
                 alert('❌ Erro no Login: Usuario não ENCONTRADO!')
-            }else if(info == 200){
+            }else if(info.validation == true){
+                localStorage.clear();
+                localStorage.setItem('usuario',JSON.stringify({"nivel":info.nivel}));
+                console.log(localStorage)
                 window.location.href = "../dashboard/dashboard.html"
             }
         } else {

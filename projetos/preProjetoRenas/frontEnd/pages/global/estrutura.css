@@ -22,6 +22,9 @@ header{
     padding: 5px;
 }
 
+.aDash{
+    color: rgb(0, 0, 0);
+}
 
 .aHead{
     padding-bottom: 2px;

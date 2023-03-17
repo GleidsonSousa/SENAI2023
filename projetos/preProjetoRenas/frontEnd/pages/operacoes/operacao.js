@@ -2,6 +2,8 @@ const linhamodelo = document.querySelector(".linhamodelo");
 const linhamodeloVei = document.querySelector(".linhamodeloVei")
 const linhamodeloOp = document.querySelector(".linhamodeloOp")
 const linhamodeloManu = document.querySelector(".linhamodeloM")
+const divFinalizadas = document.querySelector('#eaE');
+
 
 const listaMots = document.querySelector("#lista-motoristas")
 const listaVei = document.querySelector("#lista-veiculos")
@@ -91,6 +93,23 @@ const btnEditOp = document.querySelector('#enviaEditOp')
 function preencherOp() {
 
     op.forEach(o => {
+
+
+        if(o.data_retorno != null){
+            var novoCardFinal = divFinalizadas.cloneNode(true)
+            novoCardFinal.classList.remove('model')
+
+            novoCardFinal.querySelector('#idOPr').innerHTML = o.id
+            novoCardFinal.querySelector('#motomoto').innerHTML = o.motorista.nome
+            novoCardFinal.querySelector('#pveicul').innerHTML = o.veiculo.placa
+            novoCardFinal.querySelector('#exit').innerHTML = o.data_saida.slice(0,10)
+            novoCardFinal.querySelector('#returned').innerHTML = o.data_retorno.slice(0,10)
+            novoCardFinal.querySelector('#descMOD').value = o.descricao
+
+            document.querySelector('.divModal').appendChild(novoCardFinal)
+        }
+
+
         if(o.data_retorno == null){
 
         let linha =  linhamodeloOp.cloneNode(true)
@@ -208,7 +227,7 @@ function finalizarOp(id, veiculo, motorista){
                 if (data == 200) {
                     editarStatusM2(motorista)
                     editarStatusV2(veiculo)
-                    alert('DEU BOM')
+                    alert('Finalizado com SUCESSO! 😀✔')
                     setTimeout(() => { window.location.reload() }, 1500);
                     
                 } else {
@@ -239,7 +258,7 @@ function editarOp(id){
             .then(data => {
                 if (data == 200) {
 
-                    alert('DEU BOM')
+                    alert('Cadastrado com SUCESSO! 😀✔')
                     setTimeout(() => { window.location.reload() }, 500);
                     
                 } else {
@@ -355,7 +374,7 @@ function removerOp(id, veiculo, motorista){
     })
     .then(resp =>{})
     .then(m => {
-        alert("se fudeu")
+        alert("Deletedo com SUCESSO! 😀❗")
         window.location.reload()
 
     })
@@ -376,15 +395,15 @@ function modalOpex2(){
 }
 
 
+function modalRegistro(){
+    document.querySelector('.opa').classList.toggle('model')
 
-
+}
 
 function removeModelEditOp(){
     document.querySelector('.modalEditOp').classList.remove('model')
     document.querySelector('.modalCadOp').classList.add('model')
 }
-
-
 
 function fechaModalzinEditOp(){
     document.querySelector('.modalEditOp').classList.add('model')

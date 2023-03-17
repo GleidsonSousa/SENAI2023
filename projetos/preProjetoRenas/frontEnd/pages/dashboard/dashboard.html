@@ -17,9 +17,9 @@
             AgroTech
         </div>
         <div class="options">
-            <div><a href="../home/home.html">Home</a></div>
-            <div><a href="../dashboard/dashboard.html">Dashboard</a></div>            
-            <div><a href="../login/login.html">Logout</a><i class="far fa-togoout icon-modify"></i></div>
+            <div><a class="aDash" id="homezinha" href="../home/home.html">Home</a></div>
+            <div><a class="aDash" href="../dashboard/dashboard.html">Dashboard</a></div>            
+            <div><a class="aDash"href="../login/login.html">Logout</a><i class="far fa-togoout icon-modify"></i></div>
         </div>
     </header>
     <main class="prin">
@@ -104,7 +104,24 @@
                             <td id="nomeOp">A</td>
                             <td id="placaOp">A</td>
                             <td id="saidaOp">Ativo</td>
-                            <td id="btn"><button>Detalhes</button></td>
+                            <td id="btn"><button id="btnDetalOp">Detalhes</button></td>
+                            <div class="detalhesOp model">
+                                <div class="divDetals">
+                                    <div class="detals">
+                                        <button onclick="fecharDetal()" title="fechar" id="fechaDetal"><img src="../../assets/icons8-fechar-janela-64.png" alt=""></button>
+                                        <h1 id="detalhesh1">DETALHES DA OPERAÇÃO</h1>
+                                        <p >Id:ﾠ<span id="detalIdOp">5</span></p>
+                                        <p >Id Motorista/Nome:ﾠ<span id="detalIdMot">1</span>ﾠ<span id="detalNomeMot">5</span></p>
+                                        <p >Id Veículo/Placa:ﾠ<span id="detalIdVei">5</span>ﾠ<span id="detalPlacaVei"> 5</span></p>
+                                        <p >Saída:ﾠ<span id="detalSaida">2023-03-10</span></p>
+                                        <p >Retorno:ﾠ<span id="detalRetorno">2023-03-11</span></p>
+                                        <div class="descOp">
+                                            <h1 id="detalhesDesc">DESCRIÇÃO</h1>
+                                            <textarea id="descOpRead" disabled placeholder="">SKKDAJSAKDSKADKS JADKASKDKASJDAKSKDS  KADJASKDKASJDSJADKS</textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </tr>
                     </tbody>
                 </table>
@@ -129,7 +146,23 @@
                             <td id="placaManu">A</td>
                             <td id="inicioM">A</td>
                             <td id="fimM">Ativo</td>
-                            <td id="btn"><button>Detalhes</button></td>
+                            <td id="btn"><button id="btnDetalManu" >Detalhes</button></td>
+                            <div class="detalhesManu model ">
+                                <div class="divDetals">
+                                    <div class="detals">
+                                        <button onclick="fecharDetal2()" title="fechar" id="fechaDetal"><img src="../../assets/icons8-fechar-janela-64.png" alt=""></button>
+                                        <h1 id="detalhesh1">DETALHES DA MANUTENÇÃO</h1>
+                                        <p >Id:ﾠ<span id="detalIdManu">5</span></p>
+                                        <p >Id Veículo/Placa:ﾠ<span id="detalIdVeiManu">5</span>ﾠ<span id="detalPlacaVeiManu"> 5</span></p>
+                                        <p >Saída:ﾠ<span id="detalSaidaManu">2023-03-10</span></p>
+                                        <p >Retorno:ﾠ<span id="detalRetornoManu">2023-03-11</span></p>
+                                        <div class="descOp">
+                                            <h1 id="detalhesDesc">DESCRIÇÃO</h1>
+                                            <textarea id="descManuRead" disabled placeholder="">SKKDAJSAKDSKADKS JADKASKDKASJDAKSKDS  KADJASKDKASJDSJADKS</textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </tr>
                     </tbody>
                 </table>

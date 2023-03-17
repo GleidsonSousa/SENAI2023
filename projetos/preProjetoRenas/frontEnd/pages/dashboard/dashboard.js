@@ -11,7 +11,10 @@ const listaOp = document.querySelector("#lista-operacoes")
 const listaManu = document.querySelector("#lista-manutencoes")
 
 
+var userinfo = JSON.parse(localStorage.getItem("usuario"))
 
+const nivelU = userinfo.nivel
+console.log(nivelU)
 
 
 
@@ -26,6 +29,7 @@ function onLoad() {
     loadMot()
     loadOp()
     loadManu()
+    verificaNv()
 }
 
 
@@ -90,13 +94,15 @@ function preencherMot() {
          linha.querySelector('#idMot').innerHTML = m.id
          linha.querySelector('#nomeMot').innerHTML = m.nome
          linha.querySelector('#cnhMot').innerHTML = m.cnh
-        // document.querySelector('#statusMot').innerHTML = qtdMot
+        document.querySelector('#statusMot').innerHTML = m.status
 
         document.querySelector('#totalMot').innerHTML = mot.length
         listaMots.appendChild(linha);
 
     })
 }
+
+
 
 function preencherVei() {
     vei.forEach(v => {
@@ -127,6 +133,19 @@ function preencherManu() {
         linha.querySelector('#inicioM').innerHTML = m.data_inicio.slice(0,10)
         linha.querySelector('#fimM').innerHTML = "Em andamento..."
 
+        linha.querySelector('#btnDetalManu').addEventListener('click', () => {
+
+            removerModelDetal2()
+            document.querySelector('#detalIdManu').innerHTML = m.id
+            document.querySelector('#detalIdVeiManu').innerHTML = m.id_veiculo
+            document.querySelector('#detalPlacaVeiManu').innerHTML = m.veiculo.placa
+            document.querySelector('#detalSaidaManu').innerHTML = m.data_inicio.slice(0,10)
+            document.querySelector('#detalRetornoManu').innerHTML = m.data_fim != null ? m.data_fim.slice(0,10) : innerHTML="Em andamento..."
+            document.querySelector('#descManuRead').value = m.descricao
+
+
+        })
+
 
         listaManu.appendChild(linha)
 
@@ -144,6 +163,19 @@ function preencherOp() {
         linha.querySelector('#nomeOp').innerHTML = o.motorista.nome
         linha.querySelector('#placaOp').innerHTML = o.veiculo.placa
         linha.querySelector('#saidaOp').innerHTML = o.data_saida.slice(0,10)
+
+        linha.querySelector('#btnDetalOp').addEventListener('click', () => {
+            removerModelDetal()
+            document.querySelector('#detalIdOp').innerHTML = o.id
+            document.querySelector('#detalIdMot').innerHTML = o.id_motorista
+            document.querySelector('#detalNomeMot').innerHTML = o.motorista.nome
+            document.querySelector('#detalIdVei').innerHTML = o.id_veiculo
+            document.querySelector('#detalPlacaVei').innerHTML = o.veiculo.placa
+            document.querySelector('#detalSaida').innerHTML = o.data_saida.slice(0,10)
+            document.querySelector('#detalRetorno').innerHTML = o.data_retorno != null ? o.data_retorno.slice(0,10) : innerHTML="Em realização..."
+            document.querySelector('#descOpRead').value = o.descricao
+
+        })
     
         listaOp.appendChild(linha)
 
@@ -187,4 +219,27 @@ function modalGra(){
 
     document.querySelector('.grafic').classList.remove('model')
     document.querySelector('.tabelas').classList.add('model')
+}
+function fecharDetal(){
+    document.querySelector('.detalhesOp').classList.add('model')
+
+}
+
+function fecharDetal2(){
+    document.querySelector('.detalhesManu').classList.add('model')
+    
+}
+
+function removerModelDetal2(){
+    document.querySelector('.detalhesManu').classList.remove('model')
+}
+
+function removerModelDetal(){
+    document.querySelector('.detalhesOp').classList.remove('model')
+}
+
+function verificaNv(){
+    if( nivelU == "1"){
+        document.querySelector('#homezinha').classList.add('model')
+    }
 }

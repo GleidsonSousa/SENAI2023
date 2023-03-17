@@ -8,6 +8,8 @@ const listaVei = document.querySelector("#lista-veiculos")
 const listaOp = document.querySelector("#lista-operacoes")
 const listaManu = document.querySelector("#lista-manutencoes")
 
+const btnEditM = document.querySelector('#enviaEditManu')
+
 let mot = []
 let op = []
 let vei = []
@@ -91,6 +93,13 @@ function preencherManu() {
 
         linha.querySelector('#editar').addEventListener('click', () =>{
             removeModelEditMot()
+            btnEditM.onclick = () => {editManu(m.id)
+            }
+
+            document.querySelector('#valorIP').value = m.valor
+            document.querySelector('#descManu').value = m.descricao
+
+
         })
 
         listaManu.appendChild(linha)
@@ -134,10 +143,10 @@ function cadastraManutencao(){
     }
 }
 
-function editManu(id){
+function editManu(id, veiculo){
 
-    const valor = document.querySelector("#valorInp").value
-    const descricao = document.querySelector("#descInpManu").value
+    const valor = document.querySelector("#valorIP").value
+    const descricao = document.querySelector("#descManu").value
 
     let body = {
         "valor": valor,
@@ -151,14 +160,12 @@ function editManu(id){
     options.body = JSON.stringify(body)
     console.log(body)
     if (body.valor.length > 0 && body.descricao.length) {
-        fetch('http://localhost:3000/operacao/final/'+id, options)
+        fetch('http://localhost:3000/manutencao/'+id, options)
             .then(resp => resp.status)
             .then(data => {
                 if (data == 200) {
-                    editarStatusM2(motorista)
-                    editarStatusV2(veiculo)
-                    alert('DEU BOM')
-                    setTimeout(() => { window.location.reload() }, 1500);
+                    alert('Modificado com SUCESSO! 😀✔')
+                    setTimeout(() => { window.location.reload() }, 200);
                     
                 } else {
                     
@@ -229,7 +236,7 @@ function removerManu(id, veiculo){
     })
     .then(resp =>{})
     .then(m => {
-        alert("se fudeu")
+        alert("Deletado com Sucesso ✔")
         window.location.reload()
 
     })

@@ -375,7 +375,7 @@ function editarMot(id){
             .then(resp => resp.status)
             .then(data => {
                 if (data == 200) {
-                    alert('DEU BOM')
+                    alert('Editado com SUCESSO! 😀✔')
                     setTimeout(() => { window.location.reload() }, 500);
                     
                 } else {
@@ -386,63 +386,8 @@ function editarMot(id){
         alert("Preencha todos os campos obrigatórios ❗")
     }
 }
-function editarVei(id){
-    let body = {
-        'placa': document.querySelector('#placaEdit').value,
-        'modelo':document.querySelector('#modeloEdit').value,
-        'marca':document.querySelector('#marcaEdit').value,
-        'tipo':document.querySelector('#tipoEdit').value
 
-    }
-    const options = {
-        method: 'PUT',
-        headers: { 'Content-Type': 'application/json' },
-    }
-    options.body = JSON.stringify(body)
-    if (body.placa.length > 0 && body.modelo.length > 0 && body.marca.length > 0 && body.tipo.length > 0) {
-        fetch('http://localhost:3000/veiculo/'+id, options)
-            .then(resp => resp.status)
-            .then(data => {
-                if (data == 200) {
-                    alert('DEU BOM')
-                    setTimeout(() => { window.location.reload() }, 500);
-                    
-                } else {
-                    
-                }
-            })
-    } else {
-        alert("Preencha todos os campos obrigatórios ❗")
-    }
-}
-function editarOp(id){
-    let body = {
-        'id_motorista': document.querySelector('#motoristaEditOp').value,
-        'id_veiculo':document.querySelector('#veiculoEditOp').value,
-        'descricao':document.querySelector('#descOpEdit').value
 
-    }
-    const options = {
-        method: 'PUT',
-        headers: { 'Content-Type': 'application/json' },
-    }
-    options.body = JSON.stringify(body)
-    if (body.id_veiculo.length > 0 && body.id_motorista.length > 0 && body.descricao.length > 0) {
-        fetch('http://localhost:3000/operacao/'+id, options)
-            .then(resp => resp.status)
-            .then(data => {
-                if (data == 200) {
-                    alert('DEU BOM')
-                    setTimeout(() => { window.location.reload() }, 500);
-                    
-                } else {
-                    
-                }
-            })
-    } else {
-        alert("Preencha todos os campos obrigatórios ❗")
-    }
-}
 
 // Funções de Remover :D
 function removerMot(id){
@@ -452,103 +397,13 @@ function removerMot(id){
     })
     .then(resp =>{})
     .then(m => {
-        alert("se fudeu")
+        alert("Deletado com SUCESSO! 😀❗")
         window.location.reload()
 
     })
 
 }
 
-function removerVei(id ){
-    console.log(id)
-    fetch('http://localhost:3000/veiculo/' + id,{
-        "method":"DELETE"
-    })
-    .then(resp =>{})
-    .then(m => {
-        alert("se fudeu")
-        window.location.reload()
-
-    })
-
-}
-
-function removerOp(id){
-    console.log(id)
-    fetch('http://localhost:3000/operacao/' + id,{
-        "method":"DELETE"
-    })
-    .then(resp =>{})
-    .then(m => {
-        alert("se fudeu")
-        window.location.reload()
-
-    })
-
-}
-
-
-
-function modalMot(){
-    document.querySelector('.tabelaManu').classList.add('model')
-    document.querySelector('.tabelaOp').classList.add('model')
-    document.querySelector('.tabelaVei').classList.add('model')
-    document.querySelector('.tabelaMot').classList.remove('model')
-
-    document.querySelector('.modalCadManu').classList.add('model')
-    document.querySelector('.modalCadMot').classList.remove('model')
-    document.querySelector('.modalCadOp').classList.add('model')
-    document.querySelector('.modalCadVei').classList.add('model')
-}
-
-function modalVei(){
-    document.querySelector('.tabelaManu').classList.add('model')
-    document.querySelector('.tabelaOp').classList.add('model')
-    document.querySelector('.tabelaVei').classList.remove('model')
-    document.querySelector('.tabelaMot').classList.add('model')
-
-    document.querySelector('.modalCadManu').classList.add('model')
-    document.querySelector('.modalCadMot').classList.add('model')
-    document.querySelector('.modalCadOp').classList.add('model')
-    document.querySelector('.modalCadVei').classList.remove('model')
-}
-
-function modalOp(){
-    document.querySelector('.tabelaManu').classList.add('model')
-    document.querySelector('.tabelaOp').classList.remove('model')
-    document.querySelector('.tabelaVei').classList.add('model')
-    document.querySelector('.tabelaMot').classList.add('model')
-
-    document.querySelector('.modalCadManu').classList.add('model')
-    document.querySelector('.modalCadMot').classList.add('model')
-    document.querySelector('.modalCadOp').classList.remove('model')
-    document.querySelector('.modalCadVei').classList.add('model')
-}
-
-function modalManu(){
-    document.querySelector('.tabelaManu').classList.remove('model')
-    document.querySelector('.tabelaOp').classList.add('model')
-    document.querySelector('.tabelaVei').classList.add('model')
-    document.querySelector('.tabelaMot').classList.add('model')
-
-    document.querySelector('.modalCadManu').classList.remove('model')
-    document.querySelector('.modalCadMot').classList.add('model')
-    document.querySelector('.modalCadOp').classList.add('model')
-    document.querySelector('.modalCadVei').classList.add('model')
-}
-
-function modalTab(){
-
- document.querySelector('.grafic').classList.add('model')
- document.querySelector('.tabelas').classList.remove('model')
-
-}
-
-function modalGra(){
-
-    document.querySelector('.grafic').classList.remove('model')
-    document.querySelector('.tabelas').classList.add('model')
-}
 
 
 function modalCer(){
