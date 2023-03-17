@@ -11,19 +11,19 @@ export default function Home({navigation}) {
     return (
         <View style={styles.container}>
             <View style={styles.cards}>
-                <TouchableOpacity style={styles.card} onPress={() => navigation.navigate("Historico")}>
+                <TouchableOpacity style={styles.card} onPress={() => navigation.navigate("Motorista")}>
                     <Image style={styles.image} source={motorista}/>
                     <Text style={styles.text}>Histórico de Mostoristas</Text>
                 </TouchableOpacity>
-                <TouchableOpacity style={styles.card} onPress={() => navigation.navigate("Historico")}>
+                <TouchableOpacity style={styles.card} onPress={() => navigation.navigate("Veiculo")}>
                     <Image style={styles.image} source={veiculo}/>
                     <Text style={styles.text}>Histórico de Veiculos</Text>
                 </TouchableOpacity>
-                <TouchableOpacity style={styles.card} onPress={() => navigation.navigate("Historico")}>
+                <TouchableOpacity style={styles.card} onPress={() => navigation.navigate("Operação")}>
                     <Image style={styles.image} source={operacao}/>
                     <Text style={styles.text}>Histórico de operção</Text>
                 </TouchableOpacity>
-                <TouchableOpacity style={styles.card} onPress={() => navigation.navigate("Registro")}>
+                <TouchableOpacity style={styles.card} onPress={() => navigation.navigate("Manutenção")}>
                     <Image style={styles.image} source={manutencao}/>
                     <Text style={styles.text}>Histórico de manutenção</Text>
                 </TouchableOpacity>

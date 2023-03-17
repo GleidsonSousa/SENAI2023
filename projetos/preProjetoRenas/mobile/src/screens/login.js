@@ -4,32 +4,42 @@ import {View, Text, Image, StyleSheet, TextInput, TouchableOpacity} from 'react-
 const dog = require("../../assets/panda.gif");
 
 export default function Login({navigation}) {
-    const [email, setEmail] = useState("fulano@gmail.com");
-    const [senha, setSenha] = useState("umdoistresquatro");
+    const [email, setEmail] = useState("carlinhos@orkut.com");
+    const [senha, setSenha] = useState("1234");
 
-    const data = [
-        {
-            "email":"fulano@gmail.com",
-            "senha":"umdoistresquatro",
-        },
-        {
-            "email":"beltrano@ig.com.br",
-            "senha":"s3nh4",
-        }
-    ];
+    const handleLogin = () => {
+        const uriLogin = 'http://localhost:3000/login';
+      
+        fetch(uriLogin, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ email, senha }),
+        })
+          .then((response) => response.json())
+          .then((data) => {
+
+                if (data.validation == true) {
+                    navigation.navigate('Home');
+                  } else if(data.erro == "Usuário não encontrado") {
+                    alert('Erro ao fazer login. Por favor, verifique o Email digitado.');
+                  } else if(data.erro == "Senha inválida"){
+                      alert('Erro ao realizar login. Verifique a Senha digitada.')
+                  }            
+            
+          })
+          .catch((error) => {
+            console.error(error);
+          });
+      };
 
     return (
         <View style={styles.container}>
             <Image style={styles.dog} source={dog} />
             <TextInput style={styles.input} onChangeText={(val) => {setEmail(val)}} placeholder="Informe o email" placeholderTextColor={"#00000077"} />
             <TextInput style={styles.input} onChangeText={(val) => {setSenha(val)}} secureTextEntry={true} placeholder="Informe sua senha" placeholderTextColor={"#00000077"} />
-            <TouchableOpacity style={styles.button} onPress={() => {
-                data.forEach(user => {
-                    if(user.email === email && user.senha === senha) {
-                        navigation.navigate("Home");
-                    }
-                })
-            }}>
+            <TouchableOpacity style={styles.button} onPress={handleLogin}>
                 <Text style={styles.textButton}>Conectar</Text>
             </TouchableOpacity>
         </View>

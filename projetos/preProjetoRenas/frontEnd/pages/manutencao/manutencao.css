@@ -124,7 +124,7 @@ td{
     border: none;
 }
 
-#excluirOp{
+#excluirOp, #finalizarManu{
     border: none;
     background-color: transparent;
 }

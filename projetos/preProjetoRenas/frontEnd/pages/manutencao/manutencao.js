@@ -50,7 +50,6 @@ function loadManu() {
 
 function preencherVei() {
     vei.forEach(v => {
-        console.log(v.disponibilidade)
         if(v.disponibilidade !== "Manutenção"){
             let option = document.createElement("option");
             option.value = v.id;
@@ -69,7 +68,7 @@ function preencherManu() {
         linha.querySelector('#idManu').innerHTML = m.id
         linha.querySelector('#placaManu').innerHTML = m.veiculo.placa
         linha.querySelector('#inicioM').innerHTML = m.data_inicio.slice(0,10)
-        linha.querySelector('#fimM').innerHTML = "Em andamento..."
+        linha.querySelector('#fimM').innerHTML = m.data_fim != null ? m.data_fim.slice(0,10) : innerHTML="Em andamento..."
 
         linha.querySelector('#excluirMod').addEventListener("click", () =>  {
             modalManuex()
@@ -84,12 +83,23 @@ function preencherManu() {
             document.querySelector('#detalIdOp').innerHTML = m.id
             document.querySelector('#detalIdVei').innerHTML = m.id_veiculo
             document.querySelector('#detalPlacaVei').innerHTML = m.veiculo.placa
+            document.querySelector('#valorDetal').innerHTML = "R$ " + m.valor +",00"
             document.querySelector('#detalSaida').innerHTML = m.data_inicio.slice(0,10)
             document.querySelector('#detalRetorno').innerHTML = m.data_fim != null ? m.data_fim.slice(0,10) : innerHTML="Em andamento..."
             document.querySelector('#descOpRead').value = m.descricao
 
 
         })
+        
+        if(m.data_fim == null){
+            linha.querySelector('#finalizarManu').classList.remove('model')
+            linha.querySelector('#finalizarManu').addEventListener('click', () =>{
+                finalizarManu(m.id, m.valor, m.veiculo.id)
+
+        })
+        
+
+        }
 
         linha.querySelector('#editar').addEventListener('click', () =>{
             removeModelEditMot()
@@ -141,6 +151,41 @@ function cadastraManutencao(){
     } else {
         alert("Preencha todos os campos obrigatórios ❗")
     }
+}
+
+function finalizarManu(id,valor, veiculo){
+    const hoje = new Date()
+    const dia = hoje.getDate().toString().padStart(2,'0')
+    const mes = String(hoje.getMonth() + 1).padStart(2,'0')
+    const ano = hoje.getFullYear()
+    const dataAtual = `${ano}-${mes}-${dia}T10:53:02.654Z`
+    let body = {
+        'data_fim': `${dataAtual}`,
+        'valor': valor,
+    }
+    const options = {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+    }
+    options.body = JSON.stringify(body)
+    console.log(body)
+    if (body.data_fim.length > 0) {
+        fetch('http://localhost:3000/manutencao/'+id, options)
+            .then(resp => resp.status)
+            .then(data => {
+                if (data == 200) {
+                    editarStatusV2(veiculo)
+                    alert('Finalizado com SUCESSO! 😀✔')
+                    setTimeout(() => { window.location.reload() }, 200);
+                    
+                } else {
+                    
+                }
+            })
+    } else {
+        alert("Erro ao Enviar dados ❗")
+    }
+    
 }
 
 function editManu(id, veiculo){

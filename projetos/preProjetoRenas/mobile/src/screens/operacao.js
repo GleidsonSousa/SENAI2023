@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { View, Text, StyleSheet, TextInput, ScrollView } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
-export default function Historico() {
+export default function Operacao() {
     const [lista, setLista] = useState([]);
     const [busca, setBusca] = useState("");
 

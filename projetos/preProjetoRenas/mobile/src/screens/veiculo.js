@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { View, TextInput, Text, TouchableOpacity, StyleSheet } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
-export default function Registro({ navigation }) {
+export default function Veiculo({ navigation }) {
     const [pet, setPet] = useState("");
     const [medico, setMedico] = useState("");
     const [vacina, setVacina] = useState("");
