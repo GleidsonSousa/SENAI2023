@@ -52,7 +52,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
         gap: '20px',
-        backgroundColor: '#505050'
+        backgroundColor: '#FFFF'
     },
     dog: {
         width: '200px',

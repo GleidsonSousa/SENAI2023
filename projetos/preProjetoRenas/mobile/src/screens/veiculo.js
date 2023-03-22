@@ -1,78 +1,106 @@
-import { useState } from 'react';
-import { View, TextInput, Text, TouchableOpacity, StyleSheet } from 'react-native';
+import { useState, useEffect } from 'react';
+import { View, TextInput, Text, TouchableOpacity, StyleSheet, ScrollView } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 export default function Veiculo({ navigation }) {
-    const [pet, setPet] = useState("");
-    const [medico, setMedico] = useState("");
-    const [vacina, setVacina] = useState("");
-    const [data, setData] = useState("");
+    const [lista, setLista] = useState([]);
+    const [busca, setBusca] = useState("");
+
+    useEffect(() => {
+        setInterval(()=> {
+          listar();
+    
+        },[1500])
+      })
+     
+    
+      const listar = () => {
+        fetch('http://localhost:3000/veiculo') 
+          .then(Response => { return Response.json() })
+          .then(data => {
+            setLista(data);
+          })
+      }
+    
 
     return (
+
         <View style={styles.container}>
-            <TextInput style={styles.input} placeholder="Nome do pet" placeholderTextColor={"#00000077"} onChangeText={(val) => setPet(val)}/>
-            <TextInput style={styles.input} placeholder="Nome do médico veterinário" placeholderTextColor={"#00000077"} onChangeText={(val) => setMedico(val)}/>
-            <TextInput style={styles.input} placeholder="Nome da vacina" placeholderTextColor={"#00000077"} onChangeText={(val) => setVacina(val)}/>
-            <TextInput style={styles.input} placeholder="Data da aplicação" placeholderTextColor={"#00000077"} onChangeText={(val) => setData(val)}/>
-            <TouchableOpacity style={styles.button} onPress={async () => {
-                let form = {
-                    pet,
-                    medico,
-                    vacina,
-                    data
-                }
-
-                try {
-                    let info = await AsyncStorage.getItem("historico");
-                    if(info !== null) {
-                        info = JSON.parse(info);
-                        info.push(form);
-                    }else {
-                        info = new Array(form);
+            <TextInput style={styles.input} onChangeText={(val) => { setBusca(val) }} placeholder="Digite para buscar..." placeholderTextColor={"#00000077"} />
+            <ScrollView>
+                <View style={styles.lista}>
+                    {
+                        lista.map((item, index) => {
+                            if ( item.placa.includes(busca) || item.marca.includes(busca) || item.modelo.includes(busca) || item.tipo.includes(busca) || item.disponibilidade.includes(busca))
+                                return (
+                                    <View style={styles.item} key={index}>
+                                        <Text style={styles.text}>ID : {item.id}</Text>
+                                        <Text style={styles.text}>PLACA : {item.placa}</Text>
+                                        <Text style={styles.text}>MODELO : {item.modelo}</Text>
+                                        <Text style={styles.text}>MARCA : {item.marca}</Text>
+                                        <Text style={styles.text}>TIPO : {item.tipo}</Text>
+                                        <Text style={styles.text}>STATUS: {item.disponibilidade}</Text>
+                                    </View>
+                                )
+                        })
                     }
-
-                    await AsyncStorage.setItem("historico", JSON.stringify(info));
-
-                    navigation.navigate("Home");
-                }catch(e) {
-                    console.log(e);
-                }
-            }}>
-                <Text style={styles.textButton}>Registar</Text>
-            </TouchableOpacity>
+                </View>
+            </ScrollView>
         </View>
-    );  
+    );
 }
 
 const styles = StyleSheet.create({
-    container : {
+    container: {
         flex: 1,
-        padding: '5vw',
+        backgroundColor: '#505050',
         alignItems: 'center',
-        gap: '20px',
-        backgroundColor: '#505050'
     },
     input: {
-        width: '75%',
+        width: '90%',
         paddingHorizontal: '12px',
         paddingVertical: '12px',
         backgroundColor: '#EFEFEF',
         outlineStyle: 'none',
         border: 'none',
         borderRadius: '5px',
+        marginVertical: '10px',
+        shadowColor: "#000",
+        shadowOffset: {
+            width: 0,
+            height: 6,
+        },
+        shadowOpacity: 0.58,
+        shadowRadius: 20.00,
+        elevation: 16,
     },
-    button: {
-        width: '75%',
-        backgroundColor: '#8a66fa',
-        paddingHorizontal: '12px',
-        paddingVertical: '12px',
-        alignItems: 'center',
-        justifyContent: 'center',
+    lista: {
+        width: '100vw',
+        alignItems: 'center'
+    },
+    item: {
+        width: '90%',
+        marginVertical: '5px',
         borderRadius: '5px',
+        borderRadius: '5px',
+        marginBottom: '10px',
+        shadowColor: "#000",
+        shadowOffset: {
+            width: 0,
+            height: 6,
+        },
+        shadowOpacity: 0.58,
+        shadowRadius: 20.00,
+        elevation: 16,
+        padding: 15,
     },
-    textButton: {
-        fontSize: '1.2rem',
-        fontWeight: 'bold',
+    linha: {
+        width: '100%',
+        height: '1px',
+        backgroundColor: '#8a66fa',
+        marginTop: '15px',
+    },
+    text: {
         color: '#EFEFEF',
     }
 });

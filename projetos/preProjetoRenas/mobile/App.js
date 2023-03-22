@@ -18,7 +18,7 @@ export default function App() {
         <Stack.Screen name="Login" component={Login} />
         <Stack.Screen name="Home" component={Home} />
         <Stack.Screen name="Motorista" component={Motorista} />
-        <Stack.Screen name="Veículo" component={Veiculo} /> 
+        <Stack.Screen name="Veiculo" component={Veiculo} /> 
         <Stack.Screen name="Operação" component={Operacao} /> 
         <Stack.Screen name="Manutenção" component={Manutencao} /> 
 

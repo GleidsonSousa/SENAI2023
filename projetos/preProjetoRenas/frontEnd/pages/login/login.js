@@ -3,8 +3,8 @@ const email = document.querySelector("#email")
 const psw = document.querySelector("#psw")
 
 const login = (err) => {
-    email.value = "hobertAlberto@gmail.com"
-    psw.value = "1234"
+    // email.value = "hobertAlberto@gmail.com"
+    // psw.value = "1234"
     let usuario = {
         "email": email.value,
         "senha":psw.value 

@@ -1,37 +1,90 @@
-import { useState } from 'react';
-import { View, Text, StyleSheet, TextInput, ScrollView } from 'react-native';
+import { useState, useEffect } from 'react';
+import { View, TextInput, Text, TouchableOpacity, StyleSheet, ScrollView } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
-export default function Operacao() {
+export default function Operacao({ navigation }) {
     const [lista, setLista] = useState([]);
     const [busca, setBusca] = useState("");
 
-    const carregaLista = async () => {
-        try {
-            let data = await AsyncStorage.getItem("historico");
+    useEffect(() => {
+        setInterval(()=> {
+          listar();
+    
+        },[2500])
+      })
+     
+    //   const finalizar = (id) => {
+    // const hoje = new Date()
+    // const dia = hoje.getDate().toString().padStart(2,'0')
+    // const mes = String(hoje.getMonth() + 1).padStart(2,'0')
+    // const ano = hoje.getFullYear()
+    // const dataAtual = `${ano}-${mes}-${dia}T10:53:02.654Z`
+    // let body = {
+    //     'data_retorno': `${dataAtual}`
+    // }
+    // const options = {
+    //     method: 'PUT',
+    //     headers: { 'Content-Type': 'application/json' },
+    // }
+    // options.body = JSON.stringify(body)
+    // console.log(body)
+    // if (body.data_retorno.length > 0) {
+    //     fetch('http://localhost:3000/operacao/final/'+id, options)
+    //         .then(resp => resp.status)
+    //         .then(data => {
+    //             if (data == 200) {
+    //                 alert('Finalizado com SUCESSO! 😀✔')
+    //                 setTimeout(() => { window.location.reload() }, 1500);
+                    
+    //             } else {
+                    
+    //             }
+    //         })
+    // } else {
+    //     alert("Preencha todos os campos obrigatórios ❗")
+    // }
 
-            if (data !== null) setLista(JSON.parse(data));
-        } catch (e) {
-            console.log(e);
-        }
-    }
+    //   }
+    
+      const listar = () => {
+        fetch('http://localhost:3000/operacao') 
+          .then(Response => { return Response.json() })
+          .then(data => {
+            setLista(data);
 
-    if (lista.length === 0) carregaLista();
+          })
+      }
+    
 
     return (
+
         <View style={styles.container}>
             <TextInput style={styles.input} onChangeText={(val) => { setBusca(val) }} placeholder="Digite para buscar..." placeholderTextColor={"#00000077"} />
             <ScrollView>
                 <View style={styles.lista}>
                     {
                         lista.map((item, index) => {
-                            if (item.pet.includes(busca) || item.medico.includes(busca) || item.vacina.includes(busca) || item.data.includes(busca))
+                            if(item.data_retorno != null){
+                                // document.querySelector('#btn') = style={display}
+                            }
+                            if ( item.motorista.nome.includes(busca) || item.veiculo.placa.includes(busca) || item.data_saida.includes(busca) || item.data_retorno.includes(busca) || item.disponibilidade.includes(busca))
                                 return (
                                     <View style={styles.item} key={index}>
-                                        <Text style={styles.text}>PET : {item.pet}</Text>
-                                        <Text style={styles.text}>Veterinário : {item.medico}</Text>
-                                        <Text style={styles.text}>Vacina : {item.vacina}</Text>
-                                        <Text style={styles.text}>Data : {item.data}</Text>
+                                        <Text style={styles.text}>ID : {item.id}</Text>
+                                        <Text style={styles.text}>MOTORISTA : {item.motorista.nome}</Text>
+                                        <Text style={styles.text}>VEÍCULO : {item.veiculo.placa}</Text>
+                                        <Text style={styles.text}>SAÍDA : {item.data_saida.slice(0,10)}</Text>
+                                        <Text style={styles.text}>RETORNO : {item.data_retorno != null ? item.data_retorno.slice(0,10) : "Em execução..." }</Text>
+                                        <Text style={styles.text}>DESCRIÇÃO: {item.descricao}</Text>
+                                        <View key={index}>
+
+                                        <TouchableOpacity style={styles.button} id={'btn'} onPress={{}
+                                            }>
+
+                                            <Text style={styles.textButton}>Finalizar</Text>
+                                        </TouchableOpacity>
+                                        </View>
+                                        
                                     </View>
                                 )
                         })
@@ -94,5 +147,21 @@ const styles = StyleSheet.create({
     },
     text: {
         color: '#EFEFEF',
+    },
+    button: {
+        width: '75%',
+        marginTop:'15px',
+        marginLeft: '40px',
+        backgroundColor: '#ffff',
+        paddingHorizontal: '12px',
+        paddingVertical: '12px',
+        alignItems: 'center',
+        justifyContent: 'center',
+        borderRadius: '5px',
+    },
+    textButton: {
+        fontSize: '1.2rem',
+        fontWeight: 'bold',
+        color: '#000',
     }
 });

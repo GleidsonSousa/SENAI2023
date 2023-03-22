@@ -1,39 +1,26 @@
-import { useState } from 'react';
+import { useState,useEffect } from 'react';
 import { View, Text, StyleSheet, TextInput, ScrollView } from 'react-native';
 
 export default function Motorista() {
     const [lista, setLista] = useState([]);
     const [busca, setBusca] = useState("");
 
-    const carregaLista = async () => {
-        try {
-            
-            const uriMotGet = 'http://localhost:3000/motoristas';
-      
-        fetch(uriMotGet, {
-          method: 'GET',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-        })
-          .then((response) => response.json())
-          .then((data) => {
+    useEffect(() => {
+        setInterval(()=> {
+          listar();
+    
+        },[1500])
+      })
+     
+    
+      const listar = () => {
+        fetch('http://localhost:3000/motoristas') 
+          .then(Response => { return Response.json() })
+          .then(data => {
             setLista(data);
-            console.log(setLista());
-
-            
           })
-          .catch((error) => {
-            console.error(error);
-          });
-          
-        } catch (e) {
-            console.log(e);
-        }
-    }
-
-    carregaLista();
-    console.log(lista)
+      }
+    
 
     return (
 
@@ -43,9 +30,7 @@ export default function Motorista() {
                 <View style={styles.lista}>
                     {
                         lista.map((item, index) => {
-                            console.log(item)
-                            console.log('a')
-                            // if (item.id.includes(busca) || item.nome.includes(busca) || item.cpf.includes(busca) || item.cnh.includes(busca))
+                            if ( item.nome.includes(busca) || item.cpf.includes(busca) || item.cnh.includes(busca))
                                 return (
                                     <View style={styles.item} key={index}>
                                         <Text style={styles.text}>ID : {item.id}</Text>
@@ -53,7 +38,6 @@ export default function Motorista() {
                                         <Text style={styles.text}>CNH : {item.cnh}</Text>
                                         <Text style={styles.text}>CPF : {item.cpf}</Text>
                                         <Text style={styles.text}>STATUS : {item.status}</Text>
-
                                     </View>
                                 )
                         })

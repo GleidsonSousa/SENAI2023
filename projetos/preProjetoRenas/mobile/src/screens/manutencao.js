@@ -1,37 +1,44 @@
-import { useState } from 'react';
-import { View, Text, StyleSheet, TextInput, ScrollView } from 'react-native';
+import { useState, useEffect } from 'react';
+import { View, TextInput, Text, TouchableOpacity, StyleSheet, ScrollView } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
-export default function Manutencao() {
+export default function Manutencao({ navigation }) {
     const [lista, setLista] = useState([]);
     const [busca, setBusca] = useState("");
 
-    const carregaLista = async () => {
-        try {
-            let data = await AsyncStorage.getItem("historico");
-
-            if (data !== null) setLista(JSON.parse(data));
-        } catch (e) {
-            console.log(e);
-        }
-    }
-
-    if (lista.length === 0) carregaLista();
+    useEffect(() => {
+        setInterval(()=> {
+          listar();
+    
+        },[1500])
+      })
+     
+    
+      const listar = () => {
+        fetch('http://localhost:3000/manutencao') 
+          .then(Response => { return Response.json() })
+          .then(data => {
+            setLista(data);
+          })
+      }
+    
 
     return (
+
         <View style={styles.container}>
             <TextInput style={styles.input} onChangeText={(val) => { setBusca(val) }} placeholder="Digite para buscar..." placeholderTextColor={"#00000077"} />
             <ScrollView>
                 <View style={styles.lista}>
                     {
                         lista.map((item, index) => {
-                            if (item.pet.includes(busca) || item.medico.includes(busca) || item.vacina.includes(busca) || item.data.includes(busca))
+                            if ( item.veiculo.placa.includes(busca) || item.data_inicio.includes(busca) )
                                 return (
                                     <View style={styles.item} key={index}>
-                                        <Text style={styles.text}>PET : {item.pet}</Text>
-                                        <Text style={styles.text}>Veterinário : {item.medico}</Text>
-                                        <Text style={styles.text}>Vacina : {item.vacina}</Text>
-                                        <Text style={styles.text}>Data : {item.data}</Text>
+                                        <Text style={styles.text}>ID : {item.id}</Text>
+                                        <Text style={styles.text}>VEÍCULO : {item.veiculo.placa}</Text>
+                                        <Text style={styles.text}>INÍCIO : {item.data_inicio.slice(0,10)}</Text>
+                                        <Text style={styles.text}>FIM : {item.data_fim != null ? item.data_fim.slice(0,10) : "Em andamento..."}</Text>
+                                        <Text style={styles.text}>DESCRIÇÃO: {item.descricao}</Text>
                                     </View>
                                 )
                         })
