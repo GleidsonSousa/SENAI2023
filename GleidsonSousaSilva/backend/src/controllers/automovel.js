@@ -14,8 +14,10 @@ const read = async (req, res) => {
     let automoveis = await prisma.automovel.findMany({
         select: {
             id: true,
+            modelo: true,
+            preco: true,
+            vendas: true,
             alocacoes: true,
-
         }
     });
 

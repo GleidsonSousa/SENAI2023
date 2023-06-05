@@ -1,0 +1,91 @@
+<mxfile host="app.diagrams.net" modified="2023-06-05T13:56:23.864Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36" etag="AuV5uu0QbAWHl_fgLZhO" version="21.3.7" type="device">
+  <diagram name="Página-1" id="sooaZA6XcxsbuXgjOA4T">
+    <mxGraphModel dx="1434" dy="739" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="9FuRyXpjqo9pkQE5y5Va-1" value="&lt;font style=&quot;font-size: 36px;&quot;&gt;Cenário de venda do Automóvel&lt;/font&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="144" y="10" width="540" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="9FuRyXpjqo9pkQE5y5Va-3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="9FuRyXpjqo9pkQE5y5Va-2" target="9FuRyXpjqo9pkQE5y5Va-5">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="210" y="150" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="9FuRyXpjqo9pkQE5y5Va-2" value="Usuário" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" vertex="1" parent="1">
+          <mxGeometry x="80" y="120" width="30" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="9FuRyXpjqo9pkQE5y5Va-4" value="Acessar" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="110" y="128" width="70" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="9FuRyXpjqo9pkQE5y5Va-23" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="9FuRyXpjqo9pkQE5y5Va-5" target="9FuRyXpjqo9pkQE5y5Va-16">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="9FuRyXpjqo9pkQE5y5Va-5" value="Tela Home" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="190" y="120" width="100" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="9FuRyXpjqo9pkQE5y5Va-9" value="" style="html=1;verticalAlign=bottom;labelBackgroundColor=none;endArrow=block;endFill=1;dashed=1;rounded=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="9FuRyXpjqo9pkQE5y5Va-10" target="9FuRyXpjqo9pkQE5y5Va-5">
+          <mxGeometry width="160" relative="1" as="geometry">
+            <mxPoint x="330" y="170" as="sourcePoint" />
+            <mxPoint x="240" y="220" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="9FuRyXpjqo9pkQE5y5Va-14" value="&amp;lt;&amp;lt;extends&amp;gt;&amp;gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="9FuRyXpjqo9pkQE5y5Va-9">
+          <mxGeometry x="-0.4492" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="9FuRyXpjqo9pkQE5y5Va-10" value="Listar areas&amp;nbsp;" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="190" y="260" width="100" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="9FuRyXpjqo9pkQE5y5Va-24" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="9FuRyXpjqo9pkQE5y5Va-16" target="9FuRyXpjqo9pkQE5y5Va-25">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="500" y="150" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="9FuRyXpjqo9pkQE5y5Va-16" value="Escolher uma&lt;br&gt;area" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="340" y="120" width="100" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="9FuRyXpjqo9pkQE5y5Va-32" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="9FuRyXpjqo9pkQE5y5Va-25" target="9FuRyXpjqo9pkQE5y5Va-33">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="660" y="150" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="9FuRyXpjqo9pkQE5y5Va-25" value="Preencher dados da venda" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="490" y="120" width="110" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="9FuRyXpjqo9pkQE5y5Va-26" value="" style="html=1;verticalAlign=bottom;labelBackgroundColor=none;endArrow=block;endFill=1;dashed=1;rounded=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="9FuRyXpjqo9pkQE5y5Va-28" target="9FuRyXpjqo9pkQE5y5Va-16">
+          <mxGeometry width="160" relative="1" as="geometry">
+            <mxPoint x="480" y="170" as="sourcePoint" />
+            <mxPoint x="390" y="170" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="9FuRyXpjqo9pkQE5y5Va-27" value="&amp;lt;&amp;lt;extends&amp;gt;&amp;gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="9FuRyXpjqo9pkQE5y5Va-26">
+          <mxGeometry x="-0.4492" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="9FuRyXpjqo9pkQE5y5Va-28" value="Verificar se contém automóveis" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="340" y="260" width="100" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="9FuRyXpjqo9pkQE5y5Va-29" value="" style="html=1;verticalAlign=bottom;labelBackgroundColor=none;endArrow=block;endFill=1;dashed=1;rounded=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="9FuRyXpjqo9pkQE5y5Va-31" target="9FuRyXpjqo9pkQE5y5Va-25">
+          <mxGeometry width="160" relative="1" as="geometry">
+            <mxPoint x="620" y="200" as="sourcePoint" />
+            <mxPoint x="545" y="190" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="9FuRyXpjqo9pkQE5y5Va-30" value="&amp;lt;&amp;lt;extends&amp;gt;&amp;gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="9FuRyXpjqo9pkQE5y5Va-29">
+          <mxGeometry x="-0.4492" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="9FuRyXpjqo9pkQE5y5Va-31" value="Verificar dados" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="495" y="270" width="100" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="9FuRyXpjqo9pkQE5y5Va-33" value="Confirmar Venda" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="670" y="120" width="110" height="60" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

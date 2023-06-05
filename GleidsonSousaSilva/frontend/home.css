@@ -1,0 +1,204 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,500;1,600&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    font-family: 'Poppins';
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    background-color: rgb(171, 171, 171);
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#area1 {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 20vw;
+    height: 31vh;
+    background-color: rgb(255, 255, 255);
+    left: 8vw;
+    top: 42vh;
+    z-index: 3;
+    border-style: solid;
+    border-color: black;
+}
+
+#area2 {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 5vw;
+    height: 15vh;
+    background-color: rgb(255, 255, 255);
+    left: 34vw;
+    top: 52vh;
+    z-index: 3;
+    border-style: solid;
+    border-color: black;
+}
+
+#area3 {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 20vw;
+    height: 45vh;
+    background-color: rgb(255, 255, 255);
+    left: 20vw;
+    top: 50vh;
+    z-index: 2;
+    border-style: solid;
+    border-color: black;
+}
+
+#area4 {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 15vw;
+    height: 15vh;
+    background-color: rgb(255, 255, 255);
+    left: 22.8vw;
+    top: 35vh;
+    z-index: 3;
+    border-style: solid;
+    border-color: black;
+
+}
+
+#area5 {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40vw;
+    height: 55vh;
+    background-color: rgb(255, 255, 255);
+    left: 25vw;
+    top: 40vh;
+    z-index: 1;
+    border-style: solid;
+    border-color: black;
+}
+
+#area6 {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 10vw;
+    height: 5vh;
+    background-color: rgb(255, 255, 255);
+    left: 80vw;
+    top: 5vh;
+    z-index: 2;
+    border-style: solid;
+    border-color: black;
+}
+
+#area7 {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 8vw;
+    height: 6vh;
+    background-color: rgb(255, 255, 255);
+    left: 38vw;
+    top: 34vh;
+    z-index: 3;
+    border-style: solid;
+    border-color: black;
+}
+
+#area8 {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 9vw;
+    height: 8vh;
+    background-color: rgb(255, 255, 255);
+    left: 31vw;
+    top: 21vh;
+    z-index: 2;
+    border-style: solid;
+    border-color: black;
+}
+
+#area9 {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 10vw;
+    height: 10vh;
+    background-color: rgb(255, 255, 255);
+    left: 40vw;
+    top: 20vh;
+    z-index: 2;
+    border-style: solid;
+    border-color: black;
+}
+
+#area10 {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30vw;
+    height: 88vh;
+    background-color: rgb(255, 255, 255);
+    left: 60vw;
+    top: 5vh;
+    border-style: solid;
+    border-color: black;
+}
+
+#area11 {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 5vw;
+    height: 15vh;
+    background-color: rgb(255, 255, 255);
+    left: 38vw;
+    top: 2vh;
+    z-index: 2;
+    border-style: solid;
+    border-color: black;
+}
+
+
+
+
+/* -----------------------------------------------MODAIS */
+.modal {
+    position: absolute;
+    z-index: 5;
+    background-color: white;
+    color: rgb(120, 20, 255);
+    width: 35vw;
+    height: 38vh;
+    border-style: solid;
+    border-color: black;
+    left: 35vw;
+    top: 34vh;
+}
+
+#modal1 {
+    background-color: aqua;
+}
+
+.model {
+    display: none;
+}

@@ -32,17 +32,17 @@ model Concessionaria {
 model Alocacao {
   id                Int            @id @default(autoincrement())
   area              Int
-  automovel         Int
-  concessionaria    Int
+  id_automovel      Int
+  id_concessionaria Int
   quantidade        Int
-  id_automovel      Automovel      @relation(fields: [automovel], references: [id])
-  id_concessionaria Concessionaria @relation(fields: [concessionaria], references: [id])
+  automovel         Automovel      @relation(fields: [id_automovel], references: [id])
+  concessionaria    Concessionaria @relation(fields: [id_concessionaria], references: [id])
 }
 
 model Venda {
   id             Int       @id @default(autoincrement())
   concessionaria String
   cliente        String
-  automovel      Int
-  id_automovel   Automovel @relation(fields: [automovel], references: [id])
+  id_automovel   Int
+  automovel      Automovel @relation(fields: [id_automovel], references: [id])
 }

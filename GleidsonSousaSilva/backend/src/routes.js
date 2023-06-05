@@ -18,10 +18,10 @@ router.post('/Automoveis', Automoveis.create)
 router.get('/Concessionarias', Concessionarias.read)
 router.post('/Concessionarias', Concessionarias.create)
 
-router.get('/Alocacoes', Alocacoes.read)
-router.post('/Alocacoes', Alocacoes.create)
+router.get('/Alocacao', Alocacoes.read)
+router.post('/Alocacao', Alocacoes.create)
 
 router.get('/Vendas', Vendas.read)
-router.post('Vendas/s', Vendas.create)
+router.post('Vendas/', Vendas.create)
 
 module.exports = router;
